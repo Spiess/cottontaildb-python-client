@@ -1,0 +1,1 @@
+# Cottontail DB gRPC Python Client
