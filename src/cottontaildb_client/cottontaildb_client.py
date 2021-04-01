@@ -2,7 +2,7 @@ import grpc
 from google.protobuf.empty_pb2 import Empty
 
 from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, EntityName, ColumnDefinition, \
-    EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From
+    EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub
 
 
@@ -68,15 +68,16 @@ class CottontailDBClient:
         """
         Creates an entity in the given schema with the defined columns.
 
-        Columns are defined by a list of dictionaries containing all necessary parameters, e.g.:
-        columns = [{'name': 'id', 'type': Type.STRING, 'nullable': False}]
+        Columns are defined by a list of column definitions, e.g.:
+        columns = [column_def('id', Type.STRING, nullable=False)]
 
-        @param schema:
+        @param schema: name of the entity's schema
+        @param name: entity name
+        @param columns: list of ColumnDefinition objects defining the entity's columns
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=name)
-        columns_definitions = [ColumnDefinition(engine=Engine.MAPDB, **column) for column in columns]
-        entity = EntityDefinition(entity=entity_name, columns=columns_definitions)
+        entity = EntityDefinition(entity=entity_name, columns=columns)
         self.ddl.CreateEntity(CreateEntityMessage(txId=self.tid, definition=entity))
 
     # Data management
@@ -87,7 +88,7 @@ class CottontailDBClient:
 
         @param schema: name of the entity's schema
         @param entity: entity name
-        @param values: list of (column name, Literal value) tuples
+        @param values: dictionary of (column name, Literal value) key-value pairs
         @return: query response message
         """
         message = self._insert_helper(schema, entity, values)
@@ -113,5 +114,33 @@ class CottontailDBClient:
         entity_name = EntityName(schema=schema_name, name=entity)
         from_arg = {'from': From(scan=Scan(entity=entity_name))}
         elements = [InsertMessage.InsertElement(column=ColumnName(name=column_name), value=value)
-                    for column_name, value in values]
+                    for column_name, value in values.items()]
         return InsertMessage(txId=self.tid, **from_arg, inserts=elements)
+
+
+def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,
+               engine: Engine = Engine.MAPDB):
+    """
+    Creates a column definition.
+
+    @param name: column name
+    @param type_: column type
+    @param length: data length for vector types
+    @param primary: if this is a primary column of the entity
+    @param nullable: if this column may be null
+    @param engine: storage engine to use (currently only MapDB)
+    @return: column definition
+    """
+    kwargs = {
+        'name': name,
+        'type': type_,
+        'engine': engine
+    }
+    if length is not None:
+        kwargs['length'] = length
+    if primary is not None:
+        kwargs['primary'] = primary
+    if nullable is not None:
+        kwargs['nullable'] = nullable
+
+    return ColumnDefinition(**kwargs)
