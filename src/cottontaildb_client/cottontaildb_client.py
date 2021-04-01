@@ -30,12 +30,14 @@ class CottontailDBClient:
     # Transactions
 
     def start_transaction(self):
+        """Starts a transaction that all further changes will be associated with."""
         if self.transaction:
             raise Exception('Transaction already running!')
         self.transaction = True
         self.tid = self.txn.Begin(Empty())
 
     def commit_transaction(self):
+        """Commits the current transaction."""
         if not self.transaction:
             raise Exception('No transaction running!')
         self.txn.Commit(self.tid)
@@ -43,6 +45,7 @@ class CottontailDBClient:
         self.transaction = False
 
     def abort_transaction(self):
+        """Aborts the current transaction."""
         if not self.transaction:
             raise Exception('No transaction running!')
         self.txn.Rollback(self.tid)
@@ -52,14 +55,24 @@ class CottontailDBClient:
     # Data definition
 
     def create_schema(self, name):
+        """Creates a new schema with the given name."""
         schema_name = SchemaName(name=name)
         self.ddl.CreateSchema(CreateSchemaMessage(txId=self.tid, schema=schema_name))
 
     def drop_schema(self, name):
+        """Drops the schema with the given name."""
         schema_name = SchemaName(name=name)
         self.ddl.DropSchema(DropSchemaMessage(schema=schema_name))
 
     def create_entity(self, schema, name, columns):
+        """
+        Creates an entity in the given schema with the defined columns.
+
+        Columns are defined by a list of dictionaries containing all necessary parameters, e.g.:
+        columns = [{'name': 'id', 'type': Type.STRING, 'nullable': False}]
+
+        @param schema:
+        """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=name)
         columns_definitions = [ColumnDefinition(engine=Engine.MAPDB, **column) for column in columns]
@@ -68,12 +81,37 @@ class CottontailDBClient:
 
     # Data management
 
-    def insert_entry(self, schema, entity, values):
+    def insert(self, schema, entity, values):
+        """
+        Inserts column values into an entity.
+
+        @param schema: name of the entity's schema
+        @param entity: entity name
+        @param values: list of (column name, Literal value) tuples
+        @return: query response message
+        """
+        message = self._insert_helper(schema, entity, values)
+        return self.dml.Insert(message)
+
+    def insert_batch(self, insert_iterator):
+        """
+        Inserts column values into entities in a batch.
+
+        @param insert_iterator: iterator providing (schema, entity, values) triples containing the same information as
+         required by non-batch insert
+        """
+
+        def insert_stream():
+            for schema, entity, values in insert_iterator:
+                yield self._insert_helper(schema, entity, values)
+
+        for _ in self.dml.InsertBatch(insert_stream()):
+            continue
+
+    def _insert_helper(self, schema, entity, values):
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        elements = [
-            InsertMessage.InsertElement(column=ColumnName(name=column_name), value=value) for
-            column_name, value in values
-        ]
-        return self.dml.Insert(
-            InsertMessage(txId=self.tid, **{'from': From(scan=Scan(entity=entity_name))}, inserts=elements))
+        from_arg = {'from': From(scan=Scan(entity=entity_name))}
+        elements = [InsertMessage.InsertElement(column=ColumnName(name=column_name), value=value)
+                    for column_name, value in values]
+        return InsertMessage(txId=self.tid, **from_arg, inserts=elements)
