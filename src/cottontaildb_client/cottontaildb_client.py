@@ -5,7 +5,8 @@ from typing import List
 from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, EntityName, ColumnDefinition, \
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
-    IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage
+    IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
+    DeleteMessage
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub
 
 
@@ -238,6 +239,37 @@ class CottontailDBClient:
         for _ in self._dml.InsertBatch(insert_stream()):
             continue
 
+    def update(self, schema, entity, where, updates):
+        """
+        Updates the rows in schema.entity selected through the where clause with the values from updates.
+
+        @param schema: the schema containing the entity to update
+        @param entity: the entity containing rows to update
+        @param where: where clause selecting rows to update
+        @param updates: dictionary of (column name, Literal value) key-value pairs to update selected rows with
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
+        updates_list = [UpdateMessage.UpdateElement(column=ColumnName(name=column), value=value)
+                        for column, value in updates.items()]
+        # TODO: Simplify where specification
+        return self._dml.Update(UpdateMessage(txId=self._tid, **from_kwarg, where=where, updates=updates_list))
+
+    def delete(self, schema, entity, where):
+        """
+        Deletes the rows in schema.entity selected through the where clause.
+
+        @param schema: the schema containing the entity to delete
+        @param entity: the entity containing rows to delete
+        @param where: where clause selecting rows to delete
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
+        # TODO: Simplify where specification
+        return self._dml.Delete(DeleteMessage(txId=self._tid, **from_kwarg, where=where))
+
     @staticmethod
     def _parse_query_response(response):
         data_names = [c.name for c in response.columns]
@@ -247,15 +279,13 @@ class CottontailDBClient:
             } for item in response.tuples
         ]
 
-    # TODO: Update, Delete
-
     def _insert_helper(self, schema, entity, values):
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        from_arg = {'from': From(scan=Scan(entity=entity_name))}
-        elements = [InsertMessage.InsertElement(column=ColumnName(name=column_name), value=value)
-                    for column_name, value in values.items()]
-        return InsertMessage(txId=self._tid, **from_arg, inserts=elements)
+        from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
+        elements = [InsertMessage.InsertElement(column=ColumnName(name=column), value=value)
+                    for column, value in values.items()]
+        return InsertMessage(txId=self._tid, **from_kwarg, inserts=elements)
 
 
 def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,
