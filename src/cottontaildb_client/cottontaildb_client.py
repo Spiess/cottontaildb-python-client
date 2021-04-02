@@ -1,9 +1,11 @@
 import grpc
 from google.protobuf.empty_pb2 import Empty
+from typing import List
 
 from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, EntityName, ColumnDefinition, \
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
-    ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage
+    ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
+    IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub
 
 
@@ -63,12 +65,12 @@ class CottontailDBClient:
     def create_schema(self, schema):
         """Creates a new schema with the given name."""
         schema_name = SchemaName(name=schema)
-        self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
+        return self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
 
     def drop_schema(self, schema):
         """Drops the schema with the given name."""
         schema_name = SchemaName(name=schema)
-        self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
+        return self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
 
     def create_entity(self, schema, entity, columns):
         """
@@ -84,27 +86,70 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         entity_def = EntityDefinition(entity=entity_name, columns=columns)
-        self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
+        return self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
 
     def drop_entity(self, schema, entity):
         """Drops the given entity from the given schema."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
+        return self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
 
     def truncate_entity(self, schema, entity):
         """Truncates the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        self._ddl.DropEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
+        return self._ddl.DropEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
 
     def optimize_entity(self, schema, entity):
         """Optimizes the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        self._ddl.DropEntity(OptimizeEntityMessage(txId=self._tid, entity=entity_name))
+        return self._ddl.DropEntity(OptimizeEntityMessage(txId=self._tid, entity=entity_name))
 
-    # TODO: Indexes
+    def create_index(self, schema, entity, index, index_type: IndexType, columns: List[str], rebuild: bool = False):
+        """
+        Creates an index on a column.
+
+        @param schema: name of the index's schema
+        @param entity: name of the index's entity
+        @param index: index name
+        @param index_type: type of index
+        @param columns: columns to build index for
+        @param rebuild: TODO
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        index_name = IndexName(entity=entity_name, name=index)
+        # TODO: map<string,string> params
+        column_names = [ColumnName(entity=entity_name, name=c) for c in columns]
+        index_def = IndexDefinition(name=index_name, type=index_type, columns=column_names)
+        return self._ddl.CreateIndex(CreateIndexMessage(txId=self._tid, definition=index_def, rebuild=rebuild))
+
+    def drop_index(self, schema, entity, index):
+        """
+        Drops the specified index.
+
+        @param schema: name of the index's schema
+        @param entity: name of the index's entity
+        @param index: index name
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        index_name = IndexName(entity=entity_name, name=index)
+        return self._ddl.DropIndex(DropIndexMessage(txId=self._tid, index=index_name))
+
+    def rebuild_index(self, schema, entity, index):
+        """
+        Rebuilds the specified index.
+
+        @param schema: name of the index's schema
+        @param entity: name of the index's entity
+        @param index: index name
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        index_name = IndexName(entity=entity_name, name=index)
+        return self._ddl.RebuildIndex(RebuildIndexMessage(txId=self._tid, index=index_name))
 
     def list_schemas(self):
         """Lists all schemas in the database."""
@@ -153,8 +198,13 @@ class CottontailDBClient:
                     'size': c.data[size_index].intData,
                     'nullable': c.data[nullable_index].booleanData
                 } for c in response.tuples if c.data[class_index].stringData == 'COLUMN'
+            ],
+            'indexes': [
+                {
+                    'name': c.data[name_index].stringData,
+                    'type': c.data[type_index].stringData
+                } for c in response.tuples if c.data[class_index].stringData == 'INDEX'
             ]
-            # TODO: Index data
         }
 
         return entity_details
