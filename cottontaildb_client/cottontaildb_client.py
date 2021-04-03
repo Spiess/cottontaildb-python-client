@@ -7,7 +7,7 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
     DeleteMessage
-from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub
+from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
 class CottontailDBClient:
@@ -22,6 +22,7 @@ class CottontailDBClient:
         self._ddl = DDLStub(self._channel)
         self._dml = DMLStub(self._channel)
         self._txn = TXNStub(self._channel)
+        self._dql = DQLStub(self._channel)
         if self._transaction:
             self._tid = self._txn.Begin(Empty())
         return self
@@ -272,6 +273,14 @@ class CottontailDBClient:
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
         # TODO: Simplify where specification
         return self._dml.Delete(DeleteMessage(txId=self._tid, **from_kwarg, where=where))
+
+    # Data query
+
+    def ping(self):
+        """Sends a ping message to the endpoint. If method returns without exception endpoint is connected."""
+        self._dql.Ping(Empty())
+
+    # TODO: Query
 
     @staticmethod
     def _parse_query_response(response):
