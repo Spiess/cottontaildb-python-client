@@ -61,8 +61,15 @@ class CottontailDBClient:
         self._transaction = False
 
     def list_transactions(self):
-        """Lists all transactions."""
+        """Lists all active transactions."""
         responses = [response for response in self._txn.ListTransactions(Empty())]
+        # TODO: Parse into Python data structure
+        return [r for response in responses for r in self._parse_query_response(response)]
+
+    def list_locks(self):
+        """Lists all active locks on database objects."""
+        responses = [response for response in self._txn.ListLocks(Empty())]
+        # TODO: Parse into Python data structure
         return [r for response in responses for r in self._parse_query_response(response)]
 
     # Data definition
