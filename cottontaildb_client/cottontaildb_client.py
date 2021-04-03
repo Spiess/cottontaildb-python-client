@@ -27,6 +27,9 @@ class CottontailDBClient:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
+
+    def close(self):
         if self._transaction:
             self._txn.Commit(self._tid)
         self._channel.close()
