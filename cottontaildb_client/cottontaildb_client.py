@@ -6,7 +6,7 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
-    DeleteMessage
+    DeleteMessage, Literal, Vector, FloatVector
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -333,3 +333,7 @@ def column_def(name: str, type_: Type, length: int = None, primary: bool = None,
         kwargs['nullable'] = nullable
 
     return ColumnDefinition(**kwargs)
+
+
+def float_vector(*elements):
+    return Literal(vectorData=Vector(floatVector=FloatVector(vector=elements)))
