@@ -77,12 +77,14 @@ class CottontailDBClient:
     def create_schema(self, schema):
         """Creates a new schema with the given name."""
         schema_name = SchemaName(name=schema)
-        return self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
+        response = self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
+        return self._parse_query_response(response)
 
     def drop_schema(self, schema):
         """Drops the schema with the given name."""
         schema_name = SchemaName(name=schema)
-        return self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
+        response = self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
+        return self._parse_query_response(response)
 
     def create_entity(self, schema, entity, columns):
         """
@@ -98,25 +100,29 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         entity_def = EntityDefinition(entity=entity_name, columns=columns)
-        return self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
+        response = self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
+        return self._parse_query_response(response)
 
     def drop_entity(self, schema, entity):
         """Drops the given entity from the given schema."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        return self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
+        return self._parse_query_response(response)
 
     def truncate_entity(self, schema, entity):
         """Truncates the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        return self._ddl.DropEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.DropEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
+        return self._parse_query_response(response)
 
     def optimize_entity(self, schema, entity):
         """Optimizes the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        return self._ddl.DropEntity(OptimizeEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.DropEntity(OptimizeEntityMessage(txId=self._tid, entity=entity_name))
+        return self._parse_query_response(response)
 
     def create_index(self, schema, entity, index, index_type: IndexType, columns: List[str], rebuild: bool = False):
         """
@@ -135,7 +141,8 @@ class CottontailDBClient:
         # TODO: map<string,string> params
         column_names = [ColumnName(entity=entity_name, name=c) for c in columns]
         index_def = IndexDefinition(name=index_name, type=index_type, columns=column_names)
-        return self._ddl.CreateIndex(CreateIndexMessage(txId=self._tid, definition=index_def, rebuild=rebuild))
+        response = self._ddl.CreateIndex(CreateIndexMessage(txId=self._tid, definition=index_def, rebuild=rebuild))
+        return self._parse_query_response(response)
 
     def drop_index(self, schema, entity, index):
         """
@@ -148,7 +155,8 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         index_name = IndexName(entity=entity_name, name=index)
-        return self._ddl.DropIndex(DropIndexMessage(txId=self._tid, index=index_name))
+        response = self._ddl.DropIndex(DropIndexMessage(txId=self._tid, index=index_name))
+        return self._parse_query_response(response)
 
     def rebuild_index(self, schema, entity, index):
         """
@@ -161,7 +169,8 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         index_name = IndexName(entity=entity_name, name=index)
-        return self._ddl.RebuildIndex(RebuildIndexMessage(txId=self._tid, index=index_name))
+        response = self._ddl.RebuildIndex(RebuildIndexMessage(txId=self._tid, index=index_name))
+        return self._parse_query_response(response)
 
     def list_schemas(self):
         """Lists all schemas in the database."""
@@ -294,9 +303,27 @@ class CottontailDBClient:
         data_names = [c.name for c in response.columns]
         return [
             {
-                key: value for key, value in zip(data_names, item.data)
+                key: CottontailDBClient._parse_literal(value) for key, value in zip(data_names, item.data)
             } for item in response.tuples
         ]
+
+    @staticmethod
+    def _parse_literal(literal):
+        data_types = [
+            'booleanData',
+            'intData',
+            'longData',
+            'floatData',
+            'doubleData',
+            'stringData'
+        ]
+        for data_type in data_types:
+            value = getattr(literal, data_type)
+            if value:
+                return value
+
+        # TODO: Object types
+        return literal
 
     def _insert_helper(self, schema, entity, values):
         schema_name = SchemaName(name=schema)
