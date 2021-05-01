@@ -24,14 +24,17 @@ def cli():
                 print()
                 break
             parts = command.split()
-            arguments = command_parser.parse_args(parts)
+            try:
+                arguments = command_parser.parse_args(parts)
+            except SystemExit:
+                continue
             running = process_command(client, arguments)
 
         print('Goodbye!')
 
 
 def get_command_parser():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='cottontaildb-client')
     subparsers = parser.add_subparsers(dest='command')
 
     # Schema
@@ -39,6 +42,8 @@ def get_command_parser():
     subparsers_schema = parser_schema.add_subparsers(dest='subcommand')
 
     subparsers_schema.add_parser('all', help='List all schemas stored in Cottontail DB.')
+    parser_schema_create = subparsers_schema.add_parser('create', help='Create the schema with the given name.')
+    parser_schema_create.add_argument('schema_name', help='Name of schema to create.')
 
     # Stop / quit
     subparsers.add_parser('stop', help='Stop client and exit.')
@@ -63,3 +68,6 @@ def schema(client, args):
     if command == 'all':
         schemas = client.list_schemas()
         print(schemas)
+    elif command == 'create':
+        response = client.create_schema(args.schema_name)
+        print(response)
