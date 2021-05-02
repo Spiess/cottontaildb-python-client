@@ -2,12 +2,17 @@
 
 A Cottontail DB gRPC client for Python. Built with [Cottontail DB Proto](https://github.com/vitrivr/cottontaildb-proto)
 version `0.12.0`.
+Comes with an interactive CLI for remote DB access.
 
 ## Installation
 
 Clone and install locally, or with `pip install git+https://github.com/spiess/cottontaildb-python-client.git`.
 
-## Example Usage
+## Usage
+
+Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] host`.
+
+Example usage in scripts:
 
 ```python
 from cottontaildb_client import CottontailDBClient, Type, Literal, column_def

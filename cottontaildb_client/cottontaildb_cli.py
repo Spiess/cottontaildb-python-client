@@ -6,7 +6,7 @@ from . import CottontailDBClient
 
 
 def cli():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='cottontaildb-client')
 
     parser.add_argument('host', help='Cottontail DB host.')
     parser.add_argument('--port', help='Cottontail DB host port.', type=int, default=1865)
