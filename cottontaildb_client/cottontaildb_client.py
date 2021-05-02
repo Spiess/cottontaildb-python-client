@@ -1,3 +1,5 @@
+from datetime import datetime, timezone
+
 import grpc
 from google.protobuf.empty_pb2 import Empty
 from typing import List
@@ -318,11 +320,18 @@ class CottontailDBClient:
             'stringData'
         ]
         for data_type in data_types:
-            value = getattr(literal, data_type)
-            if value:
-                return value
+            if literal.HasField(data_type):
+                return getattr(literal, data_type)
+
+        if literal.HasField('dateData'):
+            return datetime.fromtimestamp(literal.dateData.utc_timestamp / 1000.0, timezone.utc)
+        if literal.HasField('nullData'):
+            return None
 
         # TODO: Object types
+        # complex32Data
+        # complex64Data
+        # vectorData
         return literal
 
     def _insert_helper(self, schema, entity, values):
