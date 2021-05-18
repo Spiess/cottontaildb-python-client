@@ -96,7 +96,7 @@ class CottontailDBClient:
         response = self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
         return self._parse_query_response(response)
 
-    def create_entity(self, schema, entity, columns):
+    def create_entity(self, schema, entity, columns, exist_ok=False):
         """
         Creates an entity in the given schema with the defined columns.
 
@@ -106,7 +106,11 @@ class CottontailDBClient:
         @param schema: name of the entity's schema
         @param entity: entity name
         @param columns: list of ColumnDefinition objects defining the entity's columns
+        @param exist_ok: if the client should first check if the entity already exists
+        @return: query response if there was an entity create attempt or None if exist_ok and entity already exists
         """
+        if exist_ok and entity in [s.split('.')[-1] for s in self.list_entities(schema)]:
+            return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         entity_def = EntityDefinition(entity=entity_name, columns=columns)
