@@ -76,8 +76,16 @@ class CottontailDBClient:
 
     # Data definition
 
-    def create_schema(self, schema):
-        """Creates a new schema with the given name."""
+    def create_schema(self, schema, exist_ok=False):
+        """
+        Creates a new schema with the given name.
+
+        @param schema: name of the entity's schema
+        @param exist_ok: if the client should first check if the schema already exists
+        @return: query response if there was a schema create attempt or None if exist_ok and schema already exists
+        """
+        if exist_ok and schema in [s.split('.')[-1] for s in self.list_schemas()]:
+            return
         schema_name = SchemaName(name=schema)
         response = self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
         return self._parse_query_response(response)

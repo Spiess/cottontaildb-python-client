@@ -37,6 +37,7 @@ class TestCottontailDBClient(TestCase):
     def test_create_drop_schema(self):
         self._create_schema()
         self.assert_in(TEST_SCHEMA, self.client.list_schemas(), 'schema was not created')
+        self.client.create_schema(TEST_SCHEMA, exist_ok=True)
         self.client.drop_schema(TEST_SCHEMA)
         self.assert_not_in(TEST_SCHEMA, self.client.list_schemas(), 'schema was not dropped')
 
