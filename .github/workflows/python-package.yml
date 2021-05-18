@@ -23,7 +23,6 @@ jobs:
         image: vitrivr/cottontaildb:0.12.9
         ports:
           - 1865:1865
-        options: -it
 
     steps:
     - uses: actions/checkout@v2
