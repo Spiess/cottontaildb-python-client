@@ -114,9 +114,10 @@ class TestCottontailDBClient(TestCase):
         self.client.insert(TEST_SCHEMA, TEST_ENTITY, values)
 
     def _batch_insert(self):
-        inserts = [
-            (TEST_SCHEMA, TEST_ENTITY, {'id': Literal(stringData='test_1'), 'value': Literal(intData=1)}),
-            (TEST_SCHEMA, TEST_ENTITY, {'id': Literal(stringData='test_2'), 'value': Literal(intData=2)}),
-            (TEST_SCHEMA, TEST_ENTITY, {'id': Literal(stringData='test_3'), 'value': Literal(intData=3)})
+        columns = ['id', 'value']
+        values = [
+            [Literal(stringData='test_1'), Literal(intData=1)],
+            [Literal(stringData='test_2'), Literal(intData=2)],
+            [Literal(stringData='test_3'), Literal(intData=3)]
         ]
-        self.client.insert_batch(inserts)
+        self.client.insert_batch(TEST_SCHEMA, TEST_ENTITY, columns, values)

@@ -8,7 +8,7 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
-    DeleteMessage, Literal, Vector, FloatVector
+    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -246,20 +246,30 @@ class CottontailDBClient:
         message = self._insert_helper(schema, entity, values)
         return self._dml.Insert(message)
 
-    def insert_batch(self, insert_iterator):
+    def insert_batch(self, schema, entity, columns, values):
         """
-        Inserts column values into entities in a batch.
+        Inserts column values into an entity in a batch.
 
-        @param insert_iterator: iterator providing (schema, entity, values) triples containing the same information as
-         required by non-batch insert
+        @param schema: name of the entity's schema
+        @param entity: entity name
+        @param columns: The names of the columns to insert values for (same length as values sub-lists)
+        @param values: list of Literal value lists, where each sub-list contains for a value for each column
+        @return: query response message
         """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        column_names = [ColumnName(name=column) for column in columns]
+        inserts = [BatchInsertMessage.Insert(values=row) for row in values]
 
-        def insert_stream():
-            for schema, entity, values in insert_iterator:
-                yield self._insert_helper(schema, entity, values)
+        kwargs = {
+            'from': From(scan=Scan(entity=entity_name)),
+            'columns': column_names,
+            'inserts': inserts
+        }
 
-        for _ in self._dml.InsertBatch(insert_stream()):
-            continue
+        message = BatchInsertMessage(txId=self._tid, **kwargs)
+
+        self._dml.InsertBatch(message)
 
     def update(self, schema, entity, where, updates):
         """
@@ -340,7 +350,7 @@ class CottontailDBClient:
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
         elements = [InsertMessage.InsertElement(column=ColumnName(name=column), value=value)
                     for column, value in values.items()]
-        return InsertMessage(txId=self._tid, **from_kwarg, inserts=elements)
+        return InsertMessage(txId=self._tid, **from_kwarg, elements=elements)
 
 
 def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\033org.vitrivr.cottontail.grpcB\016CottontailGrpc',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63ottontail.proto\x12\x1borg.vitrivr.cottontail.grpc\x1a\x1bgoogle/protobuf/empty.proto\"\x1a\n\nSchemaName\x12\x0c\n\x04name\x18\x01 \x01(\t\"S\n\nEntityName\x12\x37\n\x06schema\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\x12\x0c\n\x04name\x18\x02 \x01(\t\"R\n\tIndexName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\nColumnName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"/\n\rTransactionId\x12\r\n\x05value\x18\x01 \x01(\x03\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"\xe9\x01\n\x0bTransaction\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.Transaction.Status\x12\x0f\n\x07\x63reated\x18\x03 \x01(\x03\x12\x11\n\tcompleted\x18\x04 \x01(\x03\"<\n\x06Status\x12\x0b\n\x07\x43REATED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tCOMPLETED\x10\x02\x12\t\n\x05\x45RROR\x10\x03\"\xbb\x03\n\x07Literal\x12\x15\n\x0b\x62ooleanData\x18\x01 \x01(\x08H\x00\x12\x11\n\x07intData\x18\x02 \x01(\x05H\x00\x12\x12\n\x08longData\x18\x03 \x01(\x03H\x00\x12\x13\n\tfloatData\x18\x04 \x01(\x02H\x00\x12\x14\n\ndoubleData\x18\x05 \x01(\x01H\x00\x12\x14\n\nstringData\x18\x06 \x01(\tH\x00\x12\x35\n\x08\x64\x61teData\x18\x07 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.DateH\x00\x12?\n\rcomplex32Data\x18\x08 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32H\x00\x12?\n\rcomplex64Data\x18\t \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64H\x00\x12\x39\n\nvectorData\x18\n \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.VectorH\x00\x12\x35\n\x08nullData\x18\x0b \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.NullH\x00\x42\x06\n\x04\x64\x61ta\"\xe7\x03\n\x06Vector\x12?\n\x0b\x66loatVector\x18\x01 \x01(\x0b\x32(.org.vitrivr.cottontail.grpc.FloatVectorH\x00\x12\x41\n\x0c\x64oubleVector\x18\x02 \x01(\x0b\x32).org.vitrivr.cottontail.grpc.DoubleVectorH\x00\x12;\n\tintVector\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IntVectorH\x00\x12=\n\nlongVector\x18\x04 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.LongVectorH\x00\x12=\n\nboolVector\x18\x05 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.BoolVectorH\x00\x12G\n\x0f\x63omplex32Vector\x18\x06 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex32VectorH\x00\x12G\n\x0f\x63omplex64Vector\x18\x07 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex64VectorH\x00\x42\x0c\n\nvectorData\"\x06\n\x04Null\"\x1d\n\x04\x44\x61te\x12\x15\n\rutc_timestamp\x18\x01 \x01(\x03\",\n\tComplex32\x12\x0c\n\x04real\x18\x01 \x01(\x02\x12\x11\n\timaginary\x18\x02 \x01(\x02\",\n\tComplex64\x12\x0c\n\x04real\x18\x01 \x01(\x01\x12\x11\n\timaginary\x18\x02 \x01(\x01\"\x1d\n\x0b\x46loatVector\x12\x0e\n\x06vector\x18\x01 \x03(\x02\"\x1e\n\x0c\x44oubleVector\x12\x0e\n\x06vector\x18\x01 \x03(\x01\"\x1b\n\tIntVector\x12\x0e\n\x06vector\x18\x01 \x03(\x05\"\x1c\n\nLongVector\x12\x0e\n\x06vector\x18\x01 \x03(\x03\"\x1c\n\nBoolVector\x12\x0e\n\x06vector\x18\x01 \x03(\x08\"I\n\x0f\x43omplex32Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32\"I\n\x0f\x43omplex64Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64\"\x88\x01\n\x13\x43reateSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\x86\x01\n\x11\x44ropSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"M\n\x11ListSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\"\x92\x01\n\x13\x43reateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x41\n\ndefinition\x18\x02 \x01(\x0b\x32-.org.vitrivr.cottontail.grpc.EntityDefinition\"\x86\x01\n\x11\x44ropEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15TruncateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15OptimizeEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x89\x01\n\x14\x45ntityDetailsMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x86\x01\n\x11ListEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\xa1\x01\n\x12\x43reateIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12@\n\ndefinition\x18\x02 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.IndexDefinition\x12\x0f\n\x07rebuild\x18\x03 \x01(\x08\"\x83\x01\n\x10\x44ropIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\x86\x01\n\x13RebuildIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\xb9\x01\n\x10\x43olumnDefinition\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x04type\x18\x02 \x01(\x0e\x32!.org.vitrivr.cottontail.grpc.Type\x12\x0e\n\x06length\x18\x03 \x01(\r\x12\x0f\n\x07primary\x18\x04 \x01(\x08\x12\x10\n\x08nullable\x18\x05 \x01(\x08\x12\x33\n\x06\x65ngine\x18\x06 \x01(\x0e\x32#.org.vitrivr.cottontail.grpc.Engine\"\x8b\x01\n\x10\x45ntityDefinition\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12>\n\x07\x63olumns\x18\x02 \x03(\x0b\x32-.org.vitrivr.cottontail.grpc.ColumnDefinition\"\xb0\x02\n\x0fIndexDefinition\x12\x34\n\x04name\x18\x01 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\x12\x34\n\x04type\x18\x02 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12H\n\x06params\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.IndexDefinition.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc4\x02\n\rInsertMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12I\n\x07inserts\x18\x03 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.InsertMessage.InsertElement\x1a}\n\rInsertElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xf7\x02\n\rUpdateMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12I\n\x07updates\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.UpdateMessage.UpdateElement\x1a}\n\rUpdateElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xad\x01\n\rDeleteMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\"{\n\x0cQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\x82\x01\n\x13\x42\x61tchedQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x03(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\xa7\x02\n\x05Query\x12/\n\x04\x66rom\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12;\n\nprojection\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.Projection\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12-\n\x03knn\x18\x04 \x01(\x0b\x32 .org.vitrivr.cottontail.grpc.Knn\x12\x31\n\x05order\x18\x05 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Order\x12\r\n\x05limit\x18\x06 \x01(\x04\x12\x0c\n\x04skip\x18\x07 \x01(\x04\"\x8f\x02\n\x14QueryResponseMessage\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x38\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x06tuples\x18\x03 \x03(\x0b\x32\x37.org.vitrivr.cottontail.grpc.QueryResponseMessage.Tuple\x1a;\n\x05Tuple\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xb1\x01\n\x04\x46rom\x12\x31\n\x04scan\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.ScanH\x00\x12\x35\n\x06sample\x18\x02 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.SampleH\x00\x12\x37\n\tsubSelect\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\x06\n\x04\x66rom\"[\n\x04Scan\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\r\n\x05start\x18\x02 \x01(\x03\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x03\"]\n\x06Sample\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04size\x18\x02 \x01(\x03\x12\x0c\n\x04seed\x18\x03 \x01(\x03\"\xb1\x03\n\nProjection\x12G\n\x02op\x18\x01 \x01(\x0e\x32;.org.vitrivr.cottontail.grpc.Projection.ProjectionOperation\x12J\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\x39.org.vitrivr.cottontail.grpc.Projection.ProjectionElement\x1a\x84\x01\n\x11ProjectionElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x36\n\x05\x61lias\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\"\x86\x01\n\x13ProjectionOperation\x12\n\n\x06SELECT\x10\x00\x12\x13\n\x0fSELECT_DISTINCT\x10\x01\x12\t\n\x05\x43OUNT\x10\x02\x12\x12\n\x0e\x43OUNT_DISTINCT\x10\x03\x12\n\n\x06\x45XISTS\x10\x04\x12\x07\n\x03SUM\x10\x05\x12\x07\n\x03MAX\x10\x06\x12\x07\n\x03MIN\x10\x07\x12\x08\n\x04MEAN\x10\x08\"\xa3\x03\n\x03Knn\x12:\n\tattribute\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\t\n\x01k\x18\x02 \x01(\r\x12;\n\x08\x64istance\x18\x03 \x01(\x0e\x32).org.vitrivr.cottontail.grpc.Knn.Distance\x12\x32\n\x04hint\x18\x04 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.KnnHint\x12\x32\n\x05query\x18\x05 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\x12\x33\n\x06weight\x18\x06 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\"{\n\x08\x44istance\x12\x06\n\x02L1\x10\x00\x12\x06\n\x02L2\x10\x01\x12\r\n\tL2SQUARED\x10\x02\x12\x06\n\x02LP\x10\x03\x12\x0e\n\nCHISQUARED\x10\x04\x12\x0b\n\x07HAMMING\x10\x05\x12\n\n\x06\x43OSINE\x10\x06\x12\x10\n\x0cINNERPRODUCT\x10\x07\x12\r\n\tHAVERSINE\x10\n\"\x8b\x06\n\x07KnnHint\x12J\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.KnnHint.NoIndexKnnHintH\x00\x12Y\n\x15\x61llowInexactIndexHint\x18\x02 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHintH\x00\x12N\n\rtypeIndexHint\x18\x03 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHintH\x00\x12N\n\rnameIndexHint\x18\x04 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHintH\x00\x12Q\n\x11parallelIndexHint\x18\x05 \x01(\x0b\x32\x34.org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHintH\x00\x1a\x10\n\x0eNoIndexKnnHint\x1a$\n\x13\x41llowInexactKnnHint\x12\r\n\x05\x61llow\x18\x01 \x01(\x08\x1aH\n\x10IndexTypeKnnHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xae\x01\n\x10IndexNameKnnHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12Y\n\nparameters\x18\x02 \x03(\x0b\x32\x45.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a+\n\x0fParallelKnnHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdc\x01\n\x05Where\x12\x45\n\x06\x61tomic\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12I\n\x08\x63ompound\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12\x34\n\x04hint\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.WhereHintB\x0b\n\tpredicate\"\xa8\x05\n\tWhereHint\x12N\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x37.org.vitrivr.cottontail.grpc.WhereHint.NoIndexWhereHintH\x00\x12R\n\rtypeIndexHint\x18\x02 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHintH\x00\x12R\n\rnameIndexHint\x18\x03 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHintH\x00\x12U\n\x11parallelIndexHint\x18\x04 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHintH\x00\x1a\x12\n\x10NoIndexWhereHint\x1aJ\n\x12IndexTypeWhereHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xb4\x01\n\x12IndexNameWhereHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12]\n\nparameters\x18\x02 \x03(\x0b\x32I.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x11ParallelWhereHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdb\x01\n\x16\x41tomicBooleanPredicate\x12\x35\n\x04left\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12@\n\x05right\x18\x02 \x01(\x0b\x32\x31.org.vitrivr.cottontail.grpc.AtomicBooleanOperand\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ComparisonOperator\x12\x0b\n\x03not\x18\x04 \x01(\x08\"\xcc\x01\n\x14\x41tomicBooleanOperand\x12\x39\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnNameH\x00\x12\x39\n\x08literals\x18\x02 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.LiteralsH\x00\x12\x33\n\x05query\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\t\n\x07operand\"A\n\x08Literals\x12\x35\n\x07literal\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\x86\x03\n\x18\x43ompoundBooleanPredicate\x12\x44\n\x05\x61left\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12\x46\n\x05\x63left\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ConnectionOperator\x12\x45\n\x06\x61right\x18\x04 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x01\x12G\n\x06\x63right\x18\x05 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xfd\x01\n\x05Order\x12@\n\ncomponents\x18\x01 \x03(\x0b\x32,.org.vitrivr.cottontail.grpc.Order.Component\x1a\x85\x01\n\tComponent\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12?\n\tdirection\x18\x02 \x01(\x0e\x32,.org.vitrivr.cottontail.grpc.Order.Direction\"*\n\tDirection\x12\r\n\tASCENDING\x10\x00\x12\x0e\n\nDESCENDING\x10\x01*\x84\x01\n\tIndexType\x12\x08\n\x04HASH\x10\x00\x12\x0b\n\x07HASH_UQ\x10\x01\x12\t\n\x05\x42TREE\x10\x02\x12\n\n\x06LUCENE\x10\x03\x12\x07\n\x03VAF\x10\x04\x12\x06\n\x02PQ\x10\x05\x12\x07\n\x03LSH\x10\x06\x12\x10\n\x0cSUPERBIT_LSH\x10\x07\x12\x1d\n\x19NONBUCKETING_SUPERBIT_LSH\x10\x08*\x82\x02\n\x04Type\x12\x0b\n\x07\x42OOLEAN\x10\x00\x12\x08\n\x04\x42YTE\x10\x01\x12\t\n\x05SHORT\x10\x02\x12\x0b\n\x07INTEGER\x10\x03\x12\x08\n\x04LONG\x10\x04\x12\t\n\x05\x46LOAT\x10\x05\x12\n\n\x06\x44OUBLE\x10\x06\x12\x08\n\x04\x44\x41TE\x10\x07\x12\n\n\x06STRING\x10\x08\x12\x0e\n\nDOUBLE_VEC\x10\t\x12\r\n\tFLOAT_VEC\x10\n\x12\x0c\n\x08LONG_VEC\x10\x0b\x12\x0b\n\x07INT_VEC\x10\x0c\x12\x0c\n\x08\x42OOL_VEC\x10\r\x12\r\n\tCOMPLEX32\x10\x0e\x12\r\n\tCOMPLEX64\x10\x0f\x12\x11\n\rCOMPLEX32_VEC\x10\x10\x12\x11\n\rCOMPLEX64_VEC\x10\x11\x12\x08\n\x04\x42LOB\x10\x12*\x1d\n\x06\x45ngine\x12\x08\n\x04HARE\x10\x00\x12\t\n\x05MAPDB\x10\x01*\x84\x01\n\x12\x43omparisonOperator\x12\t\n\x05\x45QUAL\x10\x00\x12\x0b\n\x07GREATER\x10\x01\x12\x08\n\x04LESS\x10\x02\x12\n\n\x06GEQUAL\x10\x03\x12\n\n\x06LEQUAL\x10\x04\x12\x06\n\x02IN\x10\x05\x12\x0b\n\x07\x42\x45TWEEN\x10\x06\x12\n\n\x06ISNULL\x10\x07\x12\x08\n\x04LIKE\x10\x08\x12\t\n\x05MATCH\x10\t*%\n\x12\x43onnectionOperator\x12\x07\n\x03\x41ND\x10\x00\x12\x06\n\x02OR\x10\x01\x32\xfa\n\n\x03\x44\x44L\x12r\n\x0bListSchemas\x12..org.vitrivr.cottontail.grpc.ListSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\x0c\x43reateSchema\x12\x30.org.vitrivr.cottontail.grpc.CreateSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropSchema\x12..org.vitrivr.cottontail.grpc.DropSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cListEntities\x12..org.vitrivr.cottontail.grpc.ListEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12u\n\rEntityDetails\x12\x31.org.vitrivr.cottontail.grpc.EntityDetailsMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0c\x43reateEntity\x12\x30.org.vitrivr.cottontail.grpc.CreateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropEntity\x12..org.vitrivr.cottontail.grpc.DropEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eTruncateEntity\x12\x32.org.vitrivr.cottontail.grpc.TruncateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eOptimizeEntity\x12\x32.org.vitrivr.cottontail.grpc.OptimizeEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0b\x43reateIndex\x12/.org.vitrivr.cottontail.grpc.CreateIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12m\n\tDropIndex\x12-.org.vitrivr.cottontail.grpc.DropIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cRebuildIndex\x12\x30.org.vitrivr.cottontail.grpc.RebuildIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\x97\x03\n\x03\x44ML\x12g\n\x06Insert\x12*.org.vitrivr.cottontail.grpc.InsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12U\n\x0bInsertBatch\x12*.org.vitrivr.cottontail.grpc.InsertMessage\x1a\x16.google.protobuf.Empty(\x01\x30\x01\x12g\n\x06Update\x12*.org.vitrivr.cottontail.grpc.UpdateMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06\x44\x65lete\x12*.org.vitrivr.cottontail.grpc.DeleteMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\x86\x03\n\x03\x44QL\x12i\n\x07\x45xplain\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12g\n\x05Query\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\nBatchQuery\x12\x30.org.vitrivr.cottontail.grpc.BatchedQueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12\x36\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty2\xab\x03\n\x03TXN\x12K\n\x05\x42\x65gin\x12\x16.google.protobuf.Empty\x1a*.org.vitrivr.cottontail.grpc.TransactionId\x12L\n\x06\x43ommit\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12N\n\x08Rollback\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12_\n\x10ListTransactions\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12X\n\tListLocks\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x42-\n\x1borg.vitrivr.cottontail.grpcB\x0e\x43ottontailGrpcb\x06proto3'
+  serialized_pb=b'\n\x10\x63ottontail.proto\x12\x1borg.vitrivr.cottontail.grpc\x1a\x1bgoogle/protobuf/empty.proto\"\x1a\n\nSchemaName\x12\x0c\n\x04name\x18\x01 \x01(\t\"S\n\nEntityName\x12\x37\n\x06schema\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\x12\x0c\n\x04name\x18\x02 \x01(\t\"R\n\tIndexName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\nColumnName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"/\n\rTransactionId\x12\r\n\x05value\x18\x01 \x01(\x03\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"\xe9\x01\n\x0bTransaction\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.Transaction.Status\x12\x0f\n\x07\x63reated\x18\x03 \x01(\x03\x12\x11\n\tcompleted\x18\x04 \x01(\x03\"<\n\x06Status\x12\x0b\n\x07\x43REATED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tCOMPLETED\x10\x02\x12\t\n\x05\x45RROR\x10\x03\"\xbb\x03\n\x07Literal\x12\x15\n\x0b\x62ooleanData\x18\x01 \x01(\x08H\x00\x12\x11\n\x07intData\x18\x02 \x01(\x05H\x00\x12\x12\n\x08longData\x18\x03 \x01(\x03H\x00\x12\x13\n\tfloatData\x18\x04 \x01(\x02H\x00\x12\x14\n\ndoubleData\x18\x05 \x01(\x01H\x00\x12\x14\n\nstringData\x18\x06 \x01(\tH\x00\x12\x35\n\x08\x64\x61teData\x18\x07 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.DateH\x00\x12?\n\rcomplex32Data\x18\x08 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32H\x00\x12?\n\rcomplex64Data\x18\t \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64H\x00\x12\x39\n\nvectorData\x18\n \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.VectorH\x00\x12\x35\n\x08nullData\x18\x0b \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.NullH\x00\x42\x06\n\x04\x64\x61ta\"\xe7\x03\n\x06Vector\x12?\n\x0b\x66loatVector\x18\x01 \x01(\x0b\x32(.org.vitrivr.cottontail.grpc.FloatVectorH\x00\x12\x41\n\x0c\x64oubleVector\x18\x02 \x01(\x0b\x32).org.vitrivr.cottontail.grpc.DoubleVectorH\x00\x12;\n\tintVector\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IntVectorH\x00\x12=\n\nlongVector\x18\x04 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.LongVectorH\x00\x12=\n\nboolVector\x18\x05 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.BoolVectorH\x00\x12G\n\x0f\x63omplex32Vector\x18\x06 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex32VectorH\x00\x12G\n\x0f\x63omplex64Vector\x18\x07 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex64VectorH\x00\x42\x0c\n\nvectorData\"\x06\n\x04Null\"\x1d\n\x04\x44\x61te\x12\x15\n\rutc_timestamp\x18\x01 \x01(\x03\",\n\tComplex32\x12\x0c\n\x04real\x18\x01 \x01(\x02\x12\x11\n\timaginary\x18\x02 \x01(\x02\",\n\tComplex64\x12\x0c\n\x04real\x18\x01 \x01(\x01\x12\x11\n\timaginary\x18\x02 \x01(\x01\"\x1d\n\x0b\x46loatVector\x12\x0e\n\x06vector\x18\x01 \x03(\x02\"\x1e\n\x0c\x44oubleVector\x12\x0e\n\x06vector\x18\x01 \x03(\x01\"\x1b\n\tIntVector\x12\x0e\n\x06vector\x18\x01 \x03(\x05\"\x1c\n\nLongVector\x12\x0e\n\x06vector\x18\x01 \x03(\x03\"\x1c\n\nBoolVector\x12\x0e\n\x06vector\x18\x01 \x03(\x08\"I\n\x0f\x43omplex32Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32\"I\n\x0f\x43omplex64Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64\"\x88\x01\n\x13\x43reateSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\x86\x01\n\x11\x44ropSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"M\n\x11ListSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\"\x92\x01\n\x13\x43reateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x41\n\ndefinition\x18\x02 \x01(\x0b\x32-.org.vitrivr.cottontail.grpc.EntityDefinition\"\x86\x01\n\x11\x44ropEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15TruncateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15OptimizeEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x89\x01\n\x14\x45ntityDetailsMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x86\x01\n\x11ListEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\xa1\x01\n\x12\x43reateIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12@\n\ndefinition\x18\x02 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.IndexDefinition\x12\x0f\n\x07rebuild\x18\x03 \x01(\x08\"\x83\x01\n\x10\x44ropIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\x86\x01\n\x13RebuildIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\xb9\x01\n\x10\x43olumnDefinition\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x04type\x18\x02 \x01(\x0e\x32!.org.vitrivr.cottontail.grpc.Type\x12\x0e\n\x06length\x18\x03 \x01(\r\x12\x0f\n\x07primary\x18\x04 \x01(\x08\x12\x10\n\x08nullable\x18\x05 \x01(\x08\x12\x33\n\x06\x65ngine\x18\x06 \x01(\x0e\x32#.org.vitrivr.cottontail.grpc.Engine\"\x8b\x01\n\x10\x45ntityDefinition\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12>\n\x07\x63olumns\x18\x02 \x03(\x0b\x32-.org.vitrivr.cottontail.grpc.ColumnDefinition\"\xb0\x02\n\x0fIndexDefinition\x12\x34\n\x04name\x18\x01 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\x12\x34\n\x04type\x18\x02 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12H\n\x06params\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.IndexDefinition.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc5\x02\n\rInsertMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12J\n\x08\x65lements\x18\x03 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.InsertMessage.InsertElement\x1a}\n\rInsertElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xc2\x02\n\x12\x42\x61tchInsertMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x07inserts\x18\x04 \x03(\x0b\x32\x36.org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert\x1a>\n\x06Insert\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xf7\x02\n\rUpdateMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12I\n\x07updates\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.UpdateMessage.UpdateElement\x1a}\n\rUpdateElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xad\x01\n\rDeleteMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\"{\n\x0cQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\x82\x01\n\x13\x42\x61tchedQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x03(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\xa7\x02\n\x05Query\x12/\n\x04\x66rom\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12;\n\nprojection\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.Projection\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12-\n\x03knn\x18\x04 \x01(\x0b\x32 .org.vitrivr.cottontail.grpc.Knn\x12\x31\n\x05order\x18\x05 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Order\x12\r\n\x05limit\x18\x06 \x01(\x04\x12\x0c\n\x04skip\x18\x07 \x01(\x04\"\x8f\x02\n\x14QueryResponseMessage\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x38\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x06tuples\x18\x03 \x03(\x0b\x32\x37.org.vitrivr.cottontail.grpc.QueryResponseMessage.Tuple\x1a;\n\x05Tuple\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xb1\x01\n\x04\x46rom\x12\x31\n\x04scan\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.ScanH\x00\x12\x35\n\x06sample\x18\x02 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.SampleH\x00\x12\x37\n\tsubSelect\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\x06\n\x04\x66rom\"[\n\x04Scan\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\r\n\x05start\x18\x02 \x01(\x03\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x03\"]\n\x06Sample\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04size\x18\x02 \x01(\x03\x12\x0c\n\x04seed\x18\x03 \x01(\x03\"\xb1\x03\n\nProjection\x12G\n\x02op\x18\x01 \x01(\x0e\x32;.org.vitrivr.cottontail.grpc.Projection.ProjectionOperation\x12J\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\x39.org.vitrivr.cottontail.grpc.Projection.ProjectionElement\x1a\x84\x01\n\x11ProjectionElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x36\n\x05\x61lias\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\"\x86\x01\n\x13ProjectionOperation\x12\n\n\x06SELECT\x10\x00\x12\x13\n\x0fSELECT_DISTINCT\x10\x01\x12\t\n\x05\x43OUNT\x10\x02\x12\x12\n\x0e\x43OUNT_DISTINCT\x10\x03\x12\n\n\x06\x45XISTS\x10\x04\x12\x07\n\x03SUM\x10\x05\x12\x07\n\x03MAX\x10\x06\x12\x07\n\x03MIN\x10\x07\x12\x08\n\x04MEAN\x10\x08\"\xa3\x03\n\x03Knn\x12:\n\tattribute\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\t\n\x01k\x18\x02 \x01(\r\x12;\n\x08\x64istance\x18\x03 \x01(\x0e\x32).org.vitrivr.cottontail.grpc.Knn.Distance\x12\x32\n\x04hint\x18\x04 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.KnnHint\x12\x32\n\x05query\x18\x05 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\x12\x33\n\x06weight\x18\x06 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\"{\n\x08\x44istance\x12\x06\n\x02L1\x10\x00\x12\x06\n\x02L2\x10\x01\x12\r\n\tL2SQUARED\x10\x02\x12\x06\n\x02LP\x10\x03\x12\x0e\n\nCHISQUARED\x10\x04\x12\x0b\n\x07HAMMING\x10\x05\x12\n\n\x06\x43OSINE\x10\x06\x12\x10\n\x0cINNERPRODUCT\x10\x07\x12\r\n\tHAVERSINE\x10\n\"\x8b\x06\n\x07KnnHint\x12J\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.KnnHint.NoIndexKnnHintH\x00\x12Y\n\x15\x61llowInexactIndexHint\x18\x02 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHintH\x00\x12N\n\rtypeIndexHint\x18\x03 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHintH\x00\x12N\n\rnameIndexHint\x18\x04 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHintH\x00\x12Q\n\x11parallelIndexHint\x18\x05 \x01(\x0b\x32\x34.org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHintH\x00\x1a\x10\n\x0eNoIndexKnnHint\x1a$\n\x13\x41llowInexactKnnHint\x12\r\n\x05\x61llow\x18\x01 \x01(\x08\x1aH\n\x10IndexTypeKnnHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xae\x01\n\x10IndexNameKnnHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12Y\n\nparameters\x18\x02 \x03(\x0b\x32\x45.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a+\n\x0fParallelKnnHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdc\x01\n\x05Where\x12\x45\n\x06\x61tomic\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12I\n\x08\x63ompound\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12\x34\n\x04hint\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.WhereHintB\x0b\n\tpredicate\"\xa8\x05\n\tWhereHint\x12N\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x37.org.vitrivr.cottontail.grpc.WhereHint.NoIndexWhereHintH\x00\x12R\n\rtypeIndexHint\x18\x02 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHintH\x00\x12R\n\rnameIndexHint\x18\x03 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHintH\x00\x12U\n\x11parallelIndexHint\x18\x04 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHintH\x00\x1a\x12\n\x10NoIndexWhereHint\x1aJ\n\x12IndexTypeWhereHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xb4\x01\n\x12IndexNameWhereHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12]\n\nparameters\x18\x02 \x03(\x0b\x32I.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x11ParallelWhereHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdb\x01\n\x16\x41tomicBooleanPredicate\x12\x35\n\x04left\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12@\n\x05right\x18\x02 \x01(\x0b\x32\x31.org.vitrivr.cottontail.grpc.AtomicBooleanOperand\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ComparisonOperator\x12\x0b\n\x03not\x18\x04 \x01(\x08\"\xcc\x01\n\x14\x41tomicBooleanOperand\x12\x39\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnNameH\x00\x12\x39\n\x08literals\x18\x02 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.LiteralsH\x00\x12\x33\n\x05query\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\t\n\x07operand\"A\n\x08Literals\x12\x35\n\x07literal\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\x86\x03\n\x18\x43ompoundBooleanPredicate\x12\x44\n\x05\x61left\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12\x46\n\x05\x63left\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ConnectionOperator\x12\x45\n\x06\x61right\x18\x04 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x01\x12G\n\x06\x63right\x18\x05 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xfd\x01\n\x05Order\x12@\n\ncomponents\x18\x01 \x03(\x0b\x32,.org.vitrivr.cottontail.grpc.Order.Component\x1a\x85\x01\n\tComponent\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12?\n\tdirection\x18\x02 \x01(\x0e\x32,.org.vitrivr.cottontail.grpc.Order.Direction\"*\n\tDirection\x12\r\n\tASCENDING\x10\x00\x12\x0e\n\nDESCENDING\x10\x01*\x84\x01\n\tIndexType\x12\x08\n\x04HASH\x10\x00\x12\x0b\n\x07HASH_UQ\x10\x01\x12\t\n\x05\x42TREE\x10\x02\x12\n\n\x06LUCENE\x10\x03\x12\x07\n\x03VAF\x10\x04\x12\x06\n\x02PQ\x10\x05\x12\x07\n\x03LSH\x10\x06\x12\x10\n\x0cSUPERBIT_LSH\x10\x07\x12\x1d\n\x19NONBUCKETING_SUPERBIT_LSH\x10\x08*\x82\x02\n\x04Type\x12\x0b\n\x07\x42OOLEAN\x10\x00\x12\x08\n\x04\x42YTE\x10\x01\x12\t\n\x05SHORT\x10\x02\x12\x0b\n\x07INTEGER\x10\x03\x12\x08\n\x04LONG\x10\x04\x12\t\n\x05\x46LOAT\x10\x05\x12\n\n\x06\x44OUBLE\x10\x06\x12\x08\n\x04\x44\x41TE\x10\x07\x12\n\n\x06STRING\x10\x08\x12\x0e\n\nDOUBLE_VEC\x10\t\x12\r\n\tFLOAT_VEC\x10\n\x12\x0c\n\x08LONG_VEC\x10\x0b\x12\x0b\n\x07INT_VEC\x10\x0c\x12\x0c\n\x08\x42OOL_VEC\x10\r\x12\r\n\tCOMPLEX32\x10\x0e\x12\r\n\tCOMPLEX64\x10\x0f\x12\x11\n\rCOMPLEX32_VEC\x10\x10\x12\x11\n\rCOMPLEX64_VEC\x10\x11\x12\x08\n\x04\x42LOB\x10\x12*\x1d\n\x06\x45ngine\x12\x08\n\x04HARE\x10\x00\x12\t\n\x05MAPDB\x10\x01*\x84\x01\n\x12\x43omparisonOperator\x12\t\n\x05\x45QUAL\x10\x00\x12\x0b\n\x07GREATER\x10\x01\x12\x08\n\x04LESS\x10\x02\x12\n\n\x06GEQUAL\x10\x03\x12\n\n\x06LEQUAL\x10\x04\x12\x06\n\x02IN\x10\x05\x12\x0b\n\x07\x42\x45TWEEN\x10\x06\x12\n\n\x06ISNULL\x10\x07\x12\x08\n\x04LIKE\x10\x08\x12\t\n\x05MATCH\x10\t*%\n\x12\x43onnectionOperator\x12\x07\n\x03\x41ND\x10\x00\x12\x06\n\x02OR\x10\x01\x32\xfa\n\n\x03\x44\x44L\x12r\n\x0bListSchemas\x12..org.vitrivr.cottontail.grpc.ListSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\x0c\x43reateSchema\x12\x30.org.vitrivr.cottontail.grpc.CreateSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropSchema\x12..org.vitrivr.cottontail.grpc.DropSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cListEntities\x12..org.vitrivr.cottontail.grpc.ListEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12u\n\rEntityDetails\x12\x31.org.vitrivr.cottontail.grpc.EntityDetailsMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0c\x43reateEntity\x12\x30.org.vitrivr.cottontail.grpc.CreateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropEntity\x12..org.vitrivr.cottontail.grpc.DropEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eTruncateEntity\x12\x32.org.vitrivr.cottontail.grpc.TruncateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eOptimizeEntity\x12\x32.org.vitrivr.cottontail.grpc.OptimizeEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0b\x43reateIndex\x12/.org.vitrivr.cottontail.grpc.CreateIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12m\n\tDropIndex\x12-.org.vitrivr.cottontail.grpc.DropIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cRebuildIndex\x12\x30.org.vitrivr.cottontail.grpc.RebuildIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\xb3\x03\n\x03\x44ML\x12g\n\x06Insert\x12*.org.vitrivr.cottontail.grpc.InsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0bInsertBatch\x12/.org.vitrivr.cottontail.grpc.BatchInsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06Update\x12*.org.vitrivr.cottontail.grpc.UpdateMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06\x44\x65lete\x12*.org.vitrivr.cottontail.grpc.DeleteMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\x86\x03\n\x03\x44QL\x12i\n\x07\x45xplain\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12g\n\x05Query\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\nBatchQuery\x12\x30.org.vitrivr.cottontail.grpc.BatchedQueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12\x36\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty2\xab\x03\n\x03TXN\x12K\n\x05\x42\x65gin\x12\x16.google.protobuf.Empty\x1a*.org.vitrivr.cottontail.grpc.TransactionId\x12L\n\x06\x43ommit\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12N\n\x08Rollback\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12_\n\x10ListTransactions\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12X\n\tListLocks\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x42-\n\x1borg.vitrivr.cottontail.grpcB\x0e\x43ottontailGrpcb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -80,8 +80,8 @@ _INDEXTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10057,
-  serialized_end=10189,
+  serialized_start=10383,
+  serialized_end=10515,
 )
 _sym_db.RegisterEnumDescriptor(_INDEXTYPE)
 
@@ -191,8 +191,8 @@ _TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10192,
-  serialized_end=10450,
+  serialized_start=10518,
+  serialized_end=10776,
 )
 _sym_db.RegisterEnumDescriptor(_TYPE)
 
@@ -217,8 +217,8 @@ _ENGINE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10452,
-  serialized_end=10481,
+  serialized_start=10778,
+  serialized_end=10807,
 )
 _sym_db.RegisterEnumDescriptor(_ENGINE)
 
@@ -283,8 +283,8 @@ _COMPARISONOPERATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10484,
-  serialized_end=10616,
+  serialized_start=10810,
+  serialized_end=10942,
 )
 _sym_db.RegisterEnumDescriptor(_COMPARISONOPERATOR)
 
@@ -309,8 +309,8 @@ _CONNECTIONOPERATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10618,
-  serialized_end=10655,
+  serialized_start=10944,
+  serialized_end=10981,
 )
 _sym_db.RegisterEnumDescriptor(_CONNECTIONOPERATOR)
 
@@ -449,8 +449,8 @@ _PROJECTION_PROJECTIONOPERATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6665,
-  serialized_end=6799,
+  serialized_start=6991,
+  serialized_end=7125,
 )
 _sym_db.RegisterEnumDescriptor(_PROJECTION_PROJECTIONOPERATION)
 
@@ -509,8 +509,8 @@ _KNN_DISTANCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7098,
-  serialized_end=7221,
+  serialized_start=7424,
+  serialized_end=7547,
 )
 _sym_db.RegisterEnumDescriptor(_KNN_DISTANCE)
 
@@ -534,8 +534,8 @@ _ORDER_DIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10012,
-  serialized_end=10054,
+  serialized_start=10338,
+  serialized_end=10380,
 )
 _sym_db.RegisterEnumDescriptor(_ORDER_DIRECTION)
 
@@ -2026,8 +2026,8 @@ _INSERTMESSAGE_INSERTELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4486,
-  serialized_end=4611,
+  serialized_start=4487,
+  serialized_end=4612,
 )
 
 _INSERTMESSAGE = _descriptor.Descriptor(
@@ -2053,7 +2053,7 @@ _INSERTMESSAGE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='inserts', full_name='org.vitrivr.cottontail.grpc.InsertMessage.inserts', index=2,
+      name='elements', full_name='org.vitrivr.cottontail.grpc.InsertMessage.elements', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2072,7 +2072,91 @@ _INSERTMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=4287,
-  serialized_end=4611,
+  serialized_end=4612,
+)
+
+
+_BATCHINSERTMESSAGE_INSERT = _descriptor.Descriptor(
+  name='Insert',
+  full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='values', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert.values', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4875,
+  serialized_end=4937,
+)
+
+_BATCHINSERTMESSAGE = _descriptor.Descriptor(
+  name='BatchInsertMessage',
+  full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='txId', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.txId', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='from', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.from', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='columns', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.columns', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='inserts', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.inserts', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_BATCHINSERTMESSAGE_INSERT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4615,
+  serialized_end=4937,
 )
 
 
@@ -2110,8 +2194,8 @@ _UPDATEMESSAGE_UPDATEELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4864,
-  serialized_end=4989,
+  serialized_start=5190,
+  serialized_end=5315,
 )
 
 _UPDATEMESSAGE = _descriptor.Descriptor(
@@ -2162,8 +2246,8 @@ _UPDATEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4614,
-  serialized_end=4989,
+  serialized_start=4940,
+  serialized_end=5315,
 )
 
 
@@ -2208,8 +2292,8 @@ _DELETEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4992,
-  serialized_end=5165,
+  serialized_start=5318,
+  serialized_end=5491,
 )
 
 
@@ -2247,8 +2331,8 @@ _QUERYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5167,
-  serialized_end=5290,
+  serialized_start=5493,
+  serialized_end=5616,
 )
 
 
@@ -2286,8 +2370,8 @@ _BATCHEDQUERYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5293,
-  serialized_end=5423,
+  serialized_start=5619,
+  serialized_end=5749,
 )
 
 
@@ -2360,8 +2444,8 @@ _QUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5426,
-  serialized_end=5721,
+  serialized_start=5752,
+  serialized_end=6047,
 )
 
 
@@ -2392,8 +2476,8 @@ _QUERYRESPONSEMESSAGE_TUPLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5936,
-  serialized_end=5995,
+  serialized_start=6262,
+  serialized_end=6321,
 )
 
 _QUERYRESPONSEMESSAGE = _descriptor.Descriptor(
@@ -2437,8 +2521,8 @@ _QUERYRESPONSEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5724,
-  serialized_end=5995,
+  serialized_start=6050,
+  serialized_end=6321,
 )
 
 
@@ -2488,8 +2572,8 @@ _FROM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5998,
-  serialized_end=6175,
+  serialized_start=6324,
+  serialized_end=6501,
 )
 
 
@@ -2534,8 +2618,8 @@ _SCAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6177,
-  serialized_end=6268,
+  serialized_start=6503,
+  serialized_end=6594,
 )
 
 
@@ -2580,8 +2664,8 @@ _SAMPLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6270,
-  serialized_end=6363,
+  serialized_start=6596,
+  serialized_end=6689,
 )
 
 
@@ -2619,8 +2703,8 @@ _PROJECTION_PROJECTIONELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6530,
-  serialized_end=6662,
+  serialized_start=6856,
+  serialized_end=6988,
 )
 
 _PROJECTION = _descriptor.Descriptor(
@@ -2658,8 +2742,8 @@ _PROJECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6366,
-  serialized_end=6799,
+  serialized_start=6692,
+  serialized_end=7125,
 )
 
 
@@ -2726,8 +2810,8 @@ _KNN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6802,
-  serialized_end=7221,
+  serialized_start=7128,
+  serialized_end=7547,
 )
 
 
@@ -2751,8 +2835,8 @@ _KNNHINT_NOINDEXKNNHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7645,
-  serialized_end=7661,
+  serialized_start=7971,
+  serialized_end=7987,
 )
 
 _KNNHINT_ALLOWINEXACTKNNHINT = _descriptor.Descriptor(
@@ -2782,8 +2866,8 @@ _KNNHINT_ALLOWINEXACTKNNHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7663,
-  serialized_end=7699,
+  serialized_start=7989,
+  serialized_end=8025,
 )
 
 _KNNHINT_INDEXTYPEKNNHINT = _descriptor.Descriptor(
@@ -2813,8 +2897,8 @@ _KNNHINT_INDEXTYPEKNNHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7701,
-  serialized_end=7773,
+  serialized_start=8027,
+  serialized_end=8099,
 )
 
 _KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY = _descriptor.Descriptor(
@@ -2851,8 +2935,8 @@ _KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7901,
-  serialized_end=7950,
+  serialized_start=8227,
+  serialized_end=8276,
 )
 
 _KNNHINT_INDEXNAMEKNNHINT = _descriptor.Descriptor(
@@ -2889,8 +2973,8 @@ _KNNHINT_INDEXNAMEKNNHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7776,
-  serialized_end=7950,
+  serialized_start=8102,
+  serialized_end=8276,
 )
 
 _KNNHINT_PARALLELKNNHINT = _descriptor.Descriptor(
@@ -2927,8 +3011,8 @@ _KNNHINT_PARALLELKNNHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7952,
-  serialized_end=7995,
+  serialized_start=8278,
+  serialized_end=8321,
 )
 
 _KNNHINT = _descriptor.Descriptor(
@@ -2991,8 +3075,8 @@ _KNNHINT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7224,
-  serialized_end=8003,
+  serialized_start=7550,
+  serialized_end=8329,
 )
 
 
@@ -3042,8 +3126,8 @@ _WHERE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=8006,
-  serialized_end=8226,
+  serialized_start=8332,
+  serialized_end=8552,
 )
 
 
@@ -3067,8 +3151,8 @@ _WHEREHINT_NOINDEXWHEREHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8577,
-  serialized_end=8595,
+  serialized_start=8903,
+  serialized_end=8921,
 )
 
 _WHEREHINT_INDEXTYPEWHEREHINT = _descriptor.Descriptor(
@@ -3098,8 +3182,8 @@ _WHEREHINT_INDEXTYPEWHEREHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8597,
-  serialized_end=8671,
+  serialized_start=8923,
+  serialized_end=8997,
 )
 
 _WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY = _descriptor.Descriptor(
@@ -3136,8 +3220,8 @@ _WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7901,
-  serialized_end=7950,
+  serialized_start=8227,
+  serialized_end=8276,
 )
 
 _WHEREHINT_INDEXNAMEWHEREHINT = _descriptor.Descriptor(
@@ -3174,8 +3258,8 @@ _WHEREHINT_INDEXNAMEWHEREHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8674,
-  serialized_end=8854,
+  serialized_start=9000,
+  serialized_end=9180,
 )
 
 _WHEREHINT_PARALLELWHEREHINT = _descriptor.Descriptor(
@@ -3212,8 +3296,8 @@ _WHEREHINT_PARALLELWHEREHINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8856,
-  serialized_end=8901,
+  serialized_start=9182,
+  serialized_end=9227,
 )
 
 _WHEREHINT = _descriptor.Descriptor(
@@ -3269,8 +3353,8 @@ _WHEREHINT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=8229,
-  serialized_end=8909,
+  serialized_start=8555,
+  serialized_end=9235,
 )
 
 
@@ -3322,8 +3406,8 @@ _ATOMICBOOLEANPREDICATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8912,
-  serialized_end=9131,
+  serialized_start=9238,
+  serialized_end=9457,
 )
 
 
@@ -3373,8 +3457,8 @@ _ATOMICBOOLEANOPERAND = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9134,
-  serialized_end=9338,
+  serialized_start=9460,
+  serialized_end=9664,
 )
 
 
@@ -3405,8 +3489,8 @@ _LITERALS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9340,
-  serialized_end=9405,
+  serialized_start=9666,
+  serialized_end=9731,
 )
 
 
@@ -3475,8 +3559,8 @@ _COMPOUNDBOOLEANPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9408,
-  serialized_end=9798,
+  serialized_start=9734,
+  serialized_end=10124,
 )
 
 
@@ -3514,8 +3598,8 @@ _ORDER_COMPONENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9877,
-  serialized_end=10010,
+  serialized_start=10203,
+  serialized_end=10336,
 )
 
 _ORDER = _descriptor.Descriptor(
@@ -3546,8 +3630,8 @@ _ORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9801,
-  serialized_end=10054,
+  serialized_start=10127,
+  serialized_end=10380,
 )
 
 _ENTITYNAME.fields_by_name['schema'].message_type = _SCHEMANAME
@@ -3661,7 +3745,13 @@ _INSERTMESSAGE_INSERTELEMENT.fields_by_name['value'].message_type = _LITERAL
 _INSERTMESSAGE_INSERTELEMENT.containing_type = _INSERTMESSAGE
 _INSERTMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
 _INSERTMESSAGE.fields_by_name['from'].message_type = _FROM
-_INSERTMESSAGE.fields_by_name['inserts'].message_type = _INSERTMESSAGE_INSERTELEMENT
+_INSERTMESSAGE.fields_by_name['elements'].message_type = _INSERTMESSAGE_INSERTELEMENT
+_BATCHINSERTMESSAGE_INSERT.fields_by_name['values'].message_type = _LITERAL
+_BATCHINSERTMESSAGE_INSERT.containing_type = _BATCHINSERTMESSAGE
+_BATCHINSERTMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_BATCHINSERTMESSAGE.fields_by_name['from'].message_type = _FROM
+_BATCHINSERTMESSAGE.fields_by_name['columns'].message_type = _COLUMNNAME
+_BATCHINSERTMESSAGE.fields_by_name['inserts'].message_type = _BATCHINSERTMESSAGE_INSERT
 _UPDATEMESSAGE_UPDATEELEMENT.fields_by_name['column'].message_type = _COLUMNNAME
 _UPDATEMESSAGE_UPDATEELEMENT.fields_by_name['value'].message_type = _LITERAL
 _UPDATEMESSAGE_UPDATEELEMENT.containing_type = _UPDATEMESSAGE
@@ -3845,6 +3935,7 @@ DESCRIPTOR.message_types_by_name['ColumnDefinition'] = _COLUMNDEFINITION
 DESCRIPTOR.message_types_by_name['EntityDefinition'] = _ENTITYDEFINITION
 DESCRIPTOR.message_types_by_name['IndexDefinition'] = _INDEXDEFINITION
 DESCRIPTOR.message_types_by_name['InsertMessage'] = _INSERTMESSAGE
+DESCRIPTOR.message_types_by_name['BatchInsertMessage'] = _BATCHINSERTMESSAGE
 DESCRIPTOR.message_types_by_name['UpdateMessage'] = _UPDATEMESSAGE
 DESCRIPTOR.message_types_by_name['DeleteMessage'] = _DELETEMESSAGE
 DESCRIPTOR.message_types_by_name['QueryMessage'] = _QUERYMESSAGE
@@ -4132,6 +4223,21 @@ InsertMessage = _reflection.GeneratedProtocolMessageType('InsertMessage', (_mess
 _sym_db.RegisterMessage(InsertMessage)
 _sym_db.RegisterMessage(InsertMessage.InsertElement)
 
+BatchInsertMessage = _reflection.GeneratedProtocolMessageType('BatchInsertMessage', (_message.Message,), {
+
+  'Insert' : _reflection.GeneratedProtocolMessageType('Insert', (_message.Message,), {
+    'DESCRIPTOR' : _BATCHINSERTMESSAGE_INSERT,
+    '__module__' : 'cottontail_pb2'
+    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert)
+    })
+  ,
+  'DESCRIPTOR' : _BATCHINSERTMESSAGE,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.BatchInsertMessage)
+  })
+_sym_db.RegisterMessage(BatchInsertMessage)
+_sym_db.RegisterMessage(BatchInsertMessage.Insert)
+
 UpdateMessage = _reflection.GeneratedProtocolMessageType('UpdateMessage', (_message.Message,), {
 
   'UpdateElement' : _reflection.GeneratedProtocolMessageType('UpdateElement', (_message.Message,), {
@@ -4398,8 +4504,8 @@ _DDL = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=10658,
-  serialized_end=12060,
+  serialized_start=10984,
+  serialized_end=12386,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListSchemas',
@@ -4534,8 +4640,8 @@ _DML = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=12063,
-  serialized_end=12470,
+  serialized_start=12389,
+  serialized_end=12824,
   methods=[
   _descriptor.MethodDescriptor(
     name='Insert',
@@ -4552,8 +4658,8 @@ _DML = _descriptor.ServiceDescriptor(
     full_name='org.vitrivr.cottontail.grpc.DML.InsertBatch',
     index=1,
     containing_service=None,
-    input_type=_INSERTMESSAGE,
-    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    input_type=_BATCHINSERTMESSAGE,
+    output_type=_QUERYRESPONSEMESSAGE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -4590,8 +4696,8 @@ _DQL = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=12473,
-  serialized_end=12863,
+  serialized_start=12827,
+  serialized_end=13217,
   methods=[
   _descriptor.MethodDescriptor(
     name='Explain',
@@ -4646,8 +4752,8 @@ _TXN = _descriptor.ServiceDescriptor(
   index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=12866,
-  serialized_end=13293,
+  serialized_start=13220,
+  serialized_end=13647,
   methods=[
   _descriptor.MethodDescriptor(
     name='Begin',

@@ -458,10 +458,10 @@ class DMLStub(object):
                 request_serializer=cottontail__pb2.InsertMessage.SerializeToString,
                 response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
                 )
-        self.InsertBatch = channel.stream_stream(
+        self.InsertBatch = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/InsertBatch',
-                request_serializer=cottontail__pb2.InsertMessage.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                request_serializer=cottontail__pb2.BatchInsertMessage.SerializeToString,
+                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.Update = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/Update',
@@ -487,8 +487,8 @@ class DMLServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def InsertBatch(self, request_iterator, context):
-        """* Inserts data into an entity; Individual INSERTS do not a return status. Always takes place in a single transaction! 
+    def InsertBatch(self, request, context):
+        """* Inserts data into an entity in batches! InsertMessages are collected until Cottontail DBs cache is saturated and then persisted in one go. 
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -516,10 +516,10 @@ def add_DMLServicer_to_server(servicer, server):
                     request_deserializer=cottontail__pb2.InsertMessage.FromString,
                     response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
-            'InsertBatch': grpc.stream_stream_rpc_method_handler(
+            'InsertBatch': grpc.unary_unary_rpc_method_handler(
                     servicer.InsertBatch,
-                    request_deserializer=cottontail__pb2.InsertMessage.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    request_deserializer=cottontail__pb2.BatchInsertMessage.FromString,
+                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Update': grpc.unary_unary_rpc_method_handler(
                     servicer.Update,
@@ -561,7 +561,7 @@ class DML(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def InsertBatch(request_iterator,
+    def InsertBatch(request,
             target,
             options=(),
             channel_credentials=None,
@@ -571,9 +571,9 @@ class DML(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_stream(request_iterator, target, '/org.vitrivr.cottontail.grpc.DML/InsertBatch',
-            cottontail__pb2.InsertMessage.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DML/InsertBatch',
+            cottontail__pb2.BatchInsertMessage.SerializeToString,
+            cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
