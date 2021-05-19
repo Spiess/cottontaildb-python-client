@@ -5,7 +5,7 @@ version `0.12.2`. Comes with an interactive CLI for remote DB access.
 
 ## Installation
 
-Clone and install locally, or with `pip install git+https://github.com/spiess/cottontaildb-python-client.git`.
+Clone and install locally, or with `pip install cottontaildb-client`.
 
 ## Usage
 
