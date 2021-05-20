@@ -1,5 +1,8 @@
 # Cottontail DB gRPC Python Client
 
+[![pypi](https://img.shields.io/pypi/v/cottontaildb-client.svg)](https://pypi.org/project/cottontaildb-client/)
+[![Python package workflow](https://github.com/Spiess/cottontaildb-python-client/actions/workflows/python-package.yml/badge.svg)](https://github.com/Spiess/cottontaildb-python-client/actions/workflows/python-package.yml)
+
 A Cottontail DB gRPC client for Python. Built with [Cottontail DB Proto](https://github.com/vitrivr/cottontaildb-proto)
 version `0.12.2`. Comes with an interactive CLI for remote DB access.
 
