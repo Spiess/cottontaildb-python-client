@@ -49,6 +49,14 @@ class TestCottontailDBClient(TestCase):
         self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY)
         self.assert_not_in(TEST_ENTITY, self.client.list_entities(TEST_SCHEMA), 'entity was not dropped')
 
+    def test_create_truncate_entity(self):
+        self._create_schema()
+        self._create_entity()
+        self.assert_in(TEST_ENTITY, self.client.list_entities(TEST_SCHEMA), 'entity was not created')
+        self.client.truncate_entity(TEST_SCHEMA, TEST_ENTITY)
+        self.assert_in(TEST_ENTITY, self.client.list_entities(TEST_SCHEMA), 'entity was dropped')
+
+
     def test_insert(self):
         self._create_schema()
         self._create_entity()

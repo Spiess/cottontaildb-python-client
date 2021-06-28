@@ -128,7 +128,7 @@ class CottontailDBClient:
         """Truncates the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.DropEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.TruncateEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
         return self._parse_query_response(response)
 
     def optimize_entity(self, schema, entity):
