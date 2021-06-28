@@ -117,15 +117,19 @@ class CottontailDBClient:
         response = self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
         return self._parse_query_response(response)
 
-    def drop_entity(self, schema, entity):
+    def drop_entity(self, schema, entity, not_exist_ok=True):
         """Drops the given entity from the given schema."""
+        if not_exist_ok and entity not in [s.split('.')[-1] for s in self.list_entities(schema)]:
+            return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         response = self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
         return self._parse_query_response(response)
 
-    def truncate_entity(self, schema, entity):
+    def truncate_entity(self, schema, entity, not_exist_ok=True):
         """Truncates the specified entity."""
+        if not_exist_ok and entity not in [s.split('.')[-1] for s in self.list_entities(schema)]:
+            return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         response = self._ddl.TruncateEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
