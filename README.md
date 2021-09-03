@@ -17,7 +17,7 @@ Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] hos
 Example usage in scripts:
 
 ```python
-from cottontaildb_client import CottontailDBClient, Type, Literal, column_def
+from cottontaildb_client import CottontailDBClient, Type, Literal, Null, column_def
 
 with CottontailDBClient('localhost', 1865) as client:
     # Create schema
@@ -36,7 +36,8 @@ with CottontailDBClient('localhost', 1865) as client:
     columns = ['id', 'value']
     values = [
         [Literal(stringData='test_10'), Literal(intData=10)],
-        [Literal(stringData='test_20'), Literal(intData=20)]
+        [Literal(stringData='test_20'), Literal(intData=20)],
+        [Literal(stringData='test_null'), Literal(nullData=Null())]
     ]
     client.insert_batch('example_schema', 'example_entity', columns, values)
 ```

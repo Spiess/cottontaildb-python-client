@@ -1,2 +1,2 @@
-from .cottontail_pb2 import IndexType, Type, Literal
+from .cottontail_pb2 import IndexType, Type, Literal, Null
 from .cottontaildb_client import CottontailDBClient, column_def, float_vector
