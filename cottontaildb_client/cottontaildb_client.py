@@ -8,7 +8,7 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
-    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage
+    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -87,13 +87,14 @@ class CottontailDBClient:
         if exist_ok and schema in [s.split('.')[-1] for s in self.list_schemas()]:
             return
         schema_name = SchemaName(name=schema)
-        response = self._ddl.CreateSchema(CreateSchemaMessage(txId=self._tid, schema=schema_name))
+        response = self._ddl.CreateSchema(
+            CreateSchemaMessage(metadata=Metadata(transactionId=self._tid), schema=schema_name))
         return self._parse_query_response(response)
 
     def drop_schema(self, schema):
         """Drops the schema with the given name."""
         schema_name = SchemaName(name=schema)
-        response = self._ddl.DropSchema(DropSchemaMessage(txId=self._tid, schema=schema_name))
+        response = self._ddl.DropSchema(DropSchemaMessage(metadata=self._tid, schema=schema_name))
         return self._parse_query_response(response)
 
     def create_entity(self, schema, entity, columns, exist_ok=False):
@@ -114,7 +115,8 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         entity_def = EntityDefinition(entity=entity_name, columns=columns)
-        response = self._ddl.CreateEntity(CreateEntityMessage(txId=self._tid, definition=entity_def))
+        response = self._ddl.CreateEntity(
+            CreateEntityMessage(metadata=Metadata(transactionId=self._tid), definition=entity_def))
         return self._parse_query_response(response)
 
     def drop_entity(self, schema, entity, not_exist_ok=True):
@@ -123,7 +125,8 @@ class CottontailDBClient:
             return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.DropEntity(DropEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.DropEntity(
+            DropEntityMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         return self._parse_query_response(response)
 
     def truncate_entity(self, schema, entity, not_exist_ok=True):
@@ -132,14 +135,16 @@ class CottontailDBClient:
             return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.TruncateEntity(TruncateEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.TruncateEntity(
+            TruncateEntityMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         return self._parse_query_response(response)
 
     def optimize_entity(self, schema, entity):
         """Optimizes the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.DropEntity(OptimizeEntityMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.DropEntity(
+            OptimizeEntityMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         return self._parse_query_response(response)
 
     def create_index(self, schema, entity, index, index_type: IndexType, columns: List[str], rebuild: bool = False):
@@ -159,7 +164,8 @@ class CottontailDBClient:
         # TODO: map<string,string> params
         column_names = [ColumnName(entity=entity_name, name=c) for c in columns]
         index_def = IndexDefinition(name=index_name, type=index_type, columns=column_names)
-        response = self._ddl.CreateIndex(CreateIndexMessage(txId=self._tid, definition=index_def, rebuild=rebuild))
+        response = self._ddl.CreateIndex(
+            CreateIndexMessage(metadata=Metadata(transactionId=self._tid), definition=index_def, rebuild=rebuild))
         return self._parse_query_response(response)
 
     def drop_index(self, schema, entity, index):
@@ -173,7 +179,7 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         index_name = IndexName(entity=entity_name, name=index)
-        response = self._ddl.DropIndex(DropIndexMessage(txId=self._tid, index=index_name))
+        response = self._ddl.DropIndex(DropIndexMessage(metadata=Metadata(transactionId=self._tid), index=index_name))
         return self._parse_query_response(response)
 
     def rebuild_index(self, schema, entity, index):
@@ -187,12 +193,13 @@ class CottontailDBClient:
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         index_name = IndexName(entity=entity_name, name=index)
-        response = self._ddl.RebuildIndex(RebuildIndexMessage(txId=self._tid, index=index_name))
+        response = self._ddl.RebuildIndex(
+            RebuildIndexMessage(metadata=Metadata(transactionId=self._tid), index=index_name))
         return self._parse_query_response(response)
 
     def list_schemas(self):
         """Lists all schemas in the database."""
-        responses = [response for response in self._ddl.ListSchemas(ListSchemaMessage(txId=self._tid))]
+        responses = [response for response in self._ddl.ListSchemas(ListSchemaMessage(metadata=self._tid))]
         tuples = [t.data[0].stringData for response in responses for t in response.tuples]
         return tuples
 
@@ -205,7 +212,8 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         responses = [response for response in
-                     self._ddl.ListEntities(ListEntityMessage(txId=self._tid, schema=schema_name))]
+                     self._ddl.ListEntities(
+                         ListEntityMessage(metadata=Metadata(transactionId=self._tid), schema=schema_name))]
         tuples = [t.data[0].stringData for response in responses for t in response.tuples]
         return tuples
 
@@ -219,9 +227,9 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.EntityDetails(EntityDetailsMessage(txId=self._tid, entity=entity_name))
+        response = self._ddl.EntityDetails(EntityDetailsMessage(metadata=self._tid, entity=entity_name))
         entity_data = response.tuples[0]
-        data_names = [c.name for c in response.columns]
+        data_names = [c.name.name for c in response.columns]
         name_index = data_names.index('dbo')
         class_index = data_names.index('class')
         type_index = data_names.index('type')
@@ -283,7 +291,7 @@ class CottontailDBClient:
             'inserts': inserts
         }
 
-        message = BatchInsertMessage(txId=self._tid, **kwargs)
+        message = BatchInsertMessage(metadata=Metadata(transactionId=self._tid), **kwargs)
 
         self._dml.InsertBatch(message)
 
@@ -302,7 +310,8 @@ class CottontailDBClient:
         updates_list = [UpdateMessage.UpdateElement(column=ColumnName(name=column), value=value)
                         for column, value in updates.items()]
         # TODO: Simplify where specification
-        return self._dml.Update(UpdateMessage(txId=self._tid, **from_kwarg, where=where, updates=updates_list))
+        return self._dml.Update(
+            UpdateMessage(metadata=Metadata(transactionId=self._tid), **from_kwarg, where=where, updates=updates_list))
 
     def delete(self, schema, entity, where):
         """
@@ -316,7 +325,7 @@ class CottontailDBClient:
         entity_name = EntityName(schema=schema_name, name=entity)
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
         # TODO: Simplify where specification
-        return self._dml.Delete(DeleteMessage(txId=self._tid, **from_kwarg, where=where))
+        return self._dml.Delete(DeleteMessage(metadata=Metadata(transactionId=self._tid), **from_kwarg, where=where))
 
     # Data query
 
@@ -328,7 +337,7 @@ class CottontailDBClient:
 
     @staticmethod
     def _parse_query_response(response):
-        data_names = [c.name for c in response.columns]
+        data_names = [c.name.name for c in response.columns]
         return [
             {
                 key: CottontailDBClient._parse_literal(value) for key, value in zip(data_names, item.data)
@@ -366,7 +375,7 @@ class CottontailDBClient:
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
         elements = [InsertMessage.InsertElement(column=ColumnName(name=column), value=value)
                     for column, value in values.items()]
-        return InsertMessage(txId=self._tid, **from_kwarg, elements=elements)
+        return InsertMessage(metadata=self._tid, **from_kwarg, elements=elements)
 
 
 def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,
@@ -383,7 +392,7 @@ def column_def(name: str, type_: Type, length: int = None, primary: bool = None,
     @return: column definition
     """
     kwargs = {
-        'name': name,
+        'name': ColumnName(name=name),
         'type': type_,
         'engine': engine
     }

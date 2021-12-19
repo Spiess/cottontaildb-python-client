@@ -4,7 +4,7 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    Literals, ComparisonOperator
+    ComparisonOperator, Expressions, Expression
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
@@ -103,7 +103,7 @@ class TestCottontailDBClient(TestCase):
         self._create_entity()
         self._insert()
         where = Where(atomic=AtomicBooleanPredicate(left=ColumnName(name=TEST_COLUMN_VALUE), right=AtomicBooleanOperand(
-            literals=Literals(literal=[Literal(intData=0)])), op=ComparisonOperator.EQUAL))
+            expressions=Expressions(expression=[Expression(literal=Literal(intData=0))])), op=ComparisonOperator.EQUAL))
         self.client.delete(TEST_SCHEMA, TEST_ENTITY, where)
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(details['rows'], 0, 'unexpected number of rows in entity after delete')
