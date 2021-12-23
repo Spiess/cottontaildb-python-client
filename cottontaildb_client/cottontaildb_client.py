@@ -143,7 +143,7 @@ class CottontailDBClient:
         """Optimizes the specified entity."""
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.DropEntity(
+        response = self._ddl.OptimizeEntity(
             OptimizeEntityMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         return self._parse_query_response(response)
 

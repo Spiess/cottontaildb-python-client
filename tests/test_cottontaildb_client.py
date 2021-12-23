@@ -96,6 +96,12 @@ class TestCottontailDBClient(TestCase):
         query_results = self._query_value_with_key(update_key)
         self.assertEqual(query_results[0][TEST_COLUMN_VALUE], update_value, 'value not correctly updated')
 
+    def test_optimize(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        self.client.optimize_entity(TEST_SCHEMA, TEST_ENTITY)
+
     def test_transaction_commit(self):
         self._create_schema()
         self._create_entity()
