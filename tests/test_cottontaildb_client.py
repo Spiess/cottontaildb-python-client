@@ -51,11 +51,13 @@ class TestCottontailDBClient(TestCase):
 
     def test_drop_not_exists_entity(self):
         self._create_schema()
-        self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY)
+        result = self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY, not_exist_ok=True)
+        self.assertIsNone(result, 'response received after dropping nonexistent entity')
 
     def test_truncate_not_exists_entity(self):
         self._create_schema()
-        self.client.truncate_entity(TEST_SCHEMA, TEST_ENTITY)
+        result = self.client.truncate_entity(TEST_SCHEMA, TEST_ENTITY, not_exist_ok=True)
+        self.assertIsNone(result, 'response received after truncating nonexistent entity')
 
     def test_create_truncate_entity(self):
         self._create_schema()
