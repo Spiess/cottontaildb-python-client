@@ -8,7 +8,7 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
-    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata
+    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata, QueryMessage, Query
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -302,7 +302,7 @@ class CottontailDBClient:
         @param schema: the schema containing the entity to update
         @param entity: the entity containing rows to update
         @param where: where clause selecting rows to update
-        @param updates: dictionary of (column name, Literal value) key-value pairs to update selected rows with
+        @param updates: dictionary of (column name, Literal value expression) key-value pairs to update selected rows
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
@@ -333,7 +333,21 @@ class CottontailDBClient:
         """Sends a ping message to the endpoint. If method returns without exception endpoint is connected."""
         self._dql.Ping(Empty())
 
-    # TODO: Query
+    def query(self, schema, entity, projection, where):
+        """
+        Queries the specified entity where the provided conditions are met and applies the given projection.
+
+        @param schema: the schema containing the queried entity
+        @param entity: the entity being queried
+        @param projection: the projection to be applied to the result
+        @param where: where clause specifying the rows to return
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
+        query = Query(**from_kwarg, projection=projection, where=where)
+        responses = self._dql.Query(QueryMessage(metadata=Metadata(transactionId=self._tid), query=query))
+        return [r for response in responses for r in self._parse_query_response(response)]
 
     @staticmethod
     def _parse_query_response(response):

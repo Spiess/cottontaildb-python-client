@@ -4,7 +4,7 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    ComparisonOperator, Expressions, Expression
+    ComparisonOperator, Expressions, Expression, Projection
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
@@ -78,6 +78,24 @@ class TestCottontailDBClient(TestCase):
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
 
+    def test_query(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        query_key = 'test_1'
+        query_result = self._query_value_with_key(query_key)
+        self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
+
+    def test_update(self):
+        self._create_schema()
+        self._create_entity()
+        self._insert()
+        update_key = 'test_0'
+        update_value = 5
+        self._update_value_with_key(update_key, update_value)
+        query_results = self._query_value_with_key(update_key)
+        self.assertEqual(query_results[0][TEST_COLUMN_VALUE], update_value, 'value not correctly updated')
+
     def test_transaction_commit(self):
         self._create_schema()
         self._create_entity()
@@ -138,3 +156,24 @@ class TestCottontailDBClient(TestCase):
             [Literal(stringData='test_3'), Literal(intData=3)]
         ]
         self.client.insert_batch(TEST_SCHEMA, TEST_ENTITY, columns, values)
+
+    def _update_value_with_key(self, key, value):
+        where = Where(atomic=AtomicBooleanPredicate(
+            left=ColumnName(name=TEST_COLUMN_ID),
+            right=AtomicBooleanOperand(
+                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
+            op=ComparisonOperator.EQUAL
+        ))
+        updates = {TEST_COLUMN_VALUE: Expression(literal=Literal(intData=value))}
+        self.client.update(TEST_SCHEMA, TEST_ENTITY, where, updates)
+
+    def _query_value_with_key(self, key):
+        projection = Projection(op=Projection.ProjectionOperation.SELECT,
+                                elements=[Projection.ProjectionElement(column=ColumnName(name=TEST_COLUMN_VALUE))])
+        where = Where(atomic=AtomicBooleanPredicate(
+            left=ColumnName(name=TEST_COLUMN_ID),
+            right=AtomicBooleanOperand(
+                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
+            op=ComparisonOperator.EQUAL
+        ))
+        return self.client.query(TEST_SCHEMA, TEST_ENTITY, projection, where)
