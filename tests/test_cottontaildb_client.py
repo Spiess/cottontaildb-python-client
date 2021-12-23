@@ -4,13 +4,14 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    ComparisonOperator, Expressions, Expression, Projection
+    ComparisonOperator, Expressions, Expression, Projection, IndexType
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
 
 TEST_SCHEMA = 'schema_test'
 TEST_ENTITY = 'entity_test'
+TEST_INDEX = 'index_test'
 TEST_COLUMN_ID = 'id'
 TEST_COLUMN_VALUE = 'value'
 
@@ -103,6 +104,20 @@ class TestCottontailDBClient(TestCase):
         self._create_entity()
         self._batch_insert()
         self.client.optimize_entity(TEST_SCHEMA, TEST_ENTITY)
+
+    def test_create_rebuild_drop_index(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 0, 'unexpected number of indexes in entity before index creation')
+        self.client.create_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX, IndexType.HASH, [TEST_COLUMN_VALUE])
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 1, 'index was not created')
+        self.client.rebuild_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX)
+        self.client.drop_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX)
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 0, 'index was not dropped')
 
     def test_transaction_commit(self):
         self._create_schema()
