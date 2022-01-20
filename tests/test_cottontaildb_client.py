@@ -4,13 +4,14 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    Literals, ComparisonOperator
+    ComparisonOperator, Expressions, Expression, Projection, IndexType
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
 
 TEST_SCHEMA = 'schema_test'
 TEST_ENTITY = 'entity_test'
+TEST_INDEX = 'index_test'
 TEST_COLUMN_ID = 'id'
 TEST_COLUMN_VALUE = 'value'
 
@@ -51,11 +52,13 @@ class TestCottontailDBClient(TestCase):
 
     def test_drop_not_exists_entity(self):
         self._create_schema()
-        self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY)
+        result = self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY, not_exist_ok=True)
+        self.assertIsNone(result, 'response received after dropping nonexistent entity')
 
     def test_truncate_not_exists_entity(self):
         self._create_schema()
-        self.client.truncate_entity(TEST_SCHEMA, TEST_ENTITY)
+        result = self.client.truncate_entity(TEST_SCHEMA, TEST_ENTITY, not_exist_ok=True)
+        self.assertIsNone(result, 'response received after truncating nonexistent entity')
 
     def test_create_truncate_entity(self):
         self._create_schema()
@@ -77,6 +80,44 @@ class TestCottontailDBClient(TestCase):
         self._batch_insert()
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
+
+    def test_query(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        query_key = 'test_1'
+        query_result = self._query_value_with_key(query_key)
+        self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
+
+    def test_update(self):
+        self._create_schema()
+        self._create_entity()
+        self._insert()
+        update_key = 'test_0'
+        update_value = 5
+        self._update_value_with_key(update_key, update_value)
+        query_results = self._query_value_with_key(update_key)
+        self.assertEqual(query_results[0][TEST_COLUMN_VALUE], update_value, 'value not correctly updated')
+
+    def test_optimize(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        self.client.optimize_entity(TEST_SCHEMA, TEST_ENTITY)
+
+    def test_create_rebuild_drop_index(self):
+        self._create_schema()
+        self._create_entity()
+        self._batch_insert()
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 0, 'unexpected number of indexes in entity before index creation')
+        self.client.create_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX, IndexType.HASH, [TEST_COLUMN_VALUE])
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 1, 'index was not created')
+        self.client.rebuild_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX)
+        self.client.drop_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX)
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(len(details['indexes']), 0, 'index was not dropped')
 
     def test_transaction_commit(self):
         self._create_schema()
@@ -103,7 +144,7 @@ class TestCottontailDBClient(TestCase):
         self._create_entity()
         self._insert()
         where = Where(atomic=AtomicBooleanPredicate(left=ColumnName(name=TEST_COLUMN_VALUE), right=AtomicBooleanOperand(
-            literals=Literals(literal=[Literal(intData=0)])), op=ComparisonOperator.EQUAL))
+            expressions=Expressions(expression=[Expression(literal=Literal(intData=0))])), op=ComparisonOperator.EQUAL))
         self.client.delete(TEST_SCHEMA, TEST_ENTITY, where)
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(details['rows'], 0, 'unexpected number of rows in entity after delete')
@@ -138,3 +179,24 @@ class TestCottontailDBClient(TestCase):
             [Literal(stringData='test_3'), Literal(intData=3)]
         ]
         self.client.insert_batch(TEST_SCHEMA, TEST_ENTITY, columns, values)
+
+    def _update_value_with_key(self, key, value):
+        where = Where(atomic=AtomicBooleanPredicate(
+            left=ColumnName(name=TEST_COLUMN_ID),
+            right=AtomicBooleanOperand(
+                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
+            op=ComparisonOperator.EQUAL
+        ))
+        updates = {TEST_COLUMN_VALUE: Expression(literal=Literal(intData=value))}
+        self.client.update(TEST_SCHEMA, TEST_ENTITY, where, updates)
+
+    def _query_value_with_key(self, key):
+        projection = Projection(op=Projection.ProjectionOperation.SELECT,
+                                elements=[Projection.ProjectionElement(column=ColumnName(name=TEST_COLUMN_VALUE))])
+        where = Where(atomic=AtomicBooleanPredicate(
+            left=ColumnName(name=TEST_COLUMN_ID),
+            right=AtomicBooleanOperand(
+                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
+            op=ComparisonOperator.EQUAL
+        ))
+        return self.client.query(TEST_SCHEMA, TEST_ENTITY, projection, where)

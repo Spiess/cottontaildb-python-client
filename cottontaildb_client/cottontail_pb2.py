@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\033org.vitrivr.cottontail.grpcB\016CottontailGrpc',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x10\x63ottontail.proto\x12\x1borg.vitrivr.cottontail.grpc\x1a\x1bgoogle/protobuf/empty.proto\"\x1a\n\nSchemaName\x12\x0c\n\x04name\x18\x01 \x01(\t\"S\n\nEntityName\x12\x37\n\x06schema\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\x12\x0c\n\x04name\x18\x02 \x01(\t\"R\n\tIndexName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\nColumnName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"/\n\rTransactionId\x12\r\n\x05value\x18\x01 \x01(\x03\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"\xe9\x01\n\x0bTransaction\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12?\n\x06status\x18\x02 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.Transaction.Status\x12\x0f\n\x07\x63reated\x18\x03 \x01(\x03\x12\x11\n\tcompleted\x18\x04 \x01(\x03\"<\n\x06Status\x12\x0b\n\x07\x43REATED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tCOMPLETED\x10\x02\x12\t\n\x05\x45RROR\x10\x03\"\xbb\x03\n\x07Literal\x12\x15\n\x0b\x62ooleanData\x18\x01 \x01(\x08H\x00\x12\x11\n\x07intData\x18\x02 \x01(\x05H\x00\x12\x12\n\x08longData\x18\x03 \x01(\x03H\x00\x12\x13\n\tfloatData\x18\x04 \x01(\x02H\x00\x12\x14\n\ndoubleData\x18\x05 \x01(\x01H\x00\x12\x14\n\nstringData\x18\x06 \x01(\tH\x00\x12\x35\n\x08\x64\x61teData\x18\x07 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.DateH\x00\x12?\n\rcomplex32Data\x18\x08 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32H\x00\x12?\n\rcomplex64Data\x18\t \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64H\x00\x12\x39\n\nvectorData\x18\n \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.VectorH\x00\x12\x35\n\x08nullData\x18\x0b \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.NullH\x00\x42\x06\n\x04\x64\x61ta\"\xe7\x03\n\x06Vector\x12?\n\x0b\x66loatVector\x18\x01 \x01(\x0b\x32(.org.vitrivr.cottontail.grpc.FloatVectorH\x00\x12\x41\n\x0c\x64oubleVector\x18\x02 \x01(\x0b\x32).org.vitrivr.cottontail.grpc.DoubleVectorH\x00\x12;\n\tintVector\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IntVectorH\x00\x12=\n\nlongVector\x18\x04 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.LongVectorH\x00\x12=\n\nboolVector\x18\x05 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.BoolVectorH\x00\x12G\n\x0f\x63omplex32Vector\x18\x06 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex32VectorH\x00\x12G\n\x0f\x63omplex64Vector\x18\x07 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex64VectorH\x00\x42\x0c\n\nvectorData\"\x06\n\x04Null\"\x1d\n\x04\x44\x61te\x12\x15\n\rutc_timestamp\x18\x01 \x01(\x03\",\n\tComplex32\x12\x0c\n\x04real\x18\x01 \x01(\x02\x12\x11\n\timaginary\x18\x02 \x01(\x02\",\n\tComplex64\x12\x0c\n\x04real\x18\x01 \x01(\x01\x12\x11\n\timaginary\x18\x02 \x01(\x01\"\x1d\n\x0b\x46loatVector\x12\x0e\n\x06vector\x18\x01 \x03(\x02\"\x1e\n\x0c\x44oubleVector\x12\x0e\n\x06vector\x18\x01 \x03(\x01\"\x1b\n\tIntVector\x12\x0e\n\x06vector\x18\x01 \x03(\x05\"\x1c\n\nLongVector\x12\x0e\n\x06vector\x18\x01 \x03(\x03\"\x1c\n\nBoolVector\x12\x0e\n\x06vector\x18\x01 \x03(\x08\"I\n\x0f\x43omplex32Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32\"I\n\x0f\x43omplex64Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64\"\x88\x01\n\x13\x43reateSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\x86\x01\n\x11\x44ropSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"M\n\x11ListSchemaMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\"\x92\x01\n\x13\x43reateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x41\n\ndefinition\x18\x02 \x01(\x0b\x32-.org.vitrivr.cottontail.grpc.EntityDefinition\"\x86\x01\n\x11\x44ropEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15TruncateEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x8a\x01\n\x15OptimizeEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x89\x01\n\x14\x45ntityDetailsMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x86\x01\n\x11ListEntityMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\xa1\x01\n\x12\x43reateIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12@\n\ndefinition\x18\x02 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.IndexDefinition\x12\x0f\n\x07rebuild\x18\x03 \x01(\x08\"\x83\x01\n\x10\x44ropIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\x86\x01\n\x13RebuildIndexMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\xb9\x01\n\x10\x43olumnDefinition\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x04type\x18\x02 \x01(\x0e\x32!.org.vitrivr.cottontail.grpc.Type\x12\x0e\n\x06length\x18\x03 \x01(\r\x12\x0f\n\x07primary\x18\x04 \x01(\x08\x12\x10\n\x08nullable\x18\x05 \x01(\x08\x12\x33\n\x06\x65ngine\x18\x06 \x01(\x0e\x32#.org.vitrivr.cottontail.grpc.Engine\"\x8b\x01\n\x10\x45ntityDefinition\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12>\n\x07\x63olumns\x18\x02 \x03(\x0b\x32-.org.vitrivr.cottontail.grpc.ColumnDefinition\"\xb0\x02\n\x0fIndexDefinition\x12\x34\n\x04name\x18\x01 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\x12\x34\n\x04type\x18\x02 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12H\n\x06params\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.IndexDefinition.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc5\x02\n\rInsertMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12J\n\x08\x65lements\x18\x03 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.InsertMessage.InsertElement\x1a}\n\rInsertElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xc2\x02\n\x12\x42\x61tchInsertMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x07inserts\x18\x04 \x03(\x0b\x32\x36.org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert\x1a>\n\x06Insert\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xf7\x02\n\rUpdateMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12I\n\x07updates\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.UpdateMessage.UpdateElement\x1a}\n\rUpdateElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xad\x01\n\rDeleteMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\"{\n\x0cQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\x82\x01\n\x13\x42\x61tchedQueryMessage\x12\x38\n\x04txId\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x31\n\x05query\x18\x02 \x03(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\xa7\x02\n\x05Query\x12/\n\x04\x66rom\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12;\n\nprojection\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.Projection\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12-\n\x03knn\x18\x04 \x01(\x0b\x32 .org.vitrivr.cottontail.grpc.Knn\x12\x31\n\x05order\x18\x05 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Order\x12\r\n\x05limit\x18\x06 \x01(\x04\x12\x0c\n\x04skip\x18\x07 \x01(\x04\"\x8f\x02\n\x14QueryResponseMessage\x12\x37\n\x03tid\x18\x01 \x01(\x0b\x32*.org.vitrivr.cottontail.grpc.TransactionId\x12\x38\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x06tuples\x18\x03 \x03(\x0b\x32\x37.org.vitrivr.cottontail.grpc.QueryResponseMessage.Tuple\x1a;\n\x05Tuple\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xb1\x01\n\x04\x46rom\x12\x31\n\x04scan\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.ScanH\x00\x12\x35\n\x06sample\x18\x02 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.SampleH\x00\x12\x37\n\tsubSelect\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\x06\n\x04\x66rom\"[\n\x04Scan\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\r\n\x05start\x18\x02 \x01(\x03\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x03\"]\n\x06Sample\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04size\x18\x02 \x01(\x03\x12\x0c\n\x04seed\x18\x03 \x01(\x03\"\xb1\x03\n\nProjection\x12G\n\x02op\x18\x01 \x01(\x0e\x32;.org.vitrivr.cottontail.grpc.Projection.ProjectionOperation\x12J\n\x07\x63olumns\x18\x02 \x03(\x0b\x32\x39.org.vitrivr.cottontail.grpc.Projection.ProjectionElement\x1a\x84\x01\n\x11ProjectionElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x36\n\x05\x61lias\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\"\x86\x01\n\x13ProjectionOperation\x12\n\n\x06SELECT\x10\x00\x12\x13\n\x0fSELECT_DISTINCT\x10\x01\x12\t\n\x05\x43OUNT\x10\x02\x12\x12\n\x0e\x43OUNT_DISTINCT\x10\x03\x12\n\n\x06\x45XISTS\x10\x04\x12\x07\n\x03SUM\x10\x05\x12\x07\n\x03MAX\x10\x06\x12\x07\n\x03MIN\x10\x07\x12\x08\n\x04MEAN\x10\x08\"\xa3\x03\n\x03Knn\x12:\n\tattribute\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\t\n\x01k\x18\x02 \x01(\r\x12;\n\x08\x64istance\x18\x03 \x01(\x0e\x32).org.vitrivr.cottontail.grpc.Knn.Distance\x12\x32\n\x04hint\x18\x04 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.KnnHint\x12\x32\n\x05query\x18\x05 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\x12\x33\n\x06weight\x18\x06 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.Vector\"{\n\x08\x44istance\x12\x06\n\x02L1\x10\x00\x12\x06\n\x02L2\x10\x01\x12\r\n\tL2SQUARED\x10\x02\x12\x06\n\x02LP\x10\x03\x12\x0e\n\nCHISQUARED\x10\x04\x12\x0b\n\x07HAMMING\x10\x05\x12\n\n\x06\x43OSINE\x10\x06\x12\x10\n\x0cINNERPRODUCT\x10\x07\x12\r\n\tHAVERSINE\x10\n\"\x8b\x06\n\x07KnnHint\x12J\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.KnnHint.NoIndexKnnHintH\x00\x12Y\n\x15\x61llowInexactIndexHint\x18\x02 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHintH\x00\x12N\n\rtypeIndexHint\x18\x03 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHintH\x00\x12N\n\rnameIndexHint\x18\x04 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHintH\x00\x12Q\n\x11parallelIndexHint\x18\x05 \x01(\x0b\x32\x34.org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHintH\x00\x1a\x10\n\x0eNoIndexKnnHint\x1a$\n\x13\x41llowInexactKnnHint\x12\r\n\x05\x61llow\x18\x01 \x01(\x08\x1aH\n\x10IndexTypeKnnHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xae\x01\n\x10IndexNameKnnHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12Y\n\nparameters\x18\x02 \x03(\x0b\x32\x45.org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a+\n\x0fParallelKnnHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdc\x01\n\x05Where\x12\x45\n\x06\x61tomic\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12I\n\x08\x63ompound\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12\x34\n\x04hint\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.WhereHintB\x0b\n\tpredicate\"\xa8\x05\n\tWhereHint\x12N\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x37.org.vitrivr.cottontail.grpc.WhereHint.NoIndexWhereHintH\x00\x12R\n\rtypeIndexHint\x18\x02 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHintH\x00\x12R\n\rnameIndexHint\x18\x03 \x01(\x0b\x32\x39.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHintH\x00\x12U\n\x11parallelIndexHint\x18\x04 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHintH\x00\x1a\x12\n\x10NoIndexWhereHint\x1aJ\n\x12IndexTypeWhereHint\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x1a\xb4\x01\n\x12IndexNameWhereHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12]\n\nparameters\x18\x02 \x03(\x0b\x32I.org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x11ParallelWhereHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint\"\xdb\x01\n\x16\x41tomicBooleanPredicate\x12\x35\n\x04left\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12@\n\x05right\x18\x02 \x01(\x0b\x32\x31.org.vitrivr.cottontail.grpc.AtomicBooleanOperand\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ComparisonOperator\x12\x0b\n\x03not\x18\x04 \x01(\x08\"\xcc\x01\n\x14\x41tomicBooleanOperand\x12\x39\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnNameH\x00\x12\x39\n\x08literals\x18\x02 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.LiteralsH\x00\x12\x33\n\x05query\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\t\n\x07operand\"A\n\x08Literals\x12\x35\n\x07literal\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\x86\x03\n\x18\x43ompoundBooleanPredicate\x12\x44\n\x05\x61left\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12\x46\n\x05\x63left\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ConnectionOperator\x12\x45\n\x06\x61right\x18\x04 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x01\x12G\n\x06\x63right\x18\x05 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xfd\x01\n\x05Order\x12@\n\ncomponents\x18\x01 \x03(\x0b\x32,.org.vitrivr.cottontail.grpc.Order.Component\x1a\x85\x01\n\tComponent\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12?\n\tdirection\x18\x02 \x01(\x0e\x32,.org.vitrivr.cottontail.grpc.Order.Direction\"*\n\tDirection\x12\r\n\tASCENDING\x10\x00\x12\x0e\n\nDESCENDING\x10\x01*\x84\x01\n\tIndexType\x12\x08\n\x04HASH\x10\x00\x12\x0b\n\x07HASH_UQ\x10\x01\x12\t\n\x05\x42TREE\x10\x02\x12\n\n\x06LUCENE\x10\x03\x12\x07\n\x03VAF\x10\x04\x12\x06\n\x02PQ\x10\x05\x12\x07\n\x03LSH\x10\x06\x12\x10\n\x0cSUPERBIT_LSH\x10\x07\x12\x1d\n\x19NONBUCKETING_SUPERBIT_LSH\x10\x08*\x82\x02\n\x04Type\x12\x0b\n\x07\x42OOLEAN\x10\x00\x12\x08\n\x04\x42YTE\x10\x01\x12\t\n\x05SHORT\x10\x02\x12\x0b\n\x07INTEGER\x10\x03\x12\x08\n\x04LONG\x10\x04\x12\t\n\x05\x46LOAT\x10\x05\x12\n\n\x06\x44OUBLE\x10\x06\x12\x08\n\x04\x44\x41TE\x10\x07\x12\n\n\x06STRING\x10\x08\x12\x0e\n\nDOUBLE_VEC\x10\t\x12\r\n\tFLOAT_VEC\x10\n\x12\x0c\n\x08LONG_VEC\x10\x0b\x12\x0b\n\x07INT_VEC\x10\x0c\x12\x0c\n\x08\x42OOL_VEC\x10\r\x12\r\n\tCOMPLEX32\x10\x0e\x12\r\n\tCOMPLEX64\x10\x0f\x12\x11\n\rCOMPLEX32_VEC\x10\x10\x12\x11\n\rCOMPLEX64_VEC\x10\x11\x12\x08\n\x04\x42LOB\x10\x12*\x1d\n\x06\x45ngine\x12\x08\n\x04HARE\x10\x00\x12\t\n\x05MAPDB\x10\x01*\x84\x01\n\x12\x43omparisonOperator\x12\t\n\x05\x45QUAL\x10\x00\x12\x0b\n\x07GREATER\x10\x01\x12\x08\n\x04LESS\x10\x02\x12\n\n\x06GEQUAL\x10\x03\x12\n\n\x06LEQUAL\x10\x04\x12\x06\n\x02IN\x10\x05\x12\x0b\n\x07\x42\x45TWEEN\x10\x06\x12\n\n\x06ISNULL\x10\x07\x12\x08\n\x04LIKE\x10\x08\x12\t\n\x05MATCH\x10\t*%\n\x12\x43onnectionOperator\x12\x07\n\x03\x41ND\x10\x00\x12\x06\n\x02OR\x10\x01\x32\xfa\n\n\x03\x44\x44L\x12r\n\x0bListSchemas\x12..org.vitrivr.cottontail.grpc.ListSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\x0c\x43reateSchema\x12\x30.org.vitrivr.cottontail.grpc.CreateSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropSchema\x12..org.vitrivr.cottontail.grpc.DropSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cListEntities\x12..org.vitrivr.cottontail.grpc.ListEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12u\n\rEntityDetails\x12\x31.org.vitrivr.cottontail.grpc.EntityDetailsMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0c\x43reateEntity\x12\x30.org.vitrivr.cottontail.grpc.CreateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropEntity\x12..org.vitrivr.cottontail.grpc.DropEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eTruncateEntity\x12\x32.org.vitrivr.cottontail.grpc.TruncateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eOptimizeEntity\x12\x32.org.vitrivr.cottontail.grpc.OptimizeEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0b\x43reateIndex\x12/.org.vitrivr.cottontail.grpc.CreateIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12m\n\tDropIndex\x12-.org.vitrivr.cottontail.grpc.DropIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cRebuildIndex\x12\x30.org.vitrivr.cottontail.grpc.RebuildIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\xb3\x03\n\x03\x44ML\x12g\n\x06Insert\x12*.org.vitrivr.cottontail.grpc.InsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0bInsertBatch\x12/.org.vitrivr.cottontail.grpc.BatchInsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06Update\x12*.org.vitrivr.cottontail.grpc.UpdateMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06\x44\x65lete\x12*.org.vitrivr.cottontail.grpc.DeleteMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\x86\x03\n\x03\x44QL\x12i\n\x07\x45xplain\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12g\n\x05Query\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\nBatchQuery\x12\x30.org.vitrivr.cottontail.grpc.BatchedQueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12\x36\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty2\xab\x03\n\x03TXN\x12K\n\x05\x42\x65gin\x12\x16.google.protobuf.Empty\x1a*.org.vitrivr.cottontail.grpc.TransactionId\x12L\n\x06\x43ommit\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12N\n\x08Rollback\x12*.org.vitrivr.cottontail.grpc.TransactionId\x1a\x16.google.protobuf.Empty\x12_\n\x10ListTransactions\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12X\n\tListLocks\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x42-\n\x1borg.vitrivr.cottontail.grpcB\x0e\x43ottontailGrpcb\x06proto3'
+  serialized_pb=b'\n\x10\x63ottontail.proto\x12\x1borg.vitrivr.cottontail.grpc\x1a\x1bgoogle/protobuf/empty.proto\"\x1a\n\nSchemaName\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1c\n\x0c\x46unctionName\x12\x0c\n\x04name\x18\x01 \x01(\t\"S\n\nEntityName\x12\x37\n\x06schema\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\x12\x0c\n\x04name\x18\x02 \x01(\t\"R\n\tIndexName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"S\n\nColumnName\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04name\x18\x02 \x01(\t\"2\n\x08Metadata\x12\x15\n\rtransactionId\x18\x01 \x01(\x03\x12\x0f\n\x07queryId\x18\x02 \x01(\t\"\x84\x03\n\x07Literal\x12\x15\n\x0b\x62ooleanData\x18\x01 \x01(\x08H\x00\x12\x11\n\x07intData\x18\x02 \x01(\x05H\x00\x12\x12\n\x08longData\x18\x03 \x01(\x03H\x00\x12\x13\n\tfloatData\x18\x04 \x01(\x02H\x00\x12\x14\n\ndoubleData\x18\x05 \x01(\x01H\x00\x12\x14\n\nstringData\x18\x06 \x01(\tH\x00\x12\x35\n\x08\x64\x61teData\x18\x07 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.DateH\x00\x12?\n\rcomplex32Data\x18\x08 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32H\x00\x12?\n\rcomplex64Data\x18\t \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64H\x00\x12\x39\n\nvectorData\x18\n \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.VectorH\x00\x42\x06\n\x04\x64\x61ta\"\xc2\x01\n\nExpression\x12\x37\n\x07literal\x18\x01 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.LiteralH\x00\x12\x39\n\x06\x63olumn\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnNameH\x00\x12\x39\n\x08\x66unction\x18\x03 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.FunctionH\x00\x42\x05\n\x03\x65xp\"\x7f\n\x08\x46unction\x12\x37\n\x04name\x18\x01 \x01(\x0b\x32).org.vitrivr.cottontail.grpc.FunctionName\x12:\n\targuments\x18\x02 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.Expression\"J\n\x0b\x45xpressions\x12;\n\nexpression\x18\x01 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.Expression\"\xe7\x03\n\x06Vector\x12?\n\x0b\x66loatVector\x18\x01 \x01(\x0b\x32(.org.vitrivr.cottontail.grpc.FloatVectorH\x00\x12\x41\n\x0c\x64oubleVector\x18\x02 \x01(\x0b\x32).org.vitrivr.cottontail.grpc.DoubleVectorH\x00\x12;\n\tintVector\x18\x03 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IntVectorH\x00\x12=\n\nlongVector\x18\x04 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.LongVectorH\x00\x12=\n\nboolVector\x18\x05 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.BoolVectorH\x00\x12G\n\x0f\x63omplex32Vector\x18\x06 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex32VectorH\x00\x12G\n\x0f\x63omplex64Vector\x18\x07 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.Complex64VectorH\x00\x42\x0c\n\nvectorData\"\x06\n\x04Null\"\x1d\n\x04\x44\x61te\x12\x15\n\rutc_timestamp\x18\x01 \x01(\x03\",\n\tComplex32\x12\x0c\n\x04real\x18\x01 \x01(\x02\x12\x11\n\timaginary\x18\x02 \x01(\x02\",\n\tComplex64\x12\x0c\n\x04real\x18\x01 \x01(\x01\x12\x11\n\timaginary\x18\x02 \x01(\x01\"\x1d\n\x0b\x46loatVector\x12\x0e\n\x06vector\x18\x01 \x03(\x02\"\x1e\n\x0c\x44oubleVector\x12\x0e\n\x06vector\x18\x01 \x03(\x01\"\x1b\n\tIntVector\x12\x0e\n\x06vector\x18\x01 \x03(\x05\"\x1c\n\nLongVector\x12\x0e\n\x06vector\x18\x01 \x03(\x03\"\x1c\n\nBoolVector\x12\x0e\n\x06vector\x18\x01 \x03(\x08\"I\n\x0f\x43omplex32Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex32\"I\n\x0f\x43omplex64Vector\x12\x36\n\x06vector\x18\x01 \x03(\x0b\x32&.org.vitrivr.cottontail.grpc.Complex64\"\x87\x01\n\x13\x43reateSchemaMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\x85\x01\n\x11\x44ropSchemaMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"L\n\x11ListSchemaMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\"\x91\x01\n\x13\x43reateEntityMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x41\n\ndefinition\x18\x02 \x01(\x0b\x32-.org.vitrivr.cottontail.grpc.EntityDefinition\"\x85\x01\n\x11\x44ropEntityMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x89\x01\n\x15TruncateEntityMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x89\x01\n\x15OptimizeEntityMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x88\x01\n\x14\x45ntityDetailsMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\"\x85\x01\n\x11ListEntityMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x37\n\x06schema\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.SchemaName\"\xa0\x01\n\x12\x43reateIndexMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12@\n\ndefinition\x18\x02 \x01(\x0b\x32,.org.vitrivr.cottontail.grpc.IndexDefinition\x12\x0f\n\x07rebuild\x18\x03 \x01(\x08\"\x82\x01\n\x10\x44ropIndexMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\x85\x01\n\x13RebuildIndexMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x35\n\x05index\x18\x02 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\"\xe2\x01\n\x10\x43olumnDefinition\x12\x35\n\x04name\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12/\n\x04type\x18\x02 \x01(\x0e\x32!.org.vitrivr.cottontail.grpc.Type\x12\x0e\n\x06length\x18\x03 \x01(\r\x12\x0f\n\x07primary\x18\x04 \x01(\x08\x12\x10\n\x08nullable\x18\x05 \x01(\x08\x12\x33\n\x06\x65ngine\x18\x06 \x01(\x0e\x32#.org.vitrivr.cottontail.grpc.Engine\"\x8b\x01\n\x10\x45ntityDefinition\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12>\n\x07\x63olumns\x18\x02 \x03(\x0b\x32-.org.vitrivr.cottontail.grpc.ColumnDefinition\"\xb0\x02\n\x0fIndexDefinition\x12\x34\n\x04name\x18\x01 \x01(\x0b\x32&.org.vitrivr.cottontail.grpc.IndexName\x12\x34\n\x04type\x18\x02 \x01(\x0e\x32&.org.vitrivr.cottontail.grpc.IndexType\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12H\n\x06params\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.IndexDefinition.ParamsEntry\x1a-\n\x0bParamsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc4\x02\n\rInsertMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12J\n\x08\x65lements\x18\x03 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.InsertMessage.InsertElement\x1a}\n\rInsertElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xc1\x02\n\x12\x42\x61tchInsertMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x38\n\x07\x63olumns\x18\x03 \x03(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12G\n\x07inserts\x18\x04 \x03(\x0b\x32\x36.org.vitrivr.cottontail.grpc.BatchInsertMessage.Insert\x1a>\n\x06Insert\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xfa\x02\n\rUpdateMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12I\n\x07updates\x18\x04 \x03(\x0b\x32\x38.org.vitrivr.cottontail.grpc.UpdateMessage.UpdateElement\x1a\x80\x01\n\rUpdateElement\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.Expression\"\xac\x01\n\rDeleteMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12/\n\x04\x66rom\x18\x02 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\"z\n\x0cQueryMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x31\n\x05query\x18\x02 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\x81\x01\n\x13\x42\x61tchedQueryMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12\x31\n\x05query\x18\x02 \x03(\x0b\x32\".org.vitrivr.cottontail.grpc.Query\"\xb3\x02\n\x05Query\x12/\n\x04\x66rom\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.From\x12;\n\nprojection\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.Projection\x12\x31\n\x05where\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Where\x12\x31\n\x05order\x18\x04 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.Order\x12\r\n\x05limit\x18\x05 \x01(\x04\x12\x0c\n\x04skip\x18\x06 \x01(\x04\x12\x39\n\x05hints\x18\x07 \x03(\x0b\x32*.org.vitrivr.cottontail.grpc.ExecutionHint\"\x95\x02\n\x14QueryResponseMessage\x12\x37\n\x08metadata\x18\x01 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.Metadata\x12>\n\x07\x63olumns\x18\x02 \x03(\x0b\x32-.org.vitrivr.cottontail.grpc.ColumnDefinition\x12G\n\x06tuples\x18\x03 \x03(\x0b\x32\x37.org.vitrivr.cottontail.grpc.QueryResponseMessage.Tuple\x1a;\n\x05Tuple\x12\x32\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32$.org.vitrivr.cottontail.grpc.Literal\"\xb1\x01\n\x04\x46rom\x12\x31\n\x04scan\x18\x01 \x01(\x0b\x32!.org.vitrivr.cottontail.grpc.ScanH\x00\x12\x35\n\x06sample\x18\x02 \x01(\x0b\x32#.org.vitrivr.cottontail.grpc.SampleH\x00\x12\x37\n\tsubSelect\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\x06\n\x04\x66rom\"[\n\x04Scan\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\r\n\x05start\x18\x02 \x01(\x03\x12\x0b\n\x03\x65nd\x18\x03 \x01(\x03\"d\n\x06Sample\x12\x37\n\x06\x65ntity\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.EntityName\x12\x0c\n\x04seed\x18\x02 \x01(\x03\x12\x13\n\x0bprobability\x18\x03 \x01(\x02\"\xf7\x03\n\nProjection\x12G\n\x02op\x18\x01 \x01(\x0e\x32;.org.vitrivr.cottontail.grpc.Projection.ProjectionOperation\x12K\n\x08\x65lements\x18\x02 \x03(\x0b\x32\x39.org.vitrivr.cottontail.grpc.Projection.ProjectionElement\x1a\xc9\x01\n\x11ProjectionElement\x12\x36\n\x05\x61lias\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12\x39\n\x06\x63olumn\x18\x02 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnNameH\x00\x12\x39\n\x08\x66unction\x18\x03 \x01(\x0b\x32%.org.vitrivr.cottontail.grpc.FunctionH\x00\x42\x06\n\x04proj\"\x86\x01\n\x13ProjectionOperation\x12\n\n\x06SELECT\x10\x00\x12\x13\n\x0fSELECT_DISTINCT\x10\x01\x12\t\n\x05\x43OUNT\x10\x02\x12\x12\n\x0e\x43OUNT_DISTINCT\x10\x03\x12\n\n\x06\x45XISTS\x10\x04\x12\x07\n\x03SUM\x10\x05\x12\x07\n\x03MAX\x10\x06\x12\x07\n\x03MIN\x10\x07\x12\x08\n\x04MEAN\x10\x08\"\xa6\x01\n\x05Where\x12\x45\n\x06\x61tomic\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12I\n\x08\x63ompound\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x42\x0b\n\tpredicate\"\xdb\x01\n\x16\x41tomicBooleanPredicate\x12\x35\n\x04left\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12@\n\x05right\x18\x02 \x01(\x0b\x32\x31.org.vitrivr.cottontail.grpc.AtomicBooleanOperand\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ComparisonOperator\x12\x0b\n\x03not\x18\x04 \x01(\x08\"\x97\x01\n\x14\x41tomicBooleanOperand\x12?\n\x0b\x65xpressions\x18\x01 \x01(\x0b\x32(.org.vitrivr.cottontail.grpc.ExpressionsH\x00\x12\x33\n\x05query\x18\x03 \x01(\x0b\x32\".org.vitrivr.cottontail.grpc.QueryH\x00\x42\t\n\x07operand\"\x86\x03\n\x18\x43ompoundBooleanPredicate\x12\x44\n\x05\x61left\x18\x01 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x00\x12\x46\n\x05\x63left\x18\x02 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x00\x12;\n\x02op\x18\x03 \x01(\x0e\x32/.org.vitrivr.cottontail.grpc.ConnectionOperator\x12\x45\n\x06\x61right\x18\x04 \x01(\x0b\x32\x33.org.vitrivr.cottontail.grpc.AtomicBooleanPredicateH\x01\x12G\n\x06\x63right\x18\x05 \x01(\x0b\x32\x35.org.vitrivr.cottontail.grpc.CompoundBooleanPredicateH\x01\x42\x06\n\x04leftB\x07\n\x05right\"\xfd\x01\n\x05Order\x12@\n\ncomponents\x18\x01 \x03(\x0b\x32,.org.vitrivr.cottontail.grpc.Order.Component\x1a\x85\x01\n\tComponent\x12\x37\n\x06\x63olumn\x18\x01 \x01(\x0b\x32\'.org.vitrivr.cottontail.grpc.ColumnName\x12?\n\tdirection\x18\x02 \x01(\x0e\x32,.org.vitrivr.cottontail.grpc.Order.Direction\"*\n\tDirection\x12\r\n\tASCENDING\x10\x00\x12\x0e\n\nDESCENDING\x10\x01\"\x84\x05\n\rExecutionHint\x12M\n\x0bnoIndexHint\x18\x01 \x01(\x0b\x32\x36.org.vitrivr.cottontail.grpc.ExecutionHint.NoIndexHintH\x00\x12_\n\x15\x61llowInexactIndexHint\x18\x02 \x01(\x0b\x32>.org.vitrivr.cottontail.grpc.ExecutionHint.AllowInaccuracyHintH\x00\x12Q\n\rnameIndexHint\x18\x03 \x01(\x0b\x32\x38.org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHintH\x00\x12T\n\x11parallelIndexHint\x18\x04 \x01(\x0b\x32\x37.org.vitrivr.cottontail.grpc.ExecutionHint.ParallelHintH\x00\x1a\r\n\x0bNoIndexHint\x1a(\n\x13\x41llowInaccuracyHint\x12\x11\n\tthreshold\x18\x01 \x01(\x02\x1a\xae\x01\n\rIndexNameHint\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\\\n\nparameters\x18\x02 \x03(\x0b\x32H.org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.ParametersEntry\x1a\x31\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a(\n\x0cParallelHint\x12\x0b\n\x03min\x18\x01 \x01(\r\x12\x0b\n\x03max\x18\x02 \x01(\rB\x06\n\x04hint*\x84\x01\n\tIndexType\x12\x08\n\x04HASH\x10\x00\x12\x0b\n\x07HASH_UQ\x10\x01\x12\t\n\x05\x42TREE\x10\x02\x12\n\n\x06LUCENE\x10\x03\x12\x07\n\x03VAF\x10\x04\x12\x06\n\x02PQ\x10\x05\x12\x07\n\x03LSH\x10\x06\x12\x10\n\x0cSUPERBIT_LSH\x10\x07\x12\x1d\n\x19NONBUCKETING_SUPERBIT_LSH\x10\x08*\x1d\n\x06\x45ngine\x12\x08\n\x04HARE\x10\x00\x12\t\n\x05MAPDB\x10\x01*\x82\x02\n\x04Type\x12\x0b\n\x07\x42OOLEAN\x10\x00\x12\x08\n\x04\x42YTE\x10\x01\x12\t\n\x05SHORT\x10\x02\x12\x0b\n\x07INTEGER\x10\x03\x12\x08\n\x04LONG\x10\x04\x12\t\n\x05\x46LOAT\x10\x05\x12\n\n\x06\x44OUBLE\x10\x06\x12\x08\n\x04\x44\x41TE\x10\x07\x12\n\n\x06STRING\x10\x08\x12\r\n\tCOMPLEX32\x10\t\x12\r\n\tCOMPLEX64\x10\n\x12\x0e\n\nDOUBLE_VEC\x10\x0b\x12\r\n\tFLOAT_VEC\x10\x0c\x12\x0c\n\x08LONG_VEC\x10\r\x12\x0b\n\x07INT_VEC\x10\x0e\x12\x0c\n\x08\x42OOL_VEC\x10\x0f\x12\x11\n\rCOMPLEX32_VEC\x10\x10\x12\x11\n\rCOMPLEX64_VEC\x10\x11\x12\x08\n\x04\x42LOB\x10\x12*y\n\x12\x43omparisonOperator\x12\t\n\x05\x45QUAL\x10\x00\x12\x0b\n\x07GREATER\x10\x01\x12\x08\n\x04LESS\x10\x02\x12\n\n\x06GEQUAL\x10\x03\x12\n\n\x06LEQUAL\x10\x04\x12\x06\n\x02IN\x10\x05\x12\x0b\n\x07\x42\x45TWEEN\x10\x06\x12\n\n\x06ISNULL\x10\x07\x12\x08\n\x04LIKE\x10\x08*%\n\x12\x43onnectionOperator\x12\x07\n\x03\x41ND\x10\x00\x12\x06\n\x02OR\x10\x01\x32\xfa\n\n\x03\x44\x44L\x12r\n\x0bListSchemas\x12..org.vitrivr.cottontail.grpc.ListSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\x0c\x43reateSchema\x12\x30.org.vitrivr.cottontail.grpc.CreateSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropSchema\x12..org.vitrivr.cottontail.grpc.DropSchemaMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cListEntities\x12..org.vitrivr.cottontail.grpc.ListEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12u\n\rEntityDetails\x12\x31.org.vitrivr.cottontail.grpc.EntityDetailsMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0c\x43reateEntity\x12\x30.org.vitrivr.cottontail.grpc.CreateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12o\n\nDropEntity\x12..org.vitrivr.cottontail.grpc.DropEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eTruncateEntity\x12\x32.org.vitrivr.cottontail.grpc.TruncateEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12w\n\x0eOptimizeEntity\x12\x32.org.vitrivr.cottontail.grpc.OptimizeEntityMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0b\x43reateIndex\x12/.org.vitrivr.cottontail.grpc.CreateIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12m\n\tDropIndex\x12-.org.vitrivr.cottontail.grpc.DropIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12s\n\x0cRebuildIndex\x12\x30.org.vitrivr.cottontail.grpc.RebuildIndexMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\xb3\x03\n\x03\x44ML\x12g\n\x06Insert\x12*.org.vitrivr.cottontail.grpc.InsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12q\n\x0bInsertBatch\x12/.org.vitrivr.cottontail.grpc.BatchInsertMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06Update\x12*.org.vitrivr.cottontail.grpc.UpdateMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage\x12g\n\x06\x44\x65lete\x12*.org.vitrivr.cottontail.grpc.DeleteMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage2\x86\x03\n\x03\x44QL\x12i\n\x07\x45xplain\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12g\n\x05Query\x12).org.vitrivr.cottontail.grpc.QueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12s\n\nBatchQuery\x12\x30.org.vitrivr.cottontail.grpc.BatchedQueryMessage\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12\x36\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty2\xe3\x03\n\x03TXN\x12\x46\n\x05\x42\x65gin\x12\x16.google.protobuf.Empty\x1a%.org.vitrivr.cottontail.grpc.Metadata\x12G\n\x06\x43ommit\x12%.org.vitrivr.cottontail.grpc.Metadata\x1a\x16.google.protobuf.Empty\x12I\n\x08Rollback\x12%.org.vitrivr.cottontail.grpc.Metadata\x1a\x16.google.protobuf.Empty\x12\x45\n\x04Kill\x12%.org.vitrivr.cottontail.grpc.Metadata\x1a\x16.google.protobuf.Empty\x12_\n\x10ListTransactions\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x12X\n\tListLocks\x12\x16.google.protobuf.Empty\x1a\x31.org.vitrivr.cottontail.grpc.QueryResponseMessage0\x01\x42-\n\x1borg.vitrivr.cottontail.grpcB\x0e\x43ottontailGrpcb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -80,12 +80,38 @@ _INDEXTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10383,
-  serialized_end=10515,
+  serialized_start=9235,
+  serialized_end=9367,
 )
 _sym_db.RegisterEnumDescriptor(_INDEXTYPE)
 
 IndexType = enum_type_wrapper.EnumTypeWrapper(_INDEXTYPE)
+_ENGINE = _descriptor.EnumDescriptor(
+  name='Engine',
+  full_name='org.vitrivr.cottontail.grpc.Engine',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='HARE', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MAPDB', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=9369,
+  serialized_end=9398,
+)
+_sym_db.RegisterEnumDescriptor(_ENGINE)
+
+Engine = enum_type_wrapper.EnumTypeWrapper(_ENGINE)
 _TYPE = _descriptor.EnumDescriptor(
   name='Type',
   full_name='org.vitrivr.cottontail.grpc.Type',
@@ -139,37 +165,37 @@ _TYPE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='DOUBLE_VEC', index=9, number=9,
+      name='COMPLEX32', index=9, number=9,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='FLOAT_VEC', index=10, number=10,
+      name='COMPLEX64', index=10, number=10,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='LONG_VEC', index=11, number=11,
+      name='DOUBLE_VEC', index=11, number=11,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='INT_VEC', index=12, number=12,
+      name='FLOAT_VEC', index=12, number=12,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='BOOL_VEC', index=13, number=13,
+      name='LONG_VEC', index=13, number=13,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='COMPLEX32', index=14, number=14,
+      name='INT_VEC', index=14, number=14,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='COMPLEX64', index=15, number=15,
+      name='BOOL_VEC', index=15, number=15,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -191,38 +217,12 @@ _TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10518,
-  serialized_end=10776,
+  serialized_start=9401,
+  serialized_end=9659,
 )
 _sym_db.RegisterEnumDescriptor(_TYPE)
 
 Type = enum_type_wrapper.EnumTypeWrapper(_TYPE)
-_ENGINE = _descriptor.EnumDescriptor(
-  name='Engine',
-  full_name='org.vitrivr.cottontail.grpc.Engine',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='HARE', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='MAPDB', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=10778,
-  serialized_end=10807,
-)
-_sym_db.RegisterEnumDescriptor(_ENGINE)
-
-Engine = enum_type_wrapper.EnumTypeWrapper(_ENGINE)
 _COMPARISONOPERATOR = _descriptor.EnumDescriptor(
   name='ComparisonOperator',
   full_name='org.vitrivr.cottontail.grpc.ComparisonOperator',
@@ -275,16 +275,11 @@ _COMPARISONOPERATOR = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='MATCH', index=9, number=9,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10810,
-  serialized_end=10942,
+  serialized_start=9661,
+  serialized_end=9782,
 )
 _sym_db.RegisterEnumDescriptor(_COMPARISONOPERATOR)
 
@@ -309,8 +304,8 @@ _CONNECTIONOPERATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10944,
-  serialized_end=10981,
+  serialized_start=9784,
+  serialized_end=9821,
 )
 _sym_db.RegisterEnumDescriptor(_CONNECTIONOPERATOR)
 
@@ -324,6 +319,8 @@ PQ = 5
 LSH = 6
 SUPERBIT_LSH = 7
 NONBUCKETING_SUPERBIT_LSH = 8
+HARE = 0
+MAPDB = 1
 BOOLEAN = 0
 BYTE = 1
 SHORT = 2
@@ -333,18 +330,16 @@ FLOAT = 5
 DOUBLE = 6
 DATE = 7
 STRING = 8
-DOUBLE_VEC = 9
-FLOAT_VEC = 10
-LONG_VEC = 11
-INT_VEC = 12
-BOOL_VEC = 13
-COMPLEX32 = 14
-COMPLEX64 = 15
+COMPLEX32 = 9
+COMPLEX64 = 10
+DOUBLE_VEC = 11
+FLOAT_VEC = 12
+LONG_VEC = 13
+INT_VEC = 14
+BOOL_VEC = 15
 COMPLEX32_VEC = 16
 COMPLEX64_VEC = 17
 BLOB = 18
-HARE = 0
-MAPDB = 1
 EQUAL = 0
 GREATER = 1
 LESS = 2
@@ -354,45 +349,9 @@ IN = 5
 BETWEEN = 6
 ISNULL = 7
 LIKE = 8
-MATCH = 9
 AND = 0
 OR = 1
 
-
-_TRANSACTION_STATUS = _descriptor.EnumDescriptor(
-  name='Status',
-  full_name='org.vitrivr.cottontail.grpc.Transaction.Status',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='CREATED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='RUNNING', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='COMPLETED', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='ERROR', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=583,
-  serialized_end=643,
-)
-_sym_db.RegisterEnumDescriptor(_TRANSACTION_STATUS)
 
 _PROJECTION_PROJECTIONOPERATION = _descriptor.EnumDescriptor(
   name='ProjectionOperation',
@@ -449,70 +408,10 @@ _PROJECTION_PROJECTIONOPERATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6991,
-  serialized_end=7125,
+  serialized_start=7257,
+  serialized_end=7391,
 )
 _sym_db.RegisterEnumDescriptor(_PROJECTION_PROJECTIONOPERATION)
-
-_KNN_DISTANCE = _descriptor.EnumDescriptor(
-  name='Distance',
-  full_name='org.vitrivr.cottontail.grpc.Knn.Distance',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='L1', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='L2', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='L2SQUARED', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='LP', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='CHISQUARED', index=4, number=4,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='HAMMING', index=5, number=5,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='COSINE', index=6, number=6,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='INNERPRODUCT', index=7, number=7,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='HAVERSINE', index=8, number=10,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=7424,
-  serialized_end=7547,
-)
-_sym_db.RegisterEnumDescriptor(_KNN_DISTANCE)
 
 _ORDER_DIRECTION = _descriptor.EnumDescriptor(
   name='Direction',
@@ -534,8 +433,8 @@ _ORDER_DIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10338,
-  serialized_end=10380,
+  serialized_start=8543,
+  serialized_end=8585,
 )
 _sym_db.RegisterEnumDescriptor(_ORDER_DIRECTION)
 
@@ -569,6 +468,38 @@ _SCHEMANAME = _descriptor.Descriptor(
   ],
   serialized_start=78,
   serialized_end=104,
+)
+
+
+_FUNCTIONNAME = _descriptor.Descriptor(
+  name='FunctionName',
+  full_name='org.vitrivr.cottontail.grpc.FunctionName',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='org.vitrivr.cottontail.grpc.FunctionName.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=106,
+  serialized_end=134,
 )
 
 
@@ -606,8 +537,8 @@ _ENTITYNAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=106,
-  serialized_end=189,
+  serialized_start=136,
+  serialized_end=219,
 )
 
 
@@ -645,8 +576,8 @@ _INDEXNAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=191,
-  serialized_end=273,
+  serialized_start=221,
+  serialized_end=303,
 )
 
 
@@ -684,28 +615,28 @@ _COLUMNNAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=275,
-  serialized_end=358,
+  serialized_start=305,
+  serialized_end=388,
 )
 
 
-_TRANSACTIONID = _descriptor.Descriptor(
-  name='TransactionId',
-  full_name='org.vitrivr.cottontail.grpc.TransactionId',
+_METADATA = _descriptor.Descriptor(
+  name='Metadata',
+  full_name='org.vitrivr.cottontail.grpc.Metadata',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='org.vitrivr.cottontail.grpc.TransactionId.value', index=0,
+      name='transactionId', full_name='org.vitrivr.cottontail.grpc.Metadata.transactionId', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='queryId', full_name='org.vitrivr.cottontail.grpc.TransactionId.queryId', index=1,
+      name='queryId', full_name='org.vitrivr.cottontail.grpc.Metadata.queryId', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -723,62 +654,8 @@ _TRANSACTIONID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=407,
-)
-
-
-_TRANSACTION = _descriptor.Descriptor(
-  name='Transaction',
-  full_name='org.vitrivr.cottontail.grpc.Transaction',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='tid', full_name='org.vitrivr.cottontail.grpc.Transaction.tid', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='status', full_name='org.vitrivr.cottontail.grpc.Transaction.status', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='created', full_name='org.vitrivr.cottontail.grpc.Transaction.created', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='completed', full_name='org.vitrivr.cottontail.grpc.Transaction.completed', index=3,
-      number=4, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _TRANSACTION_STATUS,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=410,
-  serialized_end=643,
+  serialized_start=390,
+  serialized_end=440,
 )
 
 
@@ -860,13 +737,6 @@ _LITERAL = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='nullData', full_name='org.vitrivr.cottontail.grpc.Literal.nullData', index=10,
-      number=11, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -884,8 +754,130 @@ _LITERAL = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=646,
-  serialized_end=1089,
+  serialized_start=443,
+  serialized_end=831,
+)
+
+
+_EXPRESSION = _descriptor.Descriptor(
+  name='Expression',
+  full_name='org.vitrivr.cottontail.grpc.Expression',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='literal', full_name='org.vitrivr.cottontail.grpc.Expression.literal', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='column', full_name='org.vitrivr.cottontail.grpc.Expression.column', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='function', full_name='org.vitrivr.cottontail.grpc.Expression.function', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='exp', full_name='org.vitrivr.cottontail.grpc.Expression.exp',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=834,
+  serialized_end=1028,
+)
+
+
+_FUNCTION = _descriptor.Descriptor(
+  name='Function',
+  full_name='org.vitrivr.cottontail.grpc.Function',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='org.vitrivr.cottontail.grpc.Function.name', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arguments', full_name='org.vitrivr.cottontail.grpc.Function.arguments', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1030,
+  serialized_end=1157,
+)
+
+
+_EXPRESSIONS = _descriptor.Descriptor(
+  name='Expressions',
+  full_name='org.vitrivr.cottontail.grpc.Expressions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='expression', full_name='org.vitrivr.cottontail.grpc.Expressions.expression', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1159,
+  serialized_end=1233,
 )
 
 
@@ -963,8 +955,8 @@ _VECTOR = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1092,
-  serialized_end=1579,
+  serialized_start=1236,
+  serialized_end=1723,
 )
 
 
@@ -988,8 +980,8 @@ _NULL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1581,
-  serialized_end=1587,
+  serialized_start=1725,
+  serialized_end=1731,
 )
 
 
@@ -1020,8 +1012,8 @@ _DATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1589,
-  serialized_end=1618,
+  serialized_start=1733,
+  serialized_end=1762,
 )
 
 
@@ -1059,8 +1051,8 @@ _COMPLEX32 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1620,
-  serialized_end=1664,
+  serialized_start=1764,
+  serialized_end=1808,
 )
 
 
@@ -1098,8 +1090,8 @@ _COMPLEX64 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1666,
-  serialized_end=1710,
+  serialized_start=1810,
+  serialized_end=1854,
 )
 
 
@@ -1130,8 +1122,8 @@ _FLOATVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1712,
-  serialized_end=1741,
+  serialized_start=1856,
+  serialized_end=1885,
 )
 
 
@@ -1162,8 +1154,8 @@ _DOUBLEVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1743,
-  serialized_end=1773,
+  serialized_start=1887,
+  serialized_end=1917,
 )
 
 
@@ -1194,8 +1186,8 @@ _INTVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1775,
-  serialized_end=1802,
+  serialized_start=1919,
+  serialized_end=1946,
 )
 
 
@@ -1226,8 +1218,8 @@ _LONGVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1804,
-  serialized_end=1832,
+  serialized_start=1948,
+  serialized_end=1976,
 )
 
 
@@ -1258,8 +1250,8 @@ _BOOLVECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1834,
-  serialized_end=1862,
+  serialized_start=1978,
+  serialized_end=2006,
 )
 
 
@@ -1290,8 +1282,8 @@ _COMPLEX32VECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1864,
-  serialized_end=1937,
+  serialized_start=2008,
+  serialized_end=2081,
 )
 
 
@@ -1322,8 +1314,8 @@ _COMPLEX64VECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1939,
-  serialized_end=2012,
+  serialized_start=2083,
+  serialized_end=2156,
 )
 
 
@@ -1336,7 +1328,7 @@ _CREATESCHEMAMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.CreateSchemaMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.CreateSchemaMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1361,8 +1353,8 @@ _CREATESCHEMAMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2015,
-  serialized_end=2151,
+  serialized_start=2159,
+  serialized_end=2294,
 )
 
 
@@ -1375,7 +1367,7 @@ _DROPSCHEMAMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.DropSchemaMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.DropSchemaMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1400,8 +1392,8 @@ _DROPSCHEMAMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2154,
-  serialized_end=2288,
+  serialized_start=2297,
+  serialized_end=2430,
 )
 
 
@@ -1414,7 +1406,7 @@ _LISTSCHEMAMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.ListSchemaMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.ListSchemaMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1432,8 +1424,8 @@ _LISTSCHEMAMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2290,
-  serialized_end=2367,
+  serialized_start=2432,
+  serialized_end=2508,
 )
 
 
@@ -1446,7 +1438,7 @@ _CREATEENTITYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.CreateEntityMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.CreateEntityMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1471,8 +1463,8 @@ _CREATEENTITYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2370,
-  serialized_end=2516,
+  serialized_start=2511,
+  serialized_end=2656,
 )
 
 
@@ -1485,7 +1477,7 @@ _DROPENTITYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.DropEntityMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.DropEntityMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1510,8 +1502,8 @@ _DROPENTITYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2519,
-  serialized_end=2653,
+  serialized_start=2659,
+  serialized_end=2792,
 )
 
 
@@ -1524,7 +1516,7 @@ _TRUNCATEENTITYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.TruncateEntityMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.TruncateEntityMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1549,8 +1541,8 @@ _TRUNCATEENTITYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2656,
-  serialized_end=2794,
+  serialized_start=2795,
+  serialized_end=2932,
 )
 
 
@@ -1563,7 +1555,7 @@ _OPTIMIZEENTITYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.OptimizeEntityMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.OptimizeEntityMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1588,8 +1580,8 @@ _OPTIMIZEENTITYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2797,
-  serialized_end=2935,
+  serialized_start=2935,
+  serialized_end=3072,
 )
 
 
@@ -1602,7 +1594,7 @@ _ENTITYDETAILSMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.EntityDetailsMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.EntityDetailsMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1627,8 +1619,8 @@ _ENTITYDETAILSMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2938,
-  serialized_end=3075,
+  serialized_start=3075,
+  serialized_end=3211,
 )
 
 
@@ -1641,7 +1633,7 @@ _LISTENTITYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.ListEntityMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.ListEntityMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1666,8 +1658,8 @@ _LISTENTITYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3078,
-  serialized_end=3212,
+  serialized_start=3214,
+  serialized_end=3347,
 )
 
 
@@ -1680,7 +1672,7 @@ _CREATEINDEXMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.CreateIndexMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.CreateIndexMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1712,8 +1704,8 @@ _CREATEINDEXMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3215,
-  serialized_end=3376,
+  serialized_start=3350,
+  serialized_end=3510,
 )
 
 
@@ -1726,7 +1718,7 @@ _DROPINDEXMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.DropIndexMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.DropIndexMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1751,8 +1743,8 @@ _DROPINDEXMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3379,
-  serialized_end=3510,
+  serialized_start=3513,
+  serialized_end=3643,
 )
 
 
@@ -1765,7 +1757,7 @@ _REBUILDINDEXMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.RebuildIndexMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.RebuildIndexMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1790,8 +1782,8 @@ _REBUILDINDEXMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3513,
-  serialized_end=3647,
+  serialized_start=3646,
+  serialized_end=3779,
 )
 
 
@@ -1805,8 +1797,8 @@ _COLUMNDEFINITION = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='name', full_name='org.vitrivr.cottontail.grpc.ColumnDefinition.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -1857,8 +1849,8 @@ _COLUMNDEFINITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3650,
-  serialized_end=3835,
+  serialized_start=3782,
+  serialized_end=4008,
 )
 
 
@@ -1896,8 +1888,8 @@ _ENTITYDEFINITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3838,
-  serialized_end=3977,
+  serialized_start=4011,
+  serialized_end=4150,
 )
 
 
@@ -1935,8 +1927,8 @@ _INDEXDEFINITION_PARAMSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4239,
-  serialized_end=4284,
+  serialized_start=4412,
+  serialized_end=4457,
 )
 
 _INDEXDEFINITION = _descriptor.Descriptor(
@@ -1987,8 +1979,8 @@ _INDEXDEFINITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3980,
-  serialized_end=4284,
+  serialized_start=4153,
+  serialized_end=4457,
 )
 
 
@@ -2026,8 +2018,8 @@ _INSERTMESSAGE_INSERTELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4487,
-  serialized_end=4612,
+  serialized_start=4659,
+  serialized_end=4784,
 )
 
 _INSERTMESSAGE = _descriptor.Descriptor(
@@ -2039,7 +2031,7 @@ _INSERTMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.InsertMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.InsertMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2071,8 +2063,8 @@ _INSERTMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4287,
-  serialized_end=4612,
+  serialized_start=4460,
+  serialized_end=4784,
 )
 
 
@@ -2103,8 +2095,8 @@ _BATCHINSERTMESSAGE_INSERT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4875,
-  serialized_end=4937,
+  serialized_start=5046,
+  serialized_end=5108,
 )
 
 _BATCHINSERTMESSAGE = _descriptor.Descriptor(
@@ -2116,7 +2108,7 @@ _BATCHINSERTMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.BatchInsertMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2155,8 +2147,8 @@ _BATCHINSERTMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4615,
-  serialized_end=4937,
+  serialized_start=4787,
+  serialized_end=5108,
 )
 
 
@@ -2194,8 +2186,8 @@ _UPDATEMESSAGE_UPDATEELEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5190,
-  serialized_end=5315,
+  serialized_start=5361,
+  serialized_end=5489,
 )
 
 _UPDATEMESSAGE = _descriptor.Descriptor(
@@ -2207,7 +2199,7 @@ _UPDATEMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.UpdateMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.UpdateMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2246,8 +2238,8 @@ _UPDATEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4940,
-  serialized_end=5315,
+  serialized_start=5111,
+  serialized_end=5489,
 )
 
 
@@ -2260,7 +2252,7 @@ _DELETEMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.DeleteMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.DeleteMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2292,8 +2284,8 @@ _DELETEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5318,
-  serialized_end=5491,
+  serialized_start=5492,
+  serialized_end=5664,
 )
 
 
@@ -2306,7 +2298,7 @@ _QUERYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.QueryMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.QueryMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2331,8 +2323,8 @@ _QUERYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5493,
-  serialized_end=5616,
+  serialized_start=5666,
+  serialized_end=5788,
 )
 
 
@@ -2345,7 +2337,7 @@ _BATCHEDQUERYMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='txId', full_name='org.vitrivr.cottontail.grpc.BatchedQueryMessage.txId', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.BatchedQueryMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2370,8 +2362,8 @@ _BATCHEDQUERYMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5619,
-  serialized_end=5749,
+  serialized_start=5791,
+  serialized_end=5920,
 )
 
 
@@ -2405,30 +2397,30 @@ _QUERY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='knn', full_name='org.vitrivr.cottontail.grpc.Query.knn', index=3,
+      name='order', full_name='org.vitrivr.cottontail.grpc.Query.order', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='order', full_name='org.vitrivr.cottontail.grpc.Query.order', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='limit', full_name='org.vitrivr.cottontail.grpc.Query.limit', index=4,
+      number=5, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='limit', full_name='org.vitrivr.cottontail.grpc.Query.limit', index=5,
+      name='skip', full_name='org.vitrivr.cottontail.grpc.Query.skip', index=5,
       number=6, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='skip', full_name='org.vitrivr.cottontail.grpc.Query.skip', index=6,
-      number=7, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
+      name='hints', full_name='org.vitrivr.cottontail.grpc.Query.hints', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -2444,8 +2436,8 @@ _QUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5752,
-  serialized_end=6047,
+  serialized_start=5923,
+  serialized_end=6230,
 )
 
 
@@ -2476,8 +2468,8 @@ _QUERYRESPONSEMESSAGE_TUPLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6262,
-  serialized_end=6321,
+  serialized_start=6451,
+  serialized_end=6510,
 )
 
 _QUERYRESPONSEMESSAGE = _descriptor.Descriptor(
@@ -2489,7 +2481,7 @@ _QUERYRESPONSEMESSAGE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='tid', full_name='org.vitrivr.cottontail.grpc.QueryResponseMessage.tid', index=0,
+      name='metadata', full_name='org.vitrivr.cottontail.grpc.QueryResponseMessage.metadata', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2521,8 +2513,8 @@ _QUERYRESPONSEMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6050,
-  serialized_end=6321,
+  serialized_start=6233,
+  serialized_end=6510,
 )
 
 
@@ -2572,8 +2564,8 @@ _FROM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6324,
-  serialized_end=6501,
+  serialized_start=6513,
+  serialized_end=6690,
 )
 
 
@@ -2618,8 +2610,8 @@ _SCAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6503,
-  serialized_end=6594,
+  serialized_start=6692,
+  serialized_end=6783,
 )
 
 
@@ -2639,16 +2631,16 @@ _SAMPLE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='size', full_name='org.vitrivr.cottontail.grpc.Sample.size', index=1,
+      name='seed', full_name='org.vitrivr.cottontail.grpc.Sample.seed', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='seed', full_name='org.vitrivr.cottontail.grpc.Sample.seed', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
+      name='probability', full_name='org.vitrivr.cottontail.grpc.Sample.probability', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -2664,8 +2656,8 @@ _SAMPLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6596,
-  serialized_end=6689,
+  serialized_start=6785,
+  serialized_end=6885,
 )
 
 
@@ -2678,15 +2670,22 @@ _PROJECTION_PROJECTIONELEMENT = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='column', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.column', index=0,
+      name='alias', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.alias', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='alias', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.alias', index=1,
+      name='column', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.column', index=1,
       number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='function', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.function', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2702,9 +2701,14 @@ _PROJECTION_PROJECTIONELEMENT = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='proj', full_name='org.vitrivr.cottontail.grpc.Projection.ProjectionElement.proj',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=6856,
-  serialized_end=6988,
+  serialized_start=7053,
+  serialized_end=7254,
 )
 
 _PROJECTION = _descriptor.Descriptor(
@@ -2723,7 +2727,7 @@ _PROJECTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='columns', full_name='org.vitrivr.cottontail.grpc.Projection.columns', index=1,
+      name='elements', full_name='org.vitrivr.cottontail.grpc.Projection.elements', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -2742,341 +2746,8 @@ _PROJECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6692,
-  serialized_end=7125,
-)
-
-
-_KNN = _descriptor.Descriptor(
-  name='Knn',
-  full_name='org.vitrivr.cottontail.grpc.Knn',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='attribute', full_name='org.vitrivr.cottontail.grpc.Knn.attribute', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='k', full_name='org.vitrivr.cottontail.grpc.Knn.k', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='distance', full_name='org.vitrivr.cottontail.grpc.Knn.distance', index=2,
-      number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hint', full_name='org.vitrivr.cottontail.grpc.Knn.hint', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='query', full_name='org.vitrivr.cottontail.grpc.Knn.query', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='weight', full_name='org.vitrivr.cottontail.grpc.Knn.weight', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _KNN_DISTANCE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7128,
-  serialized_end=7547,
-)
-
-
-_KNNHINT_NOINDEXKNNHINT = _descriptor.Descriptor(
-  name='NoIndexKnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.NoIndexKnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7971,
-  serialized_end=7987,
-)
-
-_KNNHINT_ALLOWINEXACTKNNHINT = _descriptor.Descriptor(
-  name='AllowInexactKnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='allow', full_name='org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHint.allow', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=7989,
-  serialized_end=8025,
-)
-
-_KNNHINT_INDEXTYPEKNNHINT = _descriptor.Descriptor(
-  name='IndexTypeKnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='type', full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHint.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8027,
-  serialized_end=8099,
-)
-
-_KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY = _descriptor.Descriptor(
-  name='ParametersEntry',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8227,
-  serialized_end=8276,
-)
-
-_KNNHINT_INDEXNAMEKNNHINT = _descriptor.Descriptor(
-  name='IndexNameKnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parameters', full_name='org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.parameters', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8102,
-  serialized_end=8276,
-)
-
-_KNNHINT_PARALLELKNNHINT = _descriptor.Descriptor(
-  name='ParallelKnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='min', full_name='org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHint.min', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='max', full_name='org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHint.max', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8278,
-  serialized_end=8321,
-)
-
-_KNNHINT = _descriptor.Descriptor(
-  name='KnnHint',
-  full_name='org.vitrivr.cottontail.grpc.KnnHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='noIndexHint', full_name='org.vitrivr.cottontail.grpc.KnnHint.noIndexHint', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='allowInexactIndexHint', full_name='org.vitrivr.cottontail.grpc.KnnHint.allowInexactIndexHint', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='typeIndexHint', full_name='org.vitrivr.cottontail.grpc.KnnHint.typeIndexHint', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='nameIndexHint', full_name='org.vitrivr.cottontail.grpc.KnnHint.nameIndexHint', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parallelIndexHint', full_name='org.vitrivr.cottontail.grpc.KnnHint.parallelIndexHint', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_KNNHINT_NOINDEXKNNHINT, _KNNHINT_ALLOWINEXACTKNNHINT, _KNNHINT_INDEXTYPEKNNHINT, _KNNHINT_INDEXNAMEKNNHINT, _KNNHINT_PARALLELKNNHINT, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='hint', full_name='org.vitrivr.cottontail.grpc.KnnHint.hint',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=7550,
-  serialized_end=8329,
+  serialized_start=6888,
+  serialized_end=7391,
 )
 
 
@@ -3102,13 +2773,6 @@ _WHERE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='hint', full_name='org.vitrivr.cottontail.grpc.Where.hint', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -3126,235 +2790,8 @@ _WHERE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=8332,
-  serialized_end=8552,
-)
-
-
-_WHEREHINT_NOINDEXWHEREHINT = _descriptor.Descriptor(
-  name='NoIndexWhereHint',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint.NoIndexWhereHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8903,
-  serialized_end=8921,
-)
-
-_WHEREHINT_INDEXTYPEWHEREHINT = _descriptor.Descriptor(
-  name='IndexTypeWhereHint',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='type', full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHint.type', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8923,
-  serialized_end=8997,
-)
-
-_WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY = _descriptor.Descriptor(
-  name='ParametersEntry',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'8\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=8227,
-  serialized_end=8276,
-)
-
-_WHEREHINT_INDEXNAMEWHEREHINT = _descriptor.Descriptor(
-  name='IndexNameWhereHint',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parameters', full_name='org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.parameters', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=9000,
-  serialized_end=9180,
-)
-
-_WHEREHINT_PARALLELWHEREHINT = _descriptor.Descriptor(
-  name='ParallelWhereHint',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='min', full_name='org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHint.min', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='max', full_name='org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHint.max', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=9182,
-  serialized_end=9227,
-)
-
-_WHEREHINT = _descriptor.Descriptor(
-  name='WhereHint',
-  full_name='org.vitrivr.cottontail.grpc.WhereHint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='noIndexHint', full_name='org.vitrivr.cottontail.grpc.WhereHint.noIndexHint', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='typeIndexHint', full_name='org.vitrivr.cottontail.grpc.WhereHint.typeIndexHint', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='nameIndexHint', full_name='org.vitrivr.cottontail.grpc.WhereHint.nameIndexHint', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parallelIndexHint', full_name='org.vitrivr.cottontail.grpc.WhereHint.parallelIndexHint', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_WHEREHINT_NOINDEXWHEREHINT, _WHEREHINT_INDEXTYPEWHEREHINT, _WHEREHINT_INDEXNAMEWHEREHINT, _WHEREHINT_PARALLELWHEREHINT, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='hint', full_name='org.vitrivr.cottontail.grpc.WhereHint.hint',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=8555,
-  serialized_end=9235,
+  serialized_start=7394,
+  serialized_end=7560,
 )
 
 
@@ -3406,8 +2843,8 @@ _ATOMICBOOLEANPREDICATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9238,
-  serialized_end=9457,
+  serialized_start=7563,
+  serialized_end=7782,
 )
 
 
@@ -3420,21 +2857,14 @@ _ATOMICBOOLEANOPERAND = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='column', full_name='org.vitrivr.cottontail.grpc.AtomicBooleanOperand.column', index=0,
+      name='expressions', full_name='org.vitrivr.cottontail.grpc.AtomicBooleanOperand.expressions', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='literals', full_name='org.vitrivr.cottontail.grpc.AtomicBooleanOperand.literals', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='query', full_name='org.vitrivr.cottontail.grpc.AtomicBooleanOperand.query', index=2,
+      name='query', full_name='org.vitrivr.cottontail.grpc.AtomicBooleanOperand.query', index=1,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -3457,40 +2887,8 @@ _ATOMICBOOLEANOPERAND = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9460,
-  serialized_end=9664,
-)
-
-
-_LITERALS = _descriptor.Descriptor(
-  name='Literals',
-  full_name='org.vitrivr.cottontail.grpc.Literals',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='literal', full_name='org.vitrivr.cottontail.grpc.Literals.literal', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=9666,
-  serialized_end=9731,
+  serialized_start=7785,
+  serialized_end=7936,
 )
 
 
@@ -3559,8 +2957,8 @@ _COMPOUNDBOOLEANPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9734,
-  serialized_end=10124,
+  serialized_start=7939,
+  serialized_end=8329,
 )
 
 
@@ -3598,8 +2996,8 @@ _ORDER_COMPONENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10203,
-  serialized_end=10336,
+  serialized_start=8408,
+  serialized_end=8541,
 )
 
 _ORDER = _descriptor.Descriptor(
@@ -3630,21 +3028,244 @@ _ORDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10127,
-  serialized_end=10380,
+  serialized_start=8332,
+  serialized_end=8585,
+)
+
+
+_EXECUTIONHINT_NOINDEXHINT = _descriptor.Descriptor(
+  name='NoIndexHint',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint.NoIndexHint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8950,
+  serialized_end=8963,
+)
+
+_EXECUTIONHINT_ALLOWINACCURACYHINT = _descriptor.Descriptor(
+  name='AllowInaccuracyHint',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint.AllowInaccuracyHint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='threshold', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.AllowInaccuracyHint.threshold', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8965,
+  serialized_end=9005,
+)
+
+_EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY = _descriptor.Descriptor(
+  name='ParametersEntry',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.ParametersEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.ParametersEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.ParametersEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9133,
+  serialized_end=9182,
+)
+
+_EXECUTIONHINT_INDEXNAMEHINT = _descriptor.Descriptor(
+  name='IndexNameHint',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parameters', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.parameters', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9008,
+  serialized_end=9182,
+)
+
+_EXECUTIONHINT_PARALLELHINT = _descriptor.Descriptor(
+  name='ParallelHint',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint.ParallelHint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='min', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.ParallelHint.min', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.ParallelHint.max', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9184,
+  serialized_end=9224,
+)
+
+_EXECUTIONHINT = _descriptor.Descriptor(
+  name='ExecutionHint',
+  full_name='org.vitrivr.cottontail.grpc.ExecutionHint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='noIndexHint', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.noIndexHint', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allowInexactIndexHint', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.allowInexactIndexHint', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nameIndexHint', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.nameIndexHint', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parallelIndexHint', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.parallelIndexHint', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_EXECUTIONHINT_NOINDEXHINT, _EXECUTIONHINT_ALLOWINACCURACYHINT, _EXECUTIONHINT_INDEXNAMEHINT, _EXECUTIONHINT_PARALLELHINT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='hint', full_name='org.vitrivr.cottontail.grpc.ExecutionHint.hint',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=8588,
+  serialized_end=9232,
 )
 
 _ENTITYNAME.fields_by_name['schema'].message_type = _SCHEMANAME
 _INDEXNAME.fields_by_name['entity'].message_type = _ENTITYNAME
 _COLUMNNAME.fields_by_name['entity'].message_type = _ENTITYNAME
-_TRANSACTION.fields_by_name['tid'].message_type = _TRANSACTIONID
-_TRANSACTION.fields_by_name['status'].enum_type = _TRANSACTION_STATUS
-_TRANSACTION_STATUS.containing_type = _TRANSACTION
 _LITERAL.fields_by_name['dateData'].message_type = _DATE
 _LITERAL.fields_by_name['complex32Data'].message_type = _COMPLEX32
 _LITERAL.fields_by_name['complex64Data'].message_type = _COMPLEX64
 _LITERAL.fields_by_name['vectorData'].message_type = _VECTOR
-_LITERAL.fields_by_name['nullData'].message_type = _NULL
 _LITERAL.oneofs_by_name['data'].fields.append(
   _LITERAL.fields_by_name['booleanData'])
 _LITERAL.fields_by_name['booleanData'].containing_oneof = _LITERAL.oneofs_by_name['data']
@@ -3675,9 +3296,21 @@ _LITERAL.fields_by_name['complex64Data'].containing_oneof = _LITERAL.oneofs_by_n
 _LITERAL.oneofs_by_name['data'].fields.append(
   _LITERAL.fields_by_name['vectorData'])
 _LITERAL.fields_by_name['vectorData'].containing_oneof = _LITERAL.oneofs_by_name['data']
-_LITERAL.oneofs_by_name['data'].fields.append(
-  _LITERAL.fields_by_name['nullData'])
-_LITERAL.fields_by_name['nullData'].containing_oneof = _LITERAL.oneofs_by_name['data']
+_EXPRESSION.fields_by_name['literal'].message_type = _LITERAL
+_EXPRESSION.fields_by_name['column'].message_type = _COLUMNNAME
+_EXPRESSION.fields_by_name['function'].message_type = _FUNCTION
+_EXPRESSION.oneofs_by_name['exp'].fields.append(
+  _EXPRESSION.fields_by_name['literal'])
+_EXPRESSION.fields_by_name['literal'].containing_oneof = _EXPRESSION.oneofs_by_name['exp']
+_EXPRESSION.oneofs_by_name['exp'].fields.append(
+  _EXPRESSION.fields_by_name['column'])
+_EXPRESSION.fields_by_name['column'].containing_oneof = _EXPRESSION.oneofs_by_name['exp']
+_EXPRESSION.oneofs_by_name['exp'].fields.append(
+  _EXPRESSION.fields_by_name['function'])
+_EXPRESSION.fields_by_name['function'].containing_oneof = _EXPRESSION.oneofs_by_name['exp']
+_FUNCTION.fields_by_name['name'].message_type = _FUNCTIONNAME
+_FUNCTION.fields_by_name['arguments'].message_type = _EXPRESSION
+_EXPRESSIONS.fields_by_name['expression'].message_type = _EXPRESSION
 _VECTOR.fields_by_name['floatVector'].message_type = _FLOATVECTOR
 _VECTOR.fields_by_name['doubleVector'].message_type = _DOUBLEVECTOR
 _VECTOR.fields_by_name['intVector'].message_type = _INTVECTOR
@@ -3708,29 +3341,30 @@ _VECTOR.oneofs_by_name['vectorData'].fields.append(
 _VECTOR.fields_by_name['complex64Vector'].containing_oneof = _VECTOR.oneofs_by_name['vectorData']
 _COMPLEX32VECTOR.fields_by_name['vector'].message_type = _COMPLEX32
 _COMPLEX64VECTOR.fields_by_name['vector'].message_type = _COMPLEX64
-_CREATESCHEMAMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_CREATESCHEMAMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _CREATESCHEMAMESSAGE.fields_by_name['schema'].message_type = _SCHEMANAME
-_DROPSCHEMAMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_DROPSCHEMAMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _DROPSCHEMAMESSAGE.fields_by_name['schema'].message_type = _SCHEMANAME
-_LISTSCHEMAMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
-_CREATEENTITYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_LISTSCHEMAMESSAGE.fields_by_name['metadata'].message_type = _METADATA
+_CREATEENTITYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _CREATEENTITYMESSAGE.fields_by_name['definition'].message_type = _ENTITYDEFINITION
-_DROPENTITYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_DROPENTITYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _DROPENTITYMESSAGE.fields_by_name['entity'].message_type = _ENTITYNAME
-_TRUNCATEENTITYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_TRUNCATEENTITYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _TRUNCATEENTITYMESSAGE.fields_by_name['entity'].message_type = _ENTITYNAME
-_OPTIMIZEENTITYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_OPTIMIZEENTITYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _OPTIMIZEENTITYMESSAGE.fields_by_name['entity'].message_type = _ENTITYNAME
-_ENTITYDETAILSMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_ENTITYDETAILSMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _ENTITYDETAILSMESSAGE.fields_by_name['entity'].message_type = _ENTITYNAME
-_LISTENTITYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_LISTENTITYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _LISTENTITYMESSAGE.fields_by_name['schema'].message_type = _SCHEMANAME
-_CREATEINDEXMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_CREATEINDEXMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _CREATEINDEXMESSAGE.fields_by_name['definition'].message_type = _INDEXDEFINITION
-_DROPINDEXMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_DROPINDEXMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _DROPINDEXMESSAGE.fields_by_name['index'].message_type = _INDEXNAME
-_REBUILDINDEXMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_REBUILDINDEXMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _REBUILDINDEXMESSAGE.fields_by_name['index'].message_type = _INDEXNAME
+_COLUMNDEFINITION.fields_by_name['name'].message_type = _COLUMNNAME
 _COLUMNDEFINITION.fields_by_name['type'].enum_type = _TYPE
 _COLUMNDEFINITION.fields_by_name['engine'].enum_type = _ENGINE
 _ENTITYDEFINITION.fields_by_name['entity'].message_type = _ENTITYNAME
@@ -3743,38 +3377,38 @@ _INDEXDEFINITION.fields_by_name['params'].message_type = _INDEXDEFINITION_PARAMS
 _INSERTMESSAGE_INSERTELEMENT.fields_by_name['column'].message_type = _COLUMNNAME
 _INSERTMESSAGE_INSERTELEMENT.fields_by_name['value'].message_type = _LITERAL
 _INSERTMESSAGE_INSERTELEMENT.containing_type = _INSERTMESSAGE
-_INSERTMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_INSERTMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _INSERTMESSAGE.fields_by_name['from'].message_type = _FROM
 _INSERTMESSAGE.fields_by_name['elements'].message_type = _INSERTMESSAGE_INSERTELEMENT
 _BATCHINSERTMESSAGE_INSERT.fields_by_name['values'].message_type = _LITERAL
 _BATCHINSERTMESSAGE_INSERT.containing_type = _BATCHINSERTMESSAGE
-_BATCHINSERTMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_BATCHINSERTMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _BATCHINSERTMESSAGE.fields_by_name['from'].message_type = _FROM
 _BATCHINSERTMESSAGE.fields_by_name['columns'].message_type = _COLUMNNAME
 _BATCHINSERTMESSAGE.fields_by_name['inserts'].message_type = _BATCHINSERTMESSAGE_INSERT
 _UPDATEMESSAGE_UPDATEELEMENT.fields_by_name['column'].message_type = _COLUMNNAME
-_UPDATEMESSAGE_UPDATEELEMENT.fields_by_name['value'].message_type = _LITERAL
+_UPDATEMESSAGE_UPDATEELEMENT.fields_by_name['value'].message_type = _EXPRESSION
 _UPDATEMESSAGE_UPDATEELEMENT.containing_type = _UPDATEMESSAGE
-_UPDATEMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_UPDATEMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _UPDATEMESSAGE.fields_by_name['from'].message_type = _FROM
 _UPDATEMESSAGE.fields_by_name['where'].message_type = _WHERE
 _UPDATEMESSAGE.fields_by_name['updates'].message_type = _UPDATEMESSAGE_UPDATEELEMENT
-_DELETEMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_DELETEMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _DELETEMESSAGE.fields_by_name['from'].message_type = _FROM
 _DELETEMESSAGE.fields_by_name['where'].message_type = _WHERE
-_QUERYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_QUERYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _QUERYMESSAGE.fields_by_name['query'].message_type = _QUERY
-_BATCHEDQUERYMESSAGE.fields_by_name['txId'].message_type = _TRANSACTIONID
+_BATCHEDQUERYMESSAGE.fields_by_name['metadata'].message_type = _METADATA
 _BATCHEDQUERYMESSAGE.fields_by_name['query'].message_type = _QUERY
 _QUERY.fields_by_name['from'].message_type = _FROM
 _QUERY.fields_by_name['projection'].message_type = _PROJECTION
 _QUERY.fields_by_name['where'].message_type = _WHERE
-_QUERY.fields_by_name['knn'].message_type = _KNN
 _QUERY.fields_by_name['order'].message_type = _ORDER
+_QUERY.fields_by_name['hints'].message_type = _EXECUTIONHINT
 _QUERYRESPONSEMESSAGE_TUPLE.fields_by_name['data'].message_type = _LITERAL
 _QUERYRESPONSEMESSAGE_TUPLE.containing_type = _QUERYRESPONSEMESSAGE
-_QUERYRESPONSEMESSAGE.fields_by_name['tid'].message_type = _TRANSACTIONID
-_QUERYRESPONSEMESSAGE.fields_by_name['columns'].message_type = _COLUMNNAME
+_QUERYRESPONSEMESSAGE.fields_by_name['metadata'].message_type = _METADATA
+_QUERYRESPONSEMESSAGE.fields_by_name['columns'].message_type = _COLUMNDEFINITION
 _QUERYRESPONSEMESSAGE.fields_by_name['tuples'].message_type = _QUERYRESPONSEMESSAGE_TUPLE
 _FROM.fields_by_name['scan'].message_type = _SCAN
 _FROM.fields_by_name['sample'].message_type = _SAMPLE
@@ -3790,94 +3424,38 @@ _FROM.oneofs_by_name['from'].fields.append(
 _FROM.fields_by_name['subSelect'].containing_oneof = _FROM.oneofs_by_name['from']
 _SCAN.fields_by_name['entity'].message_type = _ENTITYNAME
 _SAMPLE.fields_by_name['entity'].message_type = _ENTITYNAME
-_PROJECTION_PROJECTIONELEMENT.fields_by_name['column'].message_type = _COLUMNNAME
 _PROJECTION_PROJECTIONELEMENT.fields_by_name['alias'].message_type = _COLUMNNAME
+_PROJECTION_PROJECTIONELEMENT.fields_by_name['column'].message_type = _COLUMNNAME
+_PROJECTION_PROJECTIONELEMENT.fields_by_name['function'].message_type = _FUNCTION
 _PROJECTION_PROJECTIONELEMENT.containing_type = _PROJECTION
+_PROJECTION_PROJECTIONELEMENT.oneofs_by_name['proj'].fields.append(
+  _PROJECTION_PROJECTIONELEMENT.fields_by_name['column'])
+_PROJECTION_PROJECTIONELEMENT.fields_by_name['column'].containing_oneof = _PROJECTION_PROJECTIONELEMENT.oneofs_by_name['proj']
+_PROJECTION_PROJECTIONELEMENT.oneofs_by_name['proj'].fields.append(
+  _PROJECTION_PROJECTIONELEMENT.fields_by_name['function'])
+_PROJECTION_PROJECTIONELEMENT.fields_by_name['function'].containing_oneof = _PROJECTION_PROJECTIONELEMENT.oneofs_by_name['proj']
 _PROJECTION.fields_by_name['op'].enum_type = _PROJECTION_PROJECTIONOPERATION
-_PROJECTION.fields_by_name['columns'].message_type = _PROJECTION_PROJECTIONELEMENT
+_PROJECTION.fields_by_name['elements'].message_type = _PROJECTION_PROJECTIONELEMENT
 _PROJECTION_PROJECTIONOPERATION.containing_type = _PROJECTION
-_KNN.fields_by_name['attribute'].message_type = _COLUMNNAME
-_KNN.fields_by_name['distance'].enum_type = _KNN_DISTANCE
-_KNN.fields_by_name['hint'].message_type = _KNNHINT
-_KNN.fields_by_name['query'].message_type = _VECTOR
-_KNN.fields_by_name['weight'].message_type = _VECTOR
-_KNN_DISTANCE.containing_type = _KNN
-_KNNHINT_NOINDEXKNNHINT.containing_type = _KNNHINT
-_KNNHINT_ALLOWINEXACTKNNHINT.containing_type = _KNNHINT
-_KNNHINT_INDEXTYPEKNNHINT.fields_by_name['type'].enum_type = _INDEXTYPE
-_KNNHINT_INDEXTYPEKNNHINT.containing_type = _KNNHINT
-_KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY.containing_type = _KNNHINT_INDEXNAMEKNNHINT
-_KNNHINT_INDEXNAMEKNNHINT.fields_by_name['parameters'].message_type = _KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY
-_KNNHINT_INDEXNAMEKNNHINT.containing_type = _KNNHINT
-_KNNHINT_PARALLELKNNHINT.containing_type = _KNNHINT
-_KNNHINT.fields_by_name['noIndexHint'].message_type = _KNNHINT_NOINDEXKNNHINT
-_KNNHINT.fields_by_name['allowInexactIndexHint'].message_type = _KNNHINT_ALLOWINEXACTKNNHINT
-_KNNHINT.fields_by_name['typeIndexHint'].message_type = _KNNHINT_INDEXTYPEKNNHINT
-_KNNHINT.fields_by_name['nameIndexHint'].message_type = _KNNHINT_INDEXNAMEKNNHINT
-_KNNHINT.fields_by_name['parallelIndexHint'].message_type = _KNNHINT_PARALLELKNNHINT
-_KNNHINT.oneofs_by_name['hint'].fields.append(
-  _KNNHINT.fields_by_name['noIndexHint'])
-_KNNHINT.fields_by_name['noIndexHint'].containing_oneof = _KNNHINT.oneofs_by_name['hint']
-_KNNHINT.oneofs_by_name['hint'].fields.append(
-  _KNNHINT.fields_by_name['allowInexactIndexHint'])
-_KNNHINT.fields_by_name['allowInexactIndexHint'].containing_oneof = _KNNHINT.oneofs_by_name['hint']
-_KNNHINT.oneofs_by_name['hint'].fields.append(
-  _KNNHINT.fields_by_name['typeIndexHint'])
-_KNNHINT.fields_by_name['typeIndexHint'].containing_oneof = _KNNHINT.oneofs_by_name['hint']
-_KNNHINT.oneofs_by_name['hint'].fields.append(
-  _KNNHINT.fields_by_name['nameIndexHint'])
-_KNNHINT.fields_by_name['nameIndexHint'].containing_oneof = _KNNHINT.oneofs_by_name['hint']
-_KNNHINT.oneofs_by_name['hint'].fields.append(
-  _KNNHINT.fields_by_name['parallelIndexHint'])
-_KNNHINT.fields_by_name['parallelIndexHint'].containing_oneof = _KNNHINT.oneofs_by_name['hint']
 _WHERE.fields_by_name['atomic'].message_type = _ATOMICBOOLEANPREDICATE
 _WHERE.fields_by_name['compound'].message_type = _COMPOUNDBOOLEANPREDICATE
-_WHERE.fields_by_name['hint'].message_type = _WHEREHINT
 _WHERE.oneofs_by_name['predicate'].fields.append(
   _WHERE.fields_by_name['atomic'])
 _WHERE.fields_by_name['atomic'].containing_oneof = _WHERE.oneofs_by_name['predicate']
 _WHERE.oneofs_by_name['predicate'].fields.append(
   _WHERE.fields_by_name['compound'])
 _WHERE.fields_by_name['compound'].containing_oneof = _WHERE.oneofs_by_name['predicate']
-_WHEREHINT_NOINDEXWHEREHINT.containing_type = _WHEREHINT
-_WHEREHINT_INDEXTYPEWHEREHINT.fields_by_name['type'].enum_type = _INDEXTYPE
-_WHEREHINT_INDEXTYPEWHEREHINT.containing_type = _WHEREHINT
-_WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY.containing_type = _WHEREHINT_INDEXNAMEWHEREHINT
-_WHEREHINT_INDEXNAMEWHEREHINT.fields_by_name['parameters'].message_type = _WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY
-_WHEREHINT_INDEXNAMEWHEREHINT.containing_type = _WHEREHINT
-_WHEREHINT_PARALLELWHEREHINT.containing_type = _WHEREHINT
-_WHEREHINT.fields_by_name['noIndexHint'].message_type = _WHEREHINT_NOINDEXWHEREHINT
-_WHEREHINT.fields_by_name['typeIndexHint'].message_type = _WHEREHINT_INDEXTYPEWHEREHINT
-_WHEREHINT.fields_by_name['nameIndexHint'].message_type = _WHEREHINT_INDEXNAMEWHEREHINT
-_WHEREHINT.fields_by_name['parallelIndexHint'].message_type = _WHEREHINT_PARALLELWHEREHINT
-_WHEREHINT.oneofs_by_name['hint'].fields.append(
-  _WHEREHINT.fields_by_name['noIndexHint'])
-_WHEREHINT.fields_by_name['noIndexHint'].containing_oneof = _WHEREHINT.oneofs_by_name['hint']
-_WHEREHINT.oneofs_by_name['hint'].fields.append(
-  _WHEREHINT.fields_by_name['typeIndexHint'])
-_WHEREHINT.fields_by_name['typeIndexHint'].containing_oneof = _WHEREHINT.oneofs_by_name['hint']
-_WHEREHINT.oneofs_by_name['hint'].fields.append(
-  _WHEREHINT.fields_by_name['nameIndexHint'])
-_WHEREHINT.fields_by_name['nameIndexHint'].containing_oneof = _WHEREHINT.oneofs_by_name['hint']
-_WHEREHINT.oneofs_by_name['hint'].fields.append(
-  _WHEREHINT.fields_by_name['parallelIndexHint'])
-_WHEREHINT.fields_by_name['parallelIndexHint'].containing_oneof = _WHEREHINT.oneofs_by_name['hint']
 _ATOMICBOOLEANPREDICATE.fields_by_name['left'].message_type = _COLUMNNAME
 _ATOMICBOOLEANPREDICATE.fields_by_name['right'].message_type = _ATOMICBOOLEANOPERAND
 _ATOMICBOOLEANPREDICATE.fields_by_name['op'].enum_type = _COMPARISONOPERATOR
-_ATOMICBOOLEANOPERAND.fields_by_name['column'].message_type = _COLUMNNAME
-_ATOMICBOOLEANOPERAND.fields_by_name['literals'].message_type = _LITERALS
+_ATOMICBOOLEANOPERAND.fields_by_name['expressions'].message_type = _EXPRESSIONS
 _ATOMICBOOLEANOPERAND.fields_by_name['query'].message_type = _QUERY
 _ATOMICBOOLEANOPERAND.oneofs_by_name['operand'].fields.append(
-  _ATOMICBOOLEANOPERAND.fields_by_name['column'])
-_ATOMICBOOLEANOPERAND.fields_by_name['column'].containing_oneof = _ATOMICBOOLEANOPERAND.oneofs_by_name['operand']
-_ATOMICBOOLEANOPERAND.oneofs_by_name['operand'].fields.append(
-  _ATOMICBOOLEANOPERAND.fields_by_name['literals'])
-_ATOMICBOOLEANOPERAND.fields_by_name['literals'].containing_oneof = _ATOMICBOOLEANOPERAND.oneofs_by_name['operand']
+  _ATOMICBOOLEANOPERAND.fields_by_name['expressions'])
+_ATOMICBOOLEANOPERAND.fields_by_name['expressions'].containing_oneof = _ATOMICBOOLEANOPERAND.oneofs_by_name['operand']
 _ATOMICBOOLEANOPERAND.oneofs_by_name['operand'].fields.append(
   _ATOMICBOOLEANOPERAND.fields_by_name['query'])
 _ATOMICBOOLEANOPERAND.fields_by_name['query'].containing_oneof = _ATOMICBOOLEANOPERAND.oneofs_by_name['operand']
-_LITERALS.fields_by_name['literal'].message_type = _LITERAL
 _COMPOUNDBOOLEANPREDICATE.fields_by_name['aleft'].message_type = _ATOMICBOOLEANPREDICATE
 _COMPOUNDBOOLEANPREDICATE.fields_by_name['cleft'].message_type = _COMPOUNDBOOLEANPREDICATE
 _COMPOUNDBOOLEANPREDICATE.fields_by_name['op'].enum_type = _CONNECTIONOPERATOR
@@ -3900,13 +3478,38 @@ _ORDER_COMPONENT.fields_by_name['direction'].enum_type = _ORDER_DIRECTION
 _ORDER_COMPONENT.containing_type = _ORDER
 _ORDER.fields_by_name['components'].message_type = _ORDER_COMPONENT
 _ORDER_DIRECTION.containing_type = _ORDER
+_EXECUTIONHINT_NOINDEXHINT.containing_type = _EXECUTIONHINT
+_EXECUTIONHINT_ALLOWINACCURACYHINT.containing_type = _EXECUTIONHINT
+_EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY.containing_type = _EXECUTIONHINT_INDEXNAMEHINT
+_EXECUTIONHINT_INDEXNAMEHINT.fields_by_name['parameters'].message_type = _EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY
+_EXECUTIONHINT_INDEXNAMEHINT.containing_type = _EXECUTIONHINT
+_EXECUTIONHINT_PARALLELHINT.containing_type = _EXECUTIONHINT
+_EXECUTIONHINT.fields_by_name['noIndexHint'].message_type = _EXECUTIONHINT_NOINDEXHINT
+_EXECUTIONHINT.fields_by_name['allowInexactIndexHint'].message_type = _EXECUTIONHINT_ALLOWINACCURACYHINT
+_EXECUTIONHINT.fields_by_name['nameIndexHint'].message_type = _EXECUTIONHINT_INDEXNAMEHINT
+_EXECUTIONHINT.fields_by_name['parallelIndexHint'].message_type = _EXECUTIONHINT_PARALLELHINT
+_EXECUTIONHINT.oneofs_by_name['hint'].fields.append(
+  _EXECUTIONHINT.fields_by_name['noIndexHint'])
+_EXECUTIONHINT.fields_by_name['noIndexHint'].containing_oneof = _EXECUTIONHINT.oneofs_by_name['hint']
+_EXECUTIONHINT.oneofs_by_name['hint'].fields.append(
+  _EXECUTIONHINT.fields_by_name['allowInexactIndexHint'])
+_EXECUTIONHINT.fields_by_name['allowInexactIndexHint'].containing_oneof = _EXECUTIONHINT.oneofs_by_name['hint']
+_EXECUTIONHINT.oneofs_by_name['hint'].fields.append(
+  _EXECUTIONHINT.fields_by_name['nameIndexHint'])
+_EXECUTIONHINT.fields_by_name['nameIndexHint'].containing_oneof = _EXECUTIONHINT.oneofs_by_name['hint']
+_EXECUTIONHINT.oneofs_by_name['hint'].fields.append(
+  _EXECUTIONHINT.fields_by_name['parallelIndexHint'])
+_EXECUTIONHINT.fields_by_name['parallelIndexHint'].containing_oneof = _EXECUTIONHINT.oneofs_by_name['hint']
 DESCRIPTOR.message_types_by_name['SchemaName'] = _SCHEMANAME
+DESCRIPTOR.message_types_by_name['FunctionName'] = _FUNCTIONNAME
 DESCRIPTOR.message_types_by_name['EntityName'] = _ENTITYNAME
 DESCRIPTOR.message_types_by_name['IndexName'] = _INDEXNAME
 DESCRIPTOR.message_types_by_name['ColumnName'] = _COLUMNNAME
-DESCRIPTOR.message_types_by_name['TransactionId'] = _TRANSACTIONID
-DESCRIPTOR.message_types_by_name['Transaction'] = _TRANSACTION
+DESCRIPTOR.message_types_by_name['Metadata'] = _METADATA
 DESCRIPTOR.message_types_by_name['Literal'] = _LITERAL
+DESCRIPTOR.message_types_by_name['Expression'] = _EXPRESSION
+DESCRIPTOR.message_types_by_name['Function'] = _FUNCTION
+DESCRIPTOR.message_types_by_name['Expressions'] = _EXPRESSIONS
 DESCRIPTOR.message_types_by_name['Vector'] = _VECTOR
 DESCRIPTOR.message_types_by_name['Null'] = _NULL
 DESCRIPTOR.message_types_by_name['Date'] = _DATE
@@ -3946,18 +3549,15 @@ DESCRIPTOR.message_types_by_name['From'] = _FROM
 DESCRIPTOR.message_types_by_name['Scan'] = _SCAN
 DESCRIPTOR.message_types_by_name['Sample'] = _SAMPLE
 DESCRIPTOR.message_types_by_name['Projection'] = _PROJECTION
-DESCRIPTOR.message_types_by_name['Knn'] = _KNN
-DESCRIPTOR.message_types_by_name['KnnHint'] = _KNNHINT
 DESCRIPTOR.message_types_by_name['Where'] = _WHERE
-DESCRIPTOR.message_types_by_name['WhereHint'] = _WHEREHINT
 DESCRIPTOR.message_types_by_name['AtomicBooleanPredicate'] = _ATOMICBOOLEANPREDICATE
 DESCRIPTOR.message_types_by_name['AtomicBooleanOperand'] = _ATOMICBOOLEANOPERAND
-DESCRIPTOR.message_types_by_name['Literals'] = _LITERALS
 DESCRIPTOR.message_types_by_name['CompoundBooleanPredicate'] = _COMPOUNDBOOLEANPREDICATE
 DESCRIPTOR.message_types_by_name['Order'] = _ORDER
+DESCRIPTOR.message_types_by_name['ExecutionHint'] = _EXECUTIONHINT
 DESCRIPTOR.enum_types_by_name['IndexType'] = _INDEXTYPE
-DESCRIPTOR.enum_types_by_name['Type'] = _TYPE
 DESCRIPTOR.enum_types_by_name['Engine'] = _ENGINE
+DESCRIPTOR.enum_types_by_name['Type'] = _TYPE
 DESCRIPTOR.enum_types_by_name['ComparisonOperator'] = _COMPARISONOPERATOR
 DESCRIPTOR.enum_types_by_name['ConnectionOperator'] = _CONNECTIONOPERATOR
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -3968,6 +3568,13 @@ SchemaName = _reflection.GeneratedProtocolMessageType('SchemaName', (_message.Me
   # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.SchemaName)
   })
 _sym_db.RegisterMessage(SchemaName)
+
+FunctionName = _reflection.GeneratedProtocolMessageType('FunctionName', (_message.Message,), {
+  'DESCRIPTOR' : _FUNCTIONNAME,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.FunctionName)
+  })
+_sym_db.RegisterMessage(FunctionName)
 
 EntityName = _reflection.GeneratedProtocolMessageType('EntityName', (_message.Message,), {
   'DESCRIPTOR' : _ENTITYNAME,
@@ -3990,19 +3597,12 @@ ColumnName = _reflection.GeneratedProtocolMessageType('ColumnName', (_message.Me
   })
 _sym_db.RegisterMessage(ColumnName)
 
-TransactionId = _reflection.GeneratedProtocolMessageType('TransactionId', (_message.Message,), {
-  'DESCRIPTOR' : _TRANSACTIONID,
+Metadata = _reflection.GeneratedProtocolMessageType('Metadata', (_message.Message,), {
+  'DESCRIPTOR' : _METADATA,
   '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.TransactionId)
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Metadata)
   })
-_sym_db.RegisterMessage(TransactionId)
-
-Transaction = _reflection.GeneratedProtocolMessageType('Transaction', (_message.Message,), {
-  'DESCRIPTOR' : _TRANSACTION,
-  '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Transaction)
-  })
-_sym_db.RegisterMessage(Transaction)
+_sym_db.RegisterMessage(Metadata)
 
 Literal = _reflection.GeneratedProtocolMessageType('Literal', (_message.Message,), {
   'DESCRIPTOR' : _LITERAL,
@@ -4010,6 +3610,27 @@ Literal = _reflection.GeneratedProtocolMessageType('Literal', (_message.Message,
   # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Literal)
   })
 _sym_db.RegisterMessage(Literal)
+
+Expression = _reflection.GeneratedProtocolMessageType('Expression', (_message.Message,), {
+  'DESCRIPTOR' : _EXPRESSION,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Expression)
+  })
+_sym_db.RegisterMessage(Expression)
+
+Function = _reflection.GeneratedProtocolMessageType('Function', (_message.Message,), {
+  'DESCRIPTOR' : _FUNCTION,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Function)
+  })
+_sym_db.RegisterMessage(Function)
+
+Expressions = _reflection.GeneratedProtocolMessageType('Expressions', (_message.Message,), {
+  'DESCRIPTOR' : _EXPRESSIONS,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Expressions)
+  })
+_sym_db.RegisterMessage(Expressions)
 
 Vector = _reflection.GeneratedProtocolMessageType('Vector', (_message.Message,), {
   'DESCRIPTOR' : _VECTOR,
@@ -4332,121 +3953,12 @@ Projection = _reflection.GeneratedProtocolMessageType('Projection', (_message.Me
 _sym_db.RegisterMessage(Projection)
 _sym_db.RegisterMessage(Projection.ProjectionElement)
 
-Knn = _reflection.GeneratedProtocolMessageType('Knn', (_message.Message,), {
-  'DESCRIPTOR' : _KNN,
-  '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Knn)
-  })
-_sym_db.RegisterMessage(Knn)
-
-KnnHint = _reflection.GeneratedProtocolMessageType('KnnHint', (_message.Message,), {
-
-  'NoIndexKnnHint' : _reflection.GeneratedProtocolMessageType('NoIndexKnnHint', (_message.Message,), {
-    'DESCRIPTOR' : _KNNHINT_NOINDEXKNNHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.NoIndexKnnHint)
-    })
-  ,
-
-  'AllowInexactKnnHint' : _reflection.GeneratedProtocolMessageType('AllowInexactKnnHint', (_message.Message,), {
-    'DESCRIPTOR' : _KNNHINT_ALLOWINEXACTKNNHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.AllowInexactKnnHint)
-    })
-  ,
-
-  'IndexTypeKnnHint' : _reflection.GeneratedProtocolMessageType('IndexTypeKnnHint', (_message.Message,), {
-    'DESCRIPTOR' : _KNNHINT_INDEXTYPEKNNHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.IndexTypeKnnHint)
-    })
-  ,
-
-  'IndexNameKnnHint' : _reflection.GeneratedProtocolMessageType('IndexNameKnnHint', (_message.Message,), {
-
-    'ParametersEntry' : _reflection.GeneratedProtocolMessageType('ParametersEntry', (_message.Message,), {
-      'DESCRIPTOR' : _KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY,
-      '__module__' : 'cottontail_pb2'
-      # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint.ParametersEntry)
-      })
-    ,
-    'DESCRIPTOR' : _KNNHINT_INDEXNAMEKNNHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.IndexNameKnnHint)
-    })
-  ,
-
-  'ParallelKnnHint' : _reflection.GeneratedProtocolMessageType('ParallelKnnHint', (_message.Message,), {
-    'DESCRIPTOR' : _KNNHINT_PARALLELKNNHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint.ParallelKnnHint)
-    })
-  ,
-  'DESCRIPTOR' : _KNNHINT,
-  '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.KnnHint)
-  })
-_sym_db.RegisterMessage(KnnHint)
-_sym_db.RegisterMessage(KnnHint.NoIndexKnnHint)
-_sym_db.RegisterMessage(KnnHint.AllowInexactKnnHint)
-_sym_db.RegisterMessage(KnnHint.IndexTypeKnnHint)
-_sym_db.RegisterMessage(KnnHint.IndexNameKnnHint)
-_sym_db.RegisterMessage(KnnHint.IndexNameKnnHint.ParametersEntry)
-_sym_db.RegisterMessage(KnnHint.ParallelKnnHint)
-
 Where = _reflection.GeneratedProtocolMessageType('Where', (_message.Message,), {
   'DESCRIPTOR' : _WHERE,
   '__module__' : 'cottontail_pb2'
   # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Where)
   })
 _sym_db.RegisterMessage(Where)
-
-WhereHint = _reflection.GeneratedProtocolMessageType('WhereHint', (_message.Message,), {
-
-  'NoIndexWhereHint' : _reflection.GeneratedProtocolMessageType('NoIndexWhereHint', (_message.Message,), {
-    'DESCRIPTOR' : _WHEREHINT_NOINDEXWHEREHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint.NoIndexWhereHint)
-    })
-  ,
-
-  'IndexTypeWhereHint' : _reflection.GeneratedProtocolMessageType('IndexTypeWhereHint', (_message.Message,), {
-    'DESCRIPTOR' : _WHEREHINT_INDEXTYPEWHEREHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint.IndexTypeWhereHint)
-    })
-  ,
-
-  'IndexNameWhereHint' : _reflection.GeneratedProtocolMessageType('IndexNameWhereHint', (_message.Message,), {
-
-    'ParametersEntry' : _reflection.GeneratedProtocolMessageType('ParametersEntry', (_message.Message,), {
-      'DESCRIPTOR' : _WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY,
-      '__module__' : 'cottontail_pb2'
-      # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint.ParametersEntry)
-      })
-    ,
-    'DESCRIPTOR' : _WHEREHINT_INDEXNAMEWHEREHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint.IndexNameWhereHint)
-    })
-  ,
-
-  'ParallelWhereHint' : _reflection.GeneratedProtocolMessageType('ParallelWhereHint', (_message.Message,), {
-    'DESCRIPTOR' : _WHEREHINT_PARALLELWHEREHINT,
-    '__module__' : 'cottontail_pb2'
-    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint.ParallelWhereHint)
-    })
-  ,
-  'DESCRIPTOR' : _WHEREHINT,
-  '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.WhereHint)
-  })
-_sym_db.RegisterMessage(WhereHint)
-_sym_db.RegisterMessage(WhereHint.NoIndexWhereHint)
-_sym_db.RegisterMessage(WhereHint.IndexTypeWhereHint)
-_sym_db.RegisterMessage(WhereHint.IndexNameWhereHint)
-_sym_db.RegisterMessage(WhereHint.IndexNameWhereHint.ParametersEntry)
-_sym_db.RegisterMessage(WhereHint.ParallelWhereHint)
 
 AtomicBooleanPredicate = _reflection.GeneratedProtocolMessageType('AtomicBooleanPredicate', (_message.Message,), {
   'DESCRIPTOR' : _ATOMICBOOLEANPREDICATE,
@@ -4461,13 +3973,6 @@ AtomicBooleanOperand = _reflection.GeneratedProtocolMessageType('AtomicBooleanOp
   # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.AtomicBooleanOperand)
   })
 _sym_db.RegisterMessage(AtomicBooleanOperand)
-
-Literals = _reflection.GeneratedProtocolMessageType('Literals', (_message.Message,), {
-  'DESCRIPTOR' : _LITERALS,
-  '__module__' : 'cottontail_pb2'
-  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.Literals)
-  })
-_sym_db.RegisterMessage(Literals)
 
 CompoundBooleanPredicate = _reflection.GeneratedProtocolMessageType('CompoundBooleanPredicate', (_message.Message,), {
   'DESCRIPTOR' : _COMPOUNDBOOLEANPREDICATE,
@@ -4491,11 +3996,57 @@ Order = _reflection.GeneratedProtocolMessageType('Order', (_message.Message,), {
 _sym_db.RegisterMessage(Order)
 _sym_db.RegisterMessage(Order.Component)
 
+ExecutionHint = _reflection.GeneratedProtocolMessageType('ExecutionHint', (_message.Message,), {
+
+  'NoIndexHint' : _reflection.GeneratedProtocolMessageType('NoIndexHint', (_message.Message,), {
+    'DESCRIPTOR' : _EXECUTIONHINT_NOINDEXHINT,
+    '__module__' : 'cottontail_pb2'
+    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint.NoIndexHint)
+    })
+  ,
+
+  'AllowInaccuracyHint' : _reflection.GeneratedProtocolMessageType('AllowInaccuracyHint', (_message.Message,), {
+    'DESCRIPTOR' : _EXECUTIONHINT_ALLOWINACCURACYHINT,
+    '__module__' : 'cottontail_pb2'
+    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint.AllowInaccuracyHint)
+    })
+  ,
+
+  'IndexNameHint' : _reflection.GeneratedProtocolMessageType('IndexNameHint', (_message.Message,), {
+
+    'ParametersEntry' : _reflection.GeneratedProtocolMessageType('ParametersEntry', (_message.Message,), {
+      'DESCRIPTOR' : _EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY,
+      '__module__' : 'cottontail_pb2'
+      # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint.ParametersEntry)
+      })
+    ,
+    'DESCRIPTOR' : _EXECUTIONHINT_INDEXNAMEHINT,
+    '__module__' : 'cottontail_pb2'
+    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint.IndexNameHint)
+    })
+  ,
+
+  'ParallelHint' : _reflection.GeneratedProtocolMessageType('ParallelHint', (_message.Message,), {
+    'DESCRIPTOR' : _EXECUTIONHINT_PARALLELHINT,
+    '__module__' : 'cottontail_pb2'
+    # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint.ParallelHint)
+    })
+  ,
+  'DESCRIPTOR' : _EXECUTIONHINT,
+  '__module__' : 'cottontail_pb2'
+  # @@protoc_insertion_point(class_scope:org.vitrivr.cottontail.grpc.ExecutionHint)
+  })
+_sym_db.RegisterMessage(ExecutionHint)
+_sym_db.RegisterMessage(ExecutionHint.NoIndexHint)
+_sym_db.RegisterMessage(ExecutionHint.AllowInaccuracyHint)
+_sym_db.RegisterMessage(ExecutionHint.IndexNameHint)
+_sym_db.RegisterMessage(ExecutionHint.IndexNameHint.ParametersEntry)
+_sym_db.RegisterMessage(ExecutionHint.ParallelHint)
+
 
 DESCRIPTOR._options = None
 _INDEXDEFINITION_PARAMSENTRY._options = None
-_KNNHINT_INDEXNAMEKNNHINT_PARAMETERSENTRY._options = None
-_WHEREHINT_INDEXNAMEWHEREHINT_PARAMETERSENTRY._options = None
+_EXECUTIONHINT_INDEXNAMEHINT_PARAMETERSENTRY._options = None
 
 _DDL = _descriptor.ServiceDescriptor(
   name='DDL',
@@ -4504,8 +4055,8 @@ _DDL = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=10984,
-  serialized_end=12386,
+  serialized_start=9824,
+  serialized_end=11226,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListSchemas',
@@ -4640,8 +4191,8 @@ _DML = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=12389,
-  serialized_end=12824,
+  serialized_start=11229,
+  serialized_end=11664,
   methods=[
   _descriptor.MethodDescriptor(
     name='Insert',
@@ -4696,8 +4247,8 @@ _DQL = _descriptor.ServiceDescriptor(
   index=2,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=12827,
-  serialized_end=13217,
+  serialized_start=11667,
+  serialized_end=12057,
   methods=[
   _descriptor.MethodDescriptor(
     name='Explain',
@@ -4752,8 +4303,8 @@ _TXN = _descriptor.ServiceDescriptor(
   index=3,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=13220,
-  serialized_end=13647,
+  serialized_start=12060,
+  serialized_end=12543,
   methods=[
   _descriptor.MethodDescriptor(
     name='Begin',
@@ -4761,7 +4312,7 @@ _TXN = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
-    output_type=_TRANSACTIONID,
+    output_type=_METADATA,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -4770,7 +4321,7 @@ _TXN = _descriptor.ServiceDescriptor(
     full_name='org.vitrivr.cottontail.grpc.TXN.Commit',
     index=1,
     containing_service=None,
-    input_type=_TRANSACTIONID,
+    input_type=_METADATA,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -4780,7 +4331,17 @@ _TXN = _descriptor.ServiceDescriptor(
     full_name='org.vitrivr.cottontail.grpc.TXN.Rollback',
     index=2,
     containing_service=None,
-    input_type=_TRANSACTIONID,
+    input_type=_METADATA,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Kill',
+    full_name='org.vitrivr.cottontail.grpc.TXN.Kill',
+    index=3,
+    containing_service=None,
+    input_type=_METADATA,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -4788,7 +4349,7 @@ _TXN = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListTransactions',
     full_name='org.vitrivr.cottontail.grpc.TXN.ListTransactions',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_QUERYRESPONSEMESSAGE,
@@ -4798,7 +4359,7 @@ _TXN = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListLocks',
     full_name='org.vitrivr.cottontail.grpc.TXN.ListLocks',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_QUERYRESPONSEMESSAGE,

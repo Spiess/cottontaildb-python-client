@@ -796,16 +796,21 @@ class TXNStub(object):
         self.Begin = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Begin',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=cottontail__pb2.TransactionId.FromString,
+                response_deserializer=cottontail__pb2.Metadata.FromString,
                 )
         self.Commit = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Commit',
-                request_serializer=cottontail__pb2.TransactionId.SerializeToString,
+                request_serializer=cottontail__pb2.Metadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.Rollback = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Rollback',
-                request_serializer=cottontail__pb2.TransactionId.SerializeToString,
+                request_serializer=cottontail__pb2.Metadata.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+        self.Kill = channel.unary_unary(
+                '/org.vitrivr.cottontail.grpc.TXN/Kill',
+                request_serializer=cottontail__pb2.Metadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.ListTransactions = channel.unary_stream(
@@ -833,14 +838,21 @@ class TXNServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def Commit(self, request, context):
-        """* Performs a commit on a transaction. 
+        """* Performs a commit on a transaction. This method blocks if a query is currently executed. 
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Rollback(self, request, context):
-        """* Performs a rollback on a transaction and aborts it. 
+        """* Performs a rollback on a transaction and aborts it. This method blocks if a query is currently executed. 
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Kill(self, request, context):
+        """* Kills and performs a rollback on an ongoing transaction. This method can even be used when a query is being executed.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -866,16 +878,21 @@ def add_TXNServicer_to_server(servicer, server):
             'Begin': grpc.unary_unary_rpc_method_handler(
                     servicer.Begin,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=cottontail__pb2.TransactionId.SerializeToString,
+                    response_serializer=cottontail__pb2.Metadata.SerializeToString,
             ),
             'Commit': grpc.unary_unary_rpc_method_handler(
                     servicer.Commit,
-                    request_deserializer=cottontail__pb2.TransactionId.FromString,
+                    request_deserializer=cottontail__pb2.Metadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Rollback': grpc.unary_unary_rpc_method_handler(
                     servicer.Rollback,
-                    request_deserializer=cottontail__pb2.TransactionId.FromString,
+                    request_deserializer=cottontail__pb2.Metadata.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'Kill': grpc.unary_unary_rpc_method_handler(
+                    servicer.Kill,
+                    request_deserializer=cottontail__pb2.Metadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'ListTransactions': grpc.unary_stream_rpc_method_handler(
@@ -913,7 +930,7 @@ class TXN(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Begin',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            cottontail__pb2.TransactionId.FromString,
+            cottontail__pb2.Metadata.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -929,7 +946,7 @@ class TXN(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Commit',
-            cottontail__pb2.TransactionId.SerializeToString,
+            cottontail__pb2.Metadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -946,7 +963,24 @@ class TXN(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Rollback',
-            cottontail__pb2.TransactionId.SerializeToString,
+            cottontail__pb2.Metadata.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Kill(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Kill',
+            cottontail__pb2.Metadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
