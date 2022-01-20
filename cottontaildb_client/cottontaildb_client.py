@@ -26,7 +26,7 @@ class CottontailDBClient:
         self._txn = TXNStub(self._channel)
         self._dql = DQLStub(self._channel)
         if self._transaction:
-            self._tid = self._txn.Begin(Empty())
+            self.start_transaction()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
@@ -34,7 +34,7 @@ class CottontailDBClient:
 
     def close(self):
         if self._transaction:
-            self._txn.Commit(self._tid)
+            self.commit_transaction()
         self._channel.close()
 
     # Transactions
@@ -44,21 +44,30 @@ class CottontailDBClient:
         if self._transaction:
             raise Exception('Transaction already running!')
         self._transaction = True
-        self._tid = self._txn.Begin(Empty())
+        metadata = self._txn.Begin(Empty())
+        self._tid = metadata.transactionId
 
     def commit_transaction(self):
         """Commits the current transaction."""
         if not self._transaction:
             raise Exception('No transaction running!')
-        self._txn.Commit(self._tid)
+        self._txn.Commit(Metadata(transactionId=self._tid))
         self._tid = None
         self._transaction = False
 
     def abort_transaction(self):
-        """Aborts the current transaction."""
+        """Aborts the current transaction and rolls back work. Blocks if a query is ongoing."""
         if not self._transaction:
             raise Exception('No transaction running!')
-        self._txn.Rollback(self._tid)
+        self._txn.Rollback(Metadata(transactionId=self._tid))
+        self._tid = None
+        self._transaction = False
+
+    def kill_transaction(self):
+        """Kills the current transaction and rolls back work."""
+        if not self._transaction:
+            raise Exception('No transaction running!')
+        self._txn.Kill(Metadata(transactionId=self._tid))
         self._tid = None
         self._transaction = False
 
@@ -94,7 +103,8 @@ class CottontailDBClient:
     def drop_schema(self, schema):
         """Drops the schema with the given name."""
         schema_name = SchemaName(name=schema)
-        response = self._ddl.DropSchema(DropSchemaMessage(metadata=self._tid, schema=schema_name))
+        response = self._ddl.DropSchema(
+            DropSchemaMessage(metadata=Metadata(transactionId=self._tid), schema=schema_name))
         return self._parse_query_response(response)
 
     def create_entity(self, schema, entity, columns, exist_ok=False):
@@ -199,7 +209,8 @@ class CottontailDBClient:
 
     def list_schemas(self):
         """Lists all schemas in the database."""
-        responses = [response for response in self._ddl.ListSchemas(ListSchemaMessage(metadata=self._tid))]
+        responses = [response for response in
+                     self._ddl.ListSchemas(ListSchemaMessage(metadata=Metadata(transactionId=self._tid)))]
         tuples = [t.data[0].stringData for response in responses for t in response.tuples]
         return tuples
 
@@ -227,7 +238,7 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.EntityDetails(EntityDetailsMessage(metadata=self._tid, entity=entity_name))
+        response = self._ddl.EntityDetails(EntityDetailsMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         entity_data = response.tuples[0]
         data_names = [c.name.name for c in response.columns]
         name_index = data_names.index('dbo')
@@ -389,7 +400,7 @@ class CottontailDBClient:
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
         elements = [InsertMessage.InsertElement(column=ColumnName(name=column), value=value)
                     for column, value in values.items()]
-        return InsertMessage(metadata=self._tid, **from_kwarg, elements=elements)
+        return InsertMessage(metadata=Metadata(transactionId=self._tid), **from_kwarg, elements=elements)
 
 
 def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,
