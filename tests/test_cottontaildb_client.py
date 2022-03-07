@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from grpc import RpcError
 
-from cottontaildb_client import CottontailDBClient, column_def, Type, Literal
+from cottontaildb_client import CottontailDBClient, column_def, Type, Literal, float_vector
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
     ComparisonOperator, Expressions, Expression, Projection, IndexType
 
@@ -11,6 +11,7 @@ DB_PORT = 1865
 
 TEST_SCHEMA = 'schema_test'
 TEST_ENTITY = 'entity_test'
+TEST_VECTOR_ENTITY = 'entity_test_vector'
 TEST_INDEX = 'index_test'
 TEST_COLUMN_ID = 'id'
 TEST_COLUMN_VALUE = 'value'
@@ -45,10 +46,15 @@ class TestCottontailDBClient(TestCase):
     def test_create_drop_entity(self):
         self._create_schema()
         self._create_entity()
+        self._create_vector_entity()
         self.assert_in(TEST_ENTITY, self.client.list_entities(TEST_SCHEMA), 'entity was not created')
+        self.assert_in(TEST_VECTOR_ENTITY, self.client.list_entities(TEST_SCHEMA), 'vector entity was not created')
         self.client.create_entity(TEST_SCHEMA, TEST_ENTITY, [], exist_ok=True)
+        self.client.create_entity(TEST_SCHEMA, TEST_VECTOR_ENTITY, [], exist_ok=True)
         self.client.drop_entity(TEST_SCHEMA, TEST_ENTITY)
+        self.client.drop_entity(TEST_SCHEMA, TEST_VECTOR_ENTITY)
         self.assert_not_in(TEST_ENTITY, self.client.list_entities(TEST_SCHEMA), 'entity was not dropped')
+        self.assert_not_in(TEST_VECTOR_ENTITY, self.client.list_entities(TEST_SCHEMA), 'vector entity was not dropped')
 
     def test_drop_not_exists_entity(self):
         self._create_schema()
@@ -74,11 +80,26 @@ class TestCottontailDBClient(TestCase):
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(details['rows'], 1, 'unexpected number of rows in entity after insert')
 
+    def test_vector_insert(self):
+        self._create_schema()
+        self._create_vector_entity()
+        self._insert_vector()
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_VECTOR_ENTITY)
+        self.assertEqual(details['rows'], 1, 'unexpected number of rows in vector entity after insert')
+        print('success')
+
     def test_batch_insert(self):
         self._create_schema()
         self._create_entity()
         self._batch_insert()
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
+        self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
+
+    def test_batch_insert_vectors(self):
+        self._create_schema()
+        self._create_vector_entity()
+        self._batch_insert_vectors()
+        details = self.client.get_entity_details(TEST_SCHEMA, TEST_VECTOR_ENTITY)
         self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
 
     def test_query(self):
@@ -167,9 +188,21 @@ class TestCottontailDBClient(TestCase):
         ]
         self.client.create_entity(TEST_SCHEMA, TEST_ENTITY, columns)
 
+    def _create_vector_entity(self):
+        columns = [
+            column_def(TEST_COLUMN_ID, Type.STRING, nullable=False),
+            column_def(TEST_COLUMN_VALUE, Type.FLOAT_VEC, length=3, nullable=False)
+        ]
+        self.client.create_entity(TEST_SCHEMA, TEST_VECTOR_ENTITY, columns)
+
     def _insert(self):
         values = {'id': Literal(stringData='test_0'), 'value': Literal(intData=0)}
         self.client.insert(TEST_SCHEMA, TEST_ENTITY, values)
+
+    def _insert_vector(self):
+        list = [0.2, 0.3, 0.5]
+        values = {'id': Literal(stringData='test_0'), 'value': float_vector(*list)}
+        self.client.insert(TEST_SCHEMA, TEST_VECTOR_ENTITY, values)
 
     def _batch_insert(self):
         columns = ['id', 'value']
@@ -179,6 +212,18 @@ class TestCottontailDBClient(TestCase):
             [Literal(stringData='test_3'), Literal(intData=3)]
         ]
         self.client.insert_batch(TEST_SCHEMA, TEST_ENTITY, columns, values)
+
+    def _batch_insert_vectors(self):
+        columns = ['id', 'value']
+        one = [0.1, 0.2, 0.3]
+        two = [0.000001, 0.2, 0.3]
+        three = [0.1, 0.2, 0.3]
+        values = [
+            [Literal(stringData='test_1'), float_vector(*one)],
+            [Literal(stringData='test_2'), float_vector(*two)],
+            [Literal(stringData='test_3'), float_vector(*three)]
+        ]
+        self.client.insert_batch(TEST_SCHEMA, TEST_VECTOR_ENTITY, columns, values)
 
     def _update_value_with_key(self, key, value):
         where = Where(atomic=AtomicBooleanPredicate(
