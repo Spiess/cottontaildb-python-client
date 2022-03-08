@@ -37,7 +37,7 @@ with CottontailDBClient('localhost', 1865) as client:
     values = [
         [Literal(stringData='test_10'), Literal(intData=10)],
         [Literal(stringData='test_20'), Literal(intData=20)],
-        [Literal(stringData='test_null'), Literal(nullData=Null())]
+        [Literal(stringData='test_null'), Literal()]
     ]
     client.insert_batch('example_schema', 'example_entity', columns, values)
 ```
