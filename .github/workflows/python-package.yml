@@ -20,7 +20,7 @@ jobs:
     # Setup Cottontail DB service container
     services:
       cottontail:
-        image: vitrivr/cottontaildb:0.13.1
+        image: vitrivr/cottontaildb:0.14.1
         ports:
           - 1865:1865
         options: -it
