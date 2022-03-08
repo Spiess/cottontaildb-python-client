@@ -17,7 +17,7 @@ Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] hos
 Example usage in scripts:
 
 ```python
-from cottontaildb_client import CottontailDBClient, Type, Literal, Null, column_def
+from cottontaildb_client import CottontailDBClient, Type, Literal, column_def
 
 with CottontailDBClient('localhost', 1865) as client:
     # Create schema
