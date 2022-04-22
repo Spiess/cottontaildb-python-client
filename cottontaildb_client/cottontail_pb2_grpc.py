@@ -633,11 +633,6 @@ class DQLStub(object):
                 request_serializer=cottontail__pb2.QueryMessage.SerializeToString,
                 response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
                 )
-        self.BatchQuery = channel.unary_stream(
-                '/org.vitrivr.cottontail.grpc.DQL/BatchQuery',
-                request_serializer=cottontail__pb2.BatchedQueryMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
-                )
         self.Ping = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DQL/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -664,13 +659,6 @@ class DQLServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def BatchQuery(self, request, context):
-        """* Executes a batched query through Cottontail DB (not supported yet). 
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def Ping(self, request, context):
         """* Pings the endpoint 
         """
@@ -689,11 +677,6 @@ def add_DQLServicer_to_server(servicer, server):
             'Query': grpc.unary_stream_rpc_method_handler(
                     servicer.Query,
                     request_deserializer=cottontail__pb2.QueryMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
-            ),
-            'BatchQuery': grpc.unary_stream_rpc_method_handler(
-                    servicer.BatchQuery,
-                    request_deserializer=cottontail__pb2.BatchedQueryMessage.FromString,
                     response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
@@ -743,23 +726,6 @@ class DQL(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DQL/Query',
             cottontail__pb2.QueryMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def BatchQuery(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DQL/BatchQuery',
-            cottontail__pb2.BatchedQueryMessage.SerializeToString,
             cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

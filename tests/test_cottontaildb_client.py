@@ -4,7 +4,7 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal, float_vector
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    ComparisonOperator, Expressions, Expression, Projection, IndexType
+    ComparisonOperator, Expressions, Expression, Projection, IndexType, EntityName, SchemaName
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
@@ -132,7 +132,7 @@ class TestCottontailDBClient(TestCase):
         self._batch_insert()
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(len(details['indexes']), 0, 'unexpected number of indexes in entity before index creation')
-        self.client.create_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX, IndexType.HASH, [TEST_COLUMN_VALUE])
+        self.client.create_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX, IndexType.BTREE, [TEST_COLUMN_VALUE])
         details = self.client.get_entity_details(TEST_SCHEMA, TEST_ENTITY)
         self.assertEqual(len(details['indexes']), 1, 'index was not created')
         self.client.rebuild_index(TEST_SCHEMA, TEST_ENTITY, TEST_INDEX)
@@ -200,8 +200,8 @@ class TestCottontailDBClient(TestCase):
         self.client.insert(TEST_SCHEMA, TEST_ENTITY, values)
 
     def _insert_vector(self):
-        list = [0.2, 0.3, 0.5]
-        values = {'id': Literal(stringData='test_0'), 'value': float_vector(*list)}
+        value_list = [0.2, 0.3, 0.5]
+        values = {'id': Literal(stringData='test_0'), 'value': float_vector(*value_list)}
         self.client.insert(TEST_SCHEMA, TEST_VECTOR_ENTITY, values)
 
     def _batch_insert(self):
@@ -236,8 +236,11 @@ class TestCottontailDBClient(TestCase):
         self.client.update(TEST_SCHEMA, TEST_ENTITY, where, updates)
 
     def _query_value_with_key(self, key):
-        projection = Projection(op=Projection.ProjectionOperation.SELECT,
-                                elements=[Projection.ProjectionElement(column=ColumnName(name=TEST_COLUMN_VALUE))])
+        schema_name = SchemaName(name=TEST_SCHEMA)
+        entity_name = EntityName(schema=schema_name, name=TEST_ENTITY)
+        expression = Expression(column=ColumnName(entity=entity_name, name=TEST_COLUMN_VALUE))
+        projection_element = Projection.ProjectionElement(expression=expression)
+        projection = Projection(op=Projection.ProjectionOperation.SELECT, elements=[projection_element])
         where = Where(atomic=AtomicBooleanPredicate(
             left=ColumnName(name=TEST_COLUMN_ID),
             right=AtomicBooleanOperand(
