@@ -5,9 +5,9 @@ from google.protobuf.empty_pb2 import Empty
 from typing import List
 
 from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, EntityName, ColumnDefinition, \
-    EntityDefinition, CreateEntityMessage, Engine, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
+    EntityDefinition, CreateEntityMessage, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
-    IndexName, IndexDefinition, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
+    IndexName, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
     DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata, QueryMessage, Query
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
@@ -170,12 +170,10 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        index_name = IndexName(entity=entity_name, name=index)
         # TODO: map<string,string> params
-        column_names = [ColumnName(entity=entity_name, name=c) for c in columns]
-        index_def = IndexDefinition(name=index_name, type=index_type, columns=column_names)
         response = self._ddl.CreateIndex(
-            CreateIndexMessage(metadata=Metadata(transactionId=self._tid), definition=index_def, rebuild=rebuild))
+            CreateIndexMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name, type=index_type,
+                               indexName=index, columns=columns, rebuild=rebuild))
         return self._parse_query_response(response)
 
     def drop_index(self, schema, entity, index):
@@ -238,7 +236,8 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        response = self._ddl.EntityDetails(EntityDetailsMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
+        response = self._ddl.EntityDetails(
+            EntityDetailsMessage(metadata=Metadata(transactionId=self._tid), entity=entity_name))
         entity_data = response.tuples[0]
         data_names = [c.name.name for c in response.columns]
         name_index = data_names.index('dbo')
@@ -344,7 +343,7 @@ class CottontailDBClient:
         """Sends a ping message to the endpoint. If method returns without exception endpoint is connected."""
         self._dql.Ping(Empty())
 
-    def query(self, schema, entity, projection, where):
+    def query(self, schema, entity, projection, where, order=None, limit=None, skip=None):
         """
         Queries the specified entity where the provided conditions are met and applies the given projection.
 
@@ -352,11 +351,14 @@ class CottontailDBClient:
         @param entity: the entity being queried
         @param projection: the projection to be applied to the result
         @param where: where clause specifying the rows to return
+        @param order: order by clause specifying the order of the result
+        @param limit: maximum number of rows to return
+        @param skip: number of rows to skip
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
         from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
-        query = Query(**from_kwarg, projection=projection, where=where)
+        query = Query(**from_kwarg, projection=projection, where=where, order=order, limit=limit, skip=skip)
         responses = self._dql.Query(QueryMessage(metadata=Metadata(transactionId=self._tid), query=query))
         return [r for response in responses for r in self._parse_query_response(response)]
 
@@ -403,8 +405,7 @@ class CottontailDBClient:
         return InsertMessage(metadata=Metadata(transactionId=self._tid), **from_kwarg, elements=elements)
 
 
-def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None,
-               engine: Engine = Engine.MAPDB):
+def column_def(name: str, type_: Type, length: int = None, primary: bool = None, nullable: bool = None):
     """
     Creates a column definition.
 
@@ -413,13 +414,11 @@ def column_def(name: str, type_: Type, length: int = None, primary: bool = None,
     @param length: data length for vector types
     @param primary: if this is a primary column of the entity
     @param nullable: if this column may be null
-    @param engine: storage engine to use (currently only MapDB)
     @return: column definition
     """
     kwargs = {
         'name': ColumnName(name=name),
-        'type': type_,
-        'engine': engine
+        'type': type_
     }
     if length is not None:
         kwargs['length'] = length
