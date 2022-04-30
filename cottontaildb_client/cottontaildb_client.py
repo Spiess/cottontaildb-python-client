@@ -387,13 +387,25 @@ class CottontailDBClient:
 
         if literal.HasField('dateData'):
             return datetime.fromtimestamp(literal.dateData.utc_timestamp / 1000.0, timezone.utc)
-        if literal.HasField('nullData'):
-            return None
+
+        if literal.HasField('vectorData'):
+            vector = literal.vectorData
+            vector_types = [
+                'floatVector',
+                'doubleVector',
+                'intVector',
+                'longVector',
+                'boolVector',
+                'complex32Vector',
+                'complex64Vector'
+            ]
+            for vector_type in vector_types:
+                if vector.HasField(vector_type):
+                    return list(getattr(vector, vector_type).vector)
 
         # TODO: Object types
         # complex32Data
         # complex64Data
-        # vectorData
         return literal
 
     def _insert_helper(self, schema, entity, values):
