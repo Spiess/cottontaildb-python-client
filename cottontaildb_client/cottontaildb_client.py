@@ -343,7 +343,7 @@ class CottontailDBClient:
         """Sends a ping message to the endpoint. If method returns without exception endpoint is connected."""
         self._dql.Ping(Empty())
 
-    def query(self, schema, entity, projection, where, order=None, limit=None, skip=None):
+    def query(self, schema, entity, projection, where, order=None, limit=None, skip=None, from_=None):
         """
         Queries the specified entity where the provided conditions are met and applies the given projection.
 
@@ -354,10 +354,11 @@ class CottontailDBClient:
         @param order: order by clause specifying the order of the result
         @param limit: maximum number of rows to return
         @param skip: number of rows to skip
+        @param from_: from clause, defaults to scan of the entity
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        from_kwarg = {'from': From(scan=Scan(entity=entity_name))}
+        from_kwarg = {'from': from_ if from_ else From(scan=Scan(entity=entity_name))}
         query = Query(**from_kwarg, projection=projection, where=where, order=order, limit=limit, skip=skip)
         responses = self._dql.Query(QueryMessage(metadata=Metadata(transactionId=self._tid), query=query))
         return [r for response in responses for r in self._parse_query_response(response)]
