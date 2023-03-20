@@ -109,7 +109,7 @@ def schema(client, args):
     command = args.subcommand
     if command == 'all':
         schemas = client.list_schemas()
-        print(schemas)
+        print('\n'.join(schemas))
     elif command == 'create':
         response = client.create_schema(args.schema_name)
         print(response)
