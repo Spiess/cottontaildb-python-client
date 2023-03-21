@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import cottontail_pb2 as cottontail__pb2
+from cottontaildb_client import cottontail_pb2 as cottontaildb__client_dot_cottontail__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
@@ -17,63 +17,63 @@ class DDLStub(object):
         """
         self.ListSchemas = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.DDL/ListSchemas',
-                request_serializer=cottontail__pb2.ListSchemaMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.ListSchemaMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.CreateSchema = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/CreateSchema',
-                request_serializer=cottontail__pb2.CreateSchemaMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.CreateSchemaMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.DropSchema = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/DropSchema',
-                request_serializer=cottontail__pb2.DropSchemaMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.DropSchemaMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.ListEntities = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.DDL/ListEntities',
-                request_serializer=cottontail__pb2.ListEntityMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.ListEntityMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.EntityDetails = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/EntityDetails',
-                request_serializer=cottontail__pb2.EntityDetailsMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.EntityDetailsMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.CreateEntity = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/CreateEntity',
-                request_serializer=cottontail__pb2.CreateEntityMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.CreateEntityMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.DropEntity = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/DropEntity',
-                request_serializer=cottontail__pb2.DropEntityMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.DropEntityMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.TruncateEntity = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/TruncateEntity',
-                request_serializer=cottontail__pb2.TruncateEntityMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.TruncateEntityMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.OptimizeEntity = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/OptimizeEntity',
-                request_serializer=cottontail__pb2.OptimizeEntityMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.OptimizeEntityMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.CreateIndex = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/CreateIndex',
-                request_serializer=cottontail__pb2.CreateIndexMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.CreateIndexMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.DropIndex = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/DropIndex',
-                request_serializer=cottontail__pb2.DropIndexMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.DropIndexMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.RebuildIndex = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DDL/RebuildIndex',
-                request_serializer=cottontail__pb2.RebuildIndexMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.RebuildIndexMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
 
 
@@ -169,63 +169,63 @@ def add_DDLServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'ListSchemas': grpc.unary_stream_rpc_method_handler(
                     servicer.ListSchemas,
-                    request_deserializer=cottontail__pb2.ListSchemaMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.ListSchemaMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'CreateSchema': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateSchema,
-                    request_deserializer=cottontail__pb2.CreateSchemaMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.CreateSchemaMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'DropSchema': grpc.unary_unary_rpc_method_handler(
                     servicer.DropSchema,
-                    request_deserializer=cottontail__pb2.DropSchemaMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.DropSchemaMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'ListEntities': grpc.unary_stream_rpc_method_handler(
                     servicer.ListEntities,
-                    request_deserializer=cottontail__pb2.ListEntityMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.ListEntityMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'EntityDetails': grpc.unary_unary_rpc_method_handler(
                     servicer.EntityDetails,
-                    request_deserializer=cottontail__pb2.EntityDetailsMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.EntityDetailsMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'CreateEntity': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateEntity,
-                    request_deserializer=cottontail__pb2.CreateEntityMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.CreateEntityMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'DropEntity': grpc.unary_unary_rpc_method_handler(
                     servicer.DropEntity,
-                    request_deserializer=cottontail__pb2.DropEntityMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.DropEntityMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'TruncateEntity': grpc.unary_unary_rpc_method_handler(
                     servicer.TruncateEntity,
-                    request_deserializer=cottontail__pb2.TruncateEntityMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.TruncateEntityMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'OptimizeEntity': grpc.unary_unary_rpc_method_handler(
                     servicer.OptimizeEntity,
-                    request_deserializer=cottontail__pb2.OptimizeEntityMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.OptimizeEntityMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'CreateIndex': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateIndex,
-                    request_deserializer=cottontail__pb2.CreateIndexMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.CreateIndexMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'DropIndex': grpc.unary_unary_rpc_method_handler(
                     servicer.DropIndex,
-                    request_deserializer=cottontail__pb2.DropIndexMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.DropIndexMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'RebuildIndex': grpc.unary_unary_rpc_method_handler(
                     servicer.RebuildIndex,
-                    request_deserializer=cottontail__pb2.RebuildIndexMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.RebuildIndexMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -249,8 +249,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DDL/ListSchemas',
-            cottontail__pb2.ListSchemaMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.ListSchemaMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -266,8 +266,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/CreateSchema',
-            cottontail__pb2.CreateSchemaMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.CreateSchemaMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -283,8 +283,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/DropSchema',
-            cottontail__pb2.DropSchemaMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.DropSchemaMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -300,8 +300,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DDL/ListEntities',
-            cottontail__pb2.ListEntityMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.ListEntityMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -317,8 +317,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/EntityDetails',
-            cottontail__pb2.EntityDetailsMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.EntityDetailsMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -334,8 +334,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/CreateEntity',
-            cottontail__pb2.CreateEntityMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.CreateEntityMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -351,8 +351,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/DropEntity',
-            cottontail__pb2.DropEntityMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.DropEntityMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -368,8 +368,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/TruncateEntity',
-            cottontail__pb2.TruncateEntityMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.TruncateEntityMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -385,8 +385,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/OptimizeEntity',
-            cottontail__pb2.OptimizeEntityMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.OptimizeEntityMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -402,8 +402,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/CreateIndex',
-            cottontail__pb2.CreateIndexMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.CreateIndexMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -419,8 +419,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/DropIndex',
-            cottontail__pb2.DropIndexMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.DropIndexMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -436,8 +436,8 @@ class DDL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DDL/RebuildIndex',
-            cottontail__pb2.RebuildIndexMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.RebuildIndexMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -455,23 +455,23 @@ class DMLStub(object):
         """
         self.Insert = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/Insert',
-                request_serializer=cottontail__pb2.InsertMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.InsertMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.InsertBatch = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/InsertBatch',
-                request_serializer=cottontail__pb2.BatchInsertMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.BatchInsertMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.Update = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/Update',
-                request_serializer=cottontail__pb2.UpdateMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.UpdateMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.Delete = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DML/Delete',
-                request_serializer=cottontail__pb2.DeleteMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.DeleteMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
 
 
@@ -513,23 +513,23 @@ def add_DMLServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Insert': grpc.unary_unary_rpc_method_handler(
                     servicer.Insert,
-                    request_deserializer=cottontail__pb2.InsertMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.InsertMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'InsertBatch': grpc.unary_unary_rpc_method_handler(
                     servicer.InsertBatch,
-                    request_deserializer=cottontail__pb2.BatchInsertMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.BatchInsertMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Update': grpc.unary_unary_rpc_method_handler(
                     servicer.Update,
-                    request_deserializer=cottontail__pb2.UpdateMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.UpdateMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
-                    request_deserializer=cottontail__pb2.DeleteMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.DeleteMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -555,8 +555,8 @@ class DML(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DML/Insert',
-            cottontail__pb2.InsertMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.InsertMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -572,8 +572,8 @@ class DML(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DML/InsertBatch',
-            cottontail__pb2.BatchInsertMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.BatchInsertMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -589,8 +589,8 @@ class DML(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DML/Update',
-            cottontail__pb2.UpdateMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.UpdateMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -606,8 +606,8 @@ class DML(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.DML/Delete',
-            cottontail__pb2.DeleteMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.DeleteMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -625,13 +625,13 @@ class DQLStub(object):
         """
         self.Explain = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.DQL/Explain',
-                request_serializer=cottontail__pb2.QueryMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.QueryMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.Query = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.DQL/Query',
-                request_serializer=cottontail__pb2.QueryMessage.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.QueryMessage.SerializeToString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.Ping = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.DQL/Ping',
@@ -671,13 +671,13 @@ def add_DQLServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Explain': grpc.unary_stream_rpc_method_handler(
                     servicer.Explain,
-                    request_deserializer=cottontail__pb2.QueryMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Query': grpc.unary_stream_rpc_method_handler(
                     servicer.Query,
-                    request_deserializer=cottontail__pb2.QueryMessage.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryMessage.FromString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -708,8 +708,8 @@ class DQL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DQL/Explain',
-            cottontail__pb2.QueryMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.QueryMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -725,8 +725,8 @@ class DQL(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.DQL/Query',
-            cottontail__pb2.QueryMessage.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.QueryMessage.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -762,32 +762,32 @@ class TXNStub(object):
         self.Begin = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Begin',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=cottontail__pb2.Metadata.FromString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.Metadata.FromString,
                 )
         self.Commit = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Commit',
-                request_serializer=cottontail__pb2.Metadata.SerializeToString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.Rollback = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Rollback',
-                request_serializer=cottontail__pb2.Metadata.SerializeToString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.Kill = channel.unary_unary(
                 '/org.vitrivr.cottontail.grpc.TXN/Kill',
-                request_serializer=cottontail__pb2.Metadata.SerializeToString,
+                request_serializer=cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.ListTransactions = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.TXN/ListTransactions',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
         self.ListLocks = channel.unary_stream(
                 '/org.vitrivr.cottontail.grpc.TXN/ListLocks',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=cottontail__pb2.QueryResponseMessage.FromString,
+                response_deserializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
                 )
 
 
@@ -844,32 +844,32 @@ def add_TXNServicer_to_server(servicer, server):
             'Begin': grpc.unary_unary_rpc_method_handler(
                     servicer.Begin,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=cottontail__pb2.Metadata.SerializeToString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
             ),
             'Commit': grpc.unary_unary_rpc_method_handler(
                     servicer.Commit,
-                    request_deserializer=cottontail__pb2.Metadata.FromString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.Metadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Rollback': grpc.unary_unary_rpc_method_handler(
                     servicer.Rollback,
-                    request_deserializer=cottontail__pb2.Metadata.FromString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.Metadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Kill': grpc.unary_unary_rpc_method_handler(
                     servicer.Kill,
-                    request_deserializer=cottontail__pb2.Metadata.FromString,
+                    request_deserializer=cottontaildb__client_dot_cottontail__pb2.Metadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'ListTransactions': grpc.unary_stream_rpc_method_handler(
                     servicer.ListTransactions,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
             'ListLocks': grpc.unary_stream_rpc_method_handler(
                     servicer.ListLocks,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=cottontail__pb2.QueryResponseMessage.SerializeToString,
+                    response_serializer=cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -896,7 +896,7 @@ class TXN(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Begin',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            cottontail__pb2.Metadata.FromString,
+            cottontaildb__client_dot_cottontail__pb2.Metadata.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -912,7 +912,7 @@ class TXN(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Commit',
-            cottontail__pb2.Metadata.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -929,7 +929,7 @@ class TXN(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Rollback',
-            cottontail__pb2.Metadata.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -946,7 +946,7 @@ class TXN(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/org.vitrivr.cottontail.grpc.TXN/Kill',
-            cottontail__pb2.Metadata.SerializeToString,
+            cottontaildb__client_dot_cottontail__pb2.Metadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -964,7 +964,7 @@ class TXN(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.TXN/ListTransactions',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -981,6 +981,6 @@ class TXN(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/org.vitrivr.cottontail.grpc.TXN/ListLocks',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            cottontail__pb2.QueryResponseMessage.FromString,
+            cottontaildb__client_dot_cottontail__pb2.QueryResponseMessage.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
