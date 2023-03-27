@@ -8,7 +8,8 @@ from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, 
     EntityDefinition, CreateEntityMessage, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
     ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, OptimizeEntityMessage, \
     IndexName, IndexType, CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, \
-    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata, QueryMessage, Query
+    DeleteMessage, Literal, Vector, FloatVector, BatchInsertMessage, Metadata, QueryMessage, Query, Expression, \
+    FunctionName, Function, Projection, Order
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -342,6 +343,41 @@ class CottontailDBClient:
     def ping(self):
         """Sends a ping message to the endpoint. If method returns without exception endpoint is connected."""
         self._dql.Ping(Empty())
+
+    def nns(self, schema, entity, query_vector, distance='manhattan', limit=None, vector_col='feature', id_col='id'):
+        """
+        Queries the specified entity with the given vector.
+
+        @param schema: the schema containing the queried entity
+        @param entity: the entity being queried
+        @param query_vector: the query vector. Simple float array.
+        @param distance: the distance to be used
+        @param limit: maximum number of rows to return
+        @param vector_col: column name where the vector is stored
+        @param id_col: column name where the id is stored
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        nnscol = Expression(column=ColumnName(entity=entity_name, name=vector_col))
+
+        distancecol = ColumnName(name='distance')
+        idExpression = Expression(column=ColumnName(name='id'))
+
+        nnslit = Expression(literal=float_vector(*query_vector))
+        fn = FunctionName(name='euclidean')
+        fun = Function(name=fn, arguments=[nnscol, nnslit])
+
+        expression = Expression(function=fun)
+
+        projection_element = Projection.ProjectionElement(alias=distancecol,
+                                                          expression=expression)
+        projection = Projection(op=Projection.ProjectionOperation.SELECT, elements=[projection_element, Projection.ProjectionElement(expression=idExpression)])
+
+        order_component = Order.Component(column=distancecol, direction=Order.Direction.ASCENDING)
+
+        order = Order(components=[order_component])
+
+        return self.query(schema, entity, projection, None, limit=limit, order=order)
 
     def query(self, schema, entity, projection, where, order=None, limit=None, skip=None, from_=None):
         """
