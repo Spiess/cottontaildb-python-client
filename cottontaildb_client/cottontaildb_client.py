@@ -361,10 +361,10 @@ class CottontailDBClient:
         nnscol = Expression(column=ColumnName(entity=entity_name, name=vector_col))
 
         distancecol = ColumnName(name='distance')
-        idExpression = Expression(column=ColumnName(name='id'))
+        idExpression = Expression(column=ColumnName(name=id_col))
 
         nnslit = Expression(literal=float_vector(*query_vector))
-        fn = FunctionName(name='euclidean')
+        fn = FunctionName(name=distance)
         fun = Function(name=fn, arguments=[nnscol, nnslit])
 
         expression = Expression(function=fun)
