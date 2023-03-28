@@ -358,22 +358,23 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        nnscol = Expression(column=ColumnName(entity=entity_name, name=vector_col))
+        nns_col = Expression(column=ColumnName(entity=entity_name, name=vector_col))
 
-        distancecol = ColumnName(name='distance')
-        idExpression = Expression(column=ColumnName(name=id_col))
+        distance_col = ColumnName(name='distance')
+        id_expression = Expression(column=ColumnName(name=id_col))
 
-        nnslit = Expression(literal=float_vector(*query_vector))
+        nns_expression = Expression(literal=float_vector(*query_vector))
         fn = FunctionName(name=distance)
-        fun = Function(name=fn, arguments=[nnscol, nnslit])
+        fun = Function(name=fn, arguments=[nns_col, nns_expression])
 
         expression = Expression(function=fun)
 
-        projection_element = Projection.ProjectionElement(alias=distancecol,
+        projection_element = Projection.ProjectionElement(alias=distance_col,
                                                           expression=expression)
-        projection = Projection(op=Projection.ProjectionOperation.SELECT, elements=[projection_element, Projection.ProjectionElement(expression=idExpression)])
+        projection = Projection(op=Projection.ProjectionOperation.SELECT,
+                                elements=[projection_element, Projection.ProjectionElement(expression=id_expression)])
 
-        order_component = Order.Component(column=distancecol, direction=Order.Direction.ASCENDING)
+        order_component = Order.Component(column=distance_col, direction=Order.Direction.ASCENDING)
 
         order = Order(components=[order_component])
 

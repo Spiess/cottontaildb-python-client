@@ -4,8 +4,7 @@ from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal, float_vector
 from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    ComparisonOperator, Expressions, Expression, Projection, IndexType, EntityName, SchemaName, FunctionName, Function, \
-    Order
+    ComparisonOperator, Expressions, Expression, Projection, IndexType, EntityName, SchemaName
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
@@ -128,7 +127,6 @@ class TestCottontailDBClient(TestCase):
         results = self.client.nns(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR, query, vector_col='value', limit=1)
         print(results)
         self.assertEqual(len(results), 1, 'unexpected number of rows returned from query')
-
 
     def test_update(self):
         self._create_schema()
