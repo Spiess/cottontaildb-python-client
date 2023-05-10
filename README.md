@@ -14,7 +14,7 @@ Clone and install locally, or with `pip install cottontaildb-client`.
 
 ## Usage
 
-Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] host`.
+Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] HOST`.
 
 Example usage in scripts:
 
