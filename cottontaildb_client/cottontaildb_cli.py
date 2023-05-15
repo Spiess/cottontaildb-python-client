@@ -73,6 +73,11 @@ def get_command_parser():
     parser_entity_about = subparsers_entity.add_parser('about', help='Gives an overview of the entity and its columns.')
     parser_entity_about.add_argument('schema_name', help='Name of schema containing entity.')
     parser_entity_about.add_argument('entity_name', help='Name of entity to show details of.')
+    # Entity Preview
+    parser_entity_preview = subparsers_entity.add_parser('preview', help='Shows a preview of the entity\'s contents.')
+    parser_entity_preview.add_argument('schema_name', help='Name of schema containing entity.')
+    parser_entity_preview.add_argument('entity_name', help='Name of entity to show preview of.')
+    parser_entity_preview.add_argument('--limit', help='Number of rows to show.', type=int, default=10)
 
     # System
     parser_system = subparsers.add_parser('system', help='System related commands.')
@@ -125,11 +130,45 @@ def entity(client, args):
     command = args.subcommand
     if command == 'drop':
         response = client.drop_entity(args.schema_name, args.entity_name)
-        print(response)
     elif command == 'about':
         response = client.get_entity_details(args.schema_name, args.entity_name)
-        print(response)
+    elif command == 'preview':
+        response = client.preview_entity(args.schema_name, args.entity_name, args.limit)
+    format(response)
 
+def format(obj):
+    """Formats the response object for printing.
+
+    Args:
+        obj (object): The object to format.
+    """
+    if type(obj) is list and all([type(item) is dict for item in obj]) and len(obj) > 0:
+        format_as_table(obj)
+    else:
+        print(obj)
+
+def format_as_table(dict_list):
+    """Formats a list of dictionaries as a table.
+    
+    Args:
+        dict_list (list[dict]): The list of dictionaries to format.
+    """
+    # Determine the maximum length for each column
+    column_widths = {}
+    headers = dict_list[0].keys()
+    for header in headers:
+        max_length = max(len(str(item[header])) for item in dict_list)
+        column_widths[header] = max(max_length, len(header))
+
+    # Print the header row
+    header_row = ' | '.join([f"{header:<{column_widths[header]}}" for header in headers])
+    print(header_row)
+    print('-' * len(header_row))
+
+    # Print each row
+    for item in dict_list:
+        row = ' | '.join([f"{str(item[header]):<{column_widths[header]}}" for header in headers])
+        print(row)
 
 def system(client, args):
     command = args.subcommand

@@ -266,6 +266,21 @@ class CottontailDBClient:
         }
 
         return entity_details
+    
+    def preview_entity(self, schema, entity, limit=10):
+        """
+        Retrieves a preview of the specified entity.
+
+        @param schema: the entity's schema
+        @param entity: entity name
+        @param limit: number of rows to return
+        @return: query response message
+        """
+        schema_name = SchemaName(name=schema)
+        entity_name = EntityName(schema=schema_name, name=entity)
+        projection = Projection(op=Projection.ProjectionOperation.SELECT,
+                                elements=[Projection.ProjectionElement(expression=Expression(column=ColumnName(entity=entity_name, name = "*")))])
+        return self.query(schema, entity, projection, None, limit=limit)
 
     # Data management
 
