@@ -267,7 +267,7 @@ class CottontailDBClient:
 
         return entity_details
     
-    def preview_entity(self, schema, entity, limit=10):
+    def sample_entity(self, schema, entity, limit=10, skip=0):
         """
         Retrieves a preview of the specified entity.
 
@@ -278,9 +278,11 @@ class CottontailDBClient:
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        projection = Projection(op=Projection.ProjectionOperation.SELECT,
-                                elements=[Projection.ProjectionElement(expression=Expression(column=ColumnName(entity=entity_name, name = "*")))])
-        return self.query(schema, entity, projection, None, limit=limit)
+        op = Projection.ProjectionOperation.SELECT
+        column = ColumnName(entity=entity_name, name="*")
+        elements = [Projection.ProjectionElement(expression=Expression(column=column))]
+        projection = Projection(op=op, elements=elements)
+        return self.query(schema, entity, projection, None, limit=limit, skip=skip)
 
     # Data management
 

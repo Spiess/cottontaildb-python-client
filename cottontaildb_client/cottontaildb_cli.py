@@ -128,30 +128,38 @@ def schema(client, args):
 
 def entity(client, args):
     command = args.subcommand
+    response = None
     if command == 'drop':
         response = client.drop_entity(args.schema_name, args.entity_name)
     elif command == 'about':
         response = client.get_entity_details(args.schema_name, args.entity_name)
     elif command == 'preview':
-        response = client.preview_entity(args.schema_name, args.entity_name, args.limit)
-    format(response)
+        response = client.sample_entity(args.schema_name, args.entity_name, limit=args.limit)
+    if response is not None:
+        print(format_response(response))
 
-def format(obj):
-    """Formats the response object for printing.
+
+def format_response(response):
+    """Formats the response object as a string.
 
     Args:
-        obj (object): The object to format.
+        response (object): The object to format.
+    Returns:
+        str: The formatted response as a string.
     """
-    if type(obj) is list and all([type(item) is dict for item in obj]) and len(obj) > 0:
-        format_as_table(obj)
+    if type(response) is list and all([type(item) is dict for item in response]) and len(response) > 0:
+        return format_as_table(response)
     else:
-        print(obj)
+        return response.__repr__()
+
 
 def format_as_table(dict_list):
     """Formats a list of dictionaries as a table.
-    
+
     Args:
         dict_list (list[dict]): The list of dictionaries to format.
+    Returns:
+        str: The formatted table as a string.
     """
     # Determine the maximum length for each column
     column_widths = {}
@@ -160,15 +168,20 @@ def format_as_table(dict_list):
         max_length = max(len(str(item[header])) for item in dict_list)
         column_widths[header] = max(max_length, len(header))
 
-    # Print the header row
+    # Prepare the table rows
+    table_rows = []
     header_row = ' | '.join([f"{header:<{column_widths[header]}}" for header in headers])
-    print(header_row)
-    print('-' * len(header_row))
-
-    # Print each row
+    table_rows.append(header_row)
+    table_rows.append('-' * len(header_row))
     for item in dict_list:
         row = ' | '.join([f"{str(item[header]):<{column_widths[header]}}" for header in headers])
-        print(row)
+        table_rows.append(row)
+
+    # Join the table rows and return as a string
+    table = '\n'.join(table_rows)
+    return table
+
+
 
 def system(client, args):
     command = args.subcommand

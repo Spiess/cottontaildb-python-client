@@ -115,13 +115,13 @@ class TestCottontailDBClient(TestCase):
         query_result = self._query_value_with_key(query_key)
         self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
     
-    def test_preview(self):
+    def test_sample_entity(self):
         self._create_schema()
         self._create_entity()
         self._batch_insert()
-        preview = self.client.preview_entity(TEST_SCHEMA_STR, TEST_ENTITY_STR, limit=2)
+        sample = self.client.sample_entity(TEST_SCHEMA_STR, TEST_ENTITY_STR, limit=2)
         should = [{'id': 'test_1', 'value': 1}, {'id': 'test_2', 'value': 2}]
-        self.assertEqual(preview, should, 'unexpected preview result')
+        self.assertEqual(sample, should, 'unexpected preview result')
 
     def test_query_vectors(self):
         self._create_schema()
