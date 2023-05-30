@@ -274,6 +274,7 @@ class CottontailDBClient:
         @param schema: the entity's schema
         @param entity: entity name
         @param limit: number of rows to return
+        @param skip: number of rows to skip from the beginning
         @return: query response message
         """
         schema_name = SchemaName(name=schema)

@@ -1,4 +1,5 @@
 import argparse
+from typing import Dict, List
 
 from grpc import RpcError
 
@@ -139,13 +140,11 @@ def entity(client, args):
         print(format_response(response))
 
 
-def format_response(response):
+def format_response(response) -> str:
     """Formats the response object as a string.
 
-    Args:
-        response (object): The object to format.
-    Returns:
-        str: The formatted response as a string.
+    @param response: The object to format.
+    @return: The formatted response as a string.
     """
     if type(response) is list and all([type(item) is dict for item in response]) and len(response) > 0:
         return format_as_table(response)
@@ -153,13 +152,11 @@ def format_response(response):
         return response.__repr__()
 
 
-def format_as_table(dict_list):
+def format_as_table(dict_list : List[Dict]) -> str:
     """Formats a list of dictionaries as a table.
 
-    Args:
-        dict_list (list[dict]): The list of dictionaries to format.
-    Returns:
-        str: The formatted table as a string.
+    @param dict_list: The list of dictionaries to format.
+    @return: The formatted table as a string.
     """
     # Determine the maximum length for each column
     column_widths = {}
@@ -180,7 +177,6 @@ def format_as_table(dict_list):
     # Join the table rows and return as a string
     table = '\n'.join(table_rows)
     return table
-
 
 
 def system(client, args):
