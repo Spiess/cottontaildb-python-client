@@ -152,7 +152,7 @@ def format_response(response) -> str:
         return response.__repr__()
 
 
-def format_as_table(dict_list : List[Dict]) -> str:
+def format_as_table(dict_list: List[Dict]) -> str:
     """Formats a list of dictionaries as a table.
 
     @param dict_list: The list of dictionaries to format.
