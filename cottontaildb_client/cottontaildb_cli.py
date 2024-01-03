@@ -89,6 +89,17 @@ def get_command_parser():
     # Locks
     subparsers_system.add_parser('locks', help='Lists all locks in the current Cottontail DB instance.')
 
+    # Query
+    parser_query = subparsers.add_parser('query', help='Query related commands.')
+    subparsers_query = parser_query.add_subparsers(dest='subcommand')
+    # Query NNS
+    parser_query_nns = subparsers_query.add_parser('nns', help='Performs a nearest neighbor search.')
+    parser_query_nns.add_argument('schema_name', help='Name of schema containing entity.')
+    parser_query_nns.add_argument('entity_name', help='Name of entity to perform search on.')
+    parser_query_nns.add_argument('vector', help='Vector to search for.', nargs='+', type=float)
+    parser_query_nns.add_argument('--distance', help='Distance function to use.', default='euclidean')
+    parser_query_nns.add_argument('--limit', help='Number of rows to show.', type=int, default=10)
+
     # Stop / quit
     subparsers.add_parser('stop', help='Stop client and exit.')
     subparsers.add_parser('quit', help='Stop client and exit.')
@@ -107,6 +118,8 @@ def process_command(client, args):
         entity(client, args)
     elif command == 'system':
         system(client, args)
+    elif command == 'query':
+        query(client, args)
 
     return True
 
@@ -186,4 +199,11 @@ def system(client, args):
         print(response)
     elif command == 'locks':
         response = client.list_locks()
+        print(response)
+
+
+def query(client, args):
+    command = args.subcommand
+    if command == 'nns':
+        response = client.nns(args.schema_name, args.entity_name, args.vector, args.distance, args.limit)
         print(response)
