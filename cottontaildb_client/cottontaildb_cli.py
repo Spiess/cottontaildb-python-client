@@ -161,6 +161,8 @@ def format_response(response) -> str:
     """
     if type(response) is list and all([type(item) is dict for item in response]) and len(response) > 0:
         return format_as_table(response)
+    elif type(response) is dict:
+        return pretty_print_dict(response)
     else:
         return response.__repr__()
 
@@ -190,6 +192,25 @@ def format_as_table(dict_list: List[Dict]) -> str:
     # Join the table rows and return as a string
     table = '\n'.join(table_rows)
     return table
+
+
+def pretty_print_dict(dictionary: Dict, indent: int = 0) -> str:
+    """Pretty prints a dictionary.
+
+    @param dictionary: The dictionary to print.
+    @param indent: The indentation level.
+    @return: The pretty printed dictionary as a string.
+    """
+    output = ''
+    for key, value in dictionary.items():
+        output += '\t' * indent + f'{key}: '
+        if type(value) is dict:
+            output += '\n' + pretty_print_dict(value, indent + 1)
+        elif type(value) is list:
+            output += '\n' + format_as_table(value) + '\n'
+        else:
+            output += f'{value}\n'
+    return output
 
 
 def system(client, args):
