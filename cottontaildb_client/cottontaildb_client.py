@@ -1,14 +1,15 @@
 from datetime import datetime, timezone
+from typing import List
 
 import grpc
 from google.protobuf.empty_pb2 import Empty
-from typing import List
 
 from .cottontail_pb2 import SchemaName, CreateSchemaMessage, DropSchemaMessage, EntityName, ColumnDefinition, \
-    EntityDefinition, CreateEntityMessage, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, \
-    ListEntityMessage, EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, IndexName, IndexType, \
-    CreateIndexMessage, DropIndexMessage, RebuildIndexMessage, UpdateMessage, DeleteMessage, Literal, Vector, \
-    FloatVector, BatchInsertMessage, RequestMetadata, QueryMessage, Query, AnalyzeEntityMessage
+    CreateEntityMessage, InsertMessage, ColumnName, Scan, From, Type, ListSchemaMessage, ListEntityMessage, \
+    EntityDetailsMessage, DropEntityMessage, TruncateEntityMessage, IndexName, IndexType, CreateIndexMessage, \
+    DropIndexMessage, RebuildIndexMessage, UpdateMessage, DeleteMessage, Literal, Vector, FloatVector, \
+    BatchInsertMessage, RequestMetadata, QueryMessage, Query, AnalyzeEntityMessage, Expression, FunctionName, Function, \
+    Projection, Order
 from .cottontail_pb2_grpc import DDLStub, DMLStub, TXNStub, DQLStub
 
 
@@ -120,13 +121,11 @@ class CottontailDBClient:
         @param exist_ok: if the client should first check if the entity already exists
         @return: query response if there was an entity create attempt or None if exist_ok and entity already exists
         """
-        if exist_ok and entity in [s.split('.')[-1] for s in self.list_entities(schema)]:
-            return
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        entity_def = EntityDefinition(entity=entity_name, columns=columns)
         response = self._ddl.CreateEntity(
-            CreateEntityMessage(metadata=RequestMetadata(transactionId=self._tid), definition=entity_def))
+            CreateEntityMessage(metadata=RequestMetadata(transactionId=self._tid), entity=entity_name, columns=columns,
+                                mayExist=exist_ok))
         return self._parse_query_response(response)
 
     def drop_entity(self, schema, entity, not_exist_ok=True):
@@ -246,11 +245,12 @@ class CottontailDBClient:
         name_index = data_names.index('dbo')
         class_index = data_names.index('class')
         type_index = data_names.index('type')
+        rows_index = data_names.index('rows')
         size_index = data_names.index('l_size')
         nullable_index = data_names.index('nullable')
         entity_details = {
             'name': entity_data.data[name_index].stringData,
-            'rows': entity_data.data[data_names.index('rows')].intData,
+            'rows': entity_data.data[rows_index].longData,
             'columns': [
                 {
                     'name': c.data[name_index].stringData,
@@ -503,4 +503,4 @@ def column_def(name: str, type_: Type, length: int = None, primary: bool = None,
 
 
 def float_vector(*elements):
-    return Literal(vectorData=Vector(floatVector=FloatVector(vector=elements)))
+    return Literal(vectorData=Vector(float=FloatVector(vector=elements)))
