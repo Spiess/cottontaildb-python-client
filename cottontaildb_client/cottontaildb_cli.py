@@ -1,4 +1,5 @@
 import argparse
+from typing import Dict, List
 
 from grpc import RpcError
 
@@ -73,6 +74,11 @@ def get_command_parser():
     parser_entity_about = subparsers_entity.add_parser('about', help='Gives an overview of the entity and its columns.')
     parser_entity_about.add_argument('schema_name', help='Name of schema containing entity.')
     parser_entity_about.add_argument('entity_name', help='Name of entity to show details of.')
+    # Entity Preview
+    parser_entity_preview = subparsers_entity.add_parser('preview', help='Shows a preview of the entity\'s contents.')
+    parser_entity_preview.add_argument('schema_name', help='Name of schema containing entity.')
+    parser_entity_preview.add_argument('entity_name', help='Name of entity to show preview of.')
+    parser_entity_preview.add_argument('--limit', help='Number of rows to show.', type=int, default=10)
 
     # System
     parser_system = subparsers.add_parser('system', help='System related commands.')
@@ -123,12 +129,54 @@ def schema(client, args):
 
 def entity(client, args):
     command = args.subcommand
+    response = None
     if command == 'drop':
         response = client.drop_entity(args.schema_name, args.entity_name)
-        print(response)
     elif command == 'about':
         response = client.get_entity_details(args.schema_name, args.entity_name)
-        print(response)
+    elif command == 'preview':
+        response = client.sample_entity(args.schema_name, args.entity_name, limit=args.limit)
+    if response is not None:
+        print(format_response(response))
+
+
+def format_response(response) -> str:
+    """Formats the response object as a string.
+
+    @param response: The object to format.
+    @return: The formatted response as a string.
+    """
+    if type(response) is list and all([type(item) is dict for item in response]) and len(response) > 0:
+        return format_as_table(response)
+    else:
+        return response.__repr__()
+
+
+def format_as_table(dict_list: List[Dict]) -> str:
+    """Formats a list of dictionaries as a table.
+
+    @param dict_list: The list of dictionaries to format.
+    @return: The formatted table as a string.
+    """
+    # Determine the maximum length for each column
+    column_widths = {}
+    headers = dict_list[0].keys()
+    for header in headers:
+        max_length = max(len(str(item[header])) for item in dict_list)
+        column_widths[header] = max(max_length, len(header))
+
+    # Prepare the table rows
+    table_rows = []
+    header_row = ' | '.join([f"{header:<{column_widths[header]}}" for header in headers])
+    table_rows.append(header_row)
+    table_rows.append('-' * len(header_row))
+    for item in dict_list:
+        row = ' | '.join([f"{str(item[header]):<{column_widths[header]}}" for header in headers])
+        table_rows.append(row)
+
+    # Join the table rows and return as a string
+    table = '\n'.join(table_rows)
+    return table
 
 
 def system(client, args):

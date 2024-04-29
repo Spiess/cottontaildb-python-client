@@ -4,7 +4,9 @@
 [![Python package workflow](https://github.com/Spiess/cottontaildb-python-client/actions/workflows/python-package.yml/badge.svg)](https://github.com/Spiess/cottontaildb-python-client/actions/workflows/python-package.yml)
 
 A Cottontail DB gRPC client for Python. Built with [Cottontail DB Proto](https://github.com/vitrivr/cottontaildb-proto)
-version `0.14.0`. Comes with an interactive CLI for remote DB access.
+version `0.14.3`. Comes with an interactive CLI for remote DB access.
+
+Versions are numbered such that the first two numbers correspond with those of the compatible Cottontail DB Proto.
 
 ## Installation
 
@@ -12,7 +14,7 @@ Clone and install locally, or with `pip install cottontaildb-client`.
 
 ## Usage
 
-Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] host`.
+Running the interactive CLI is as easy as `cottontaildb-client [--port PORT] HOST`.
 
 Example usage in scripts:
 
@@ -50,15 +52,13 @@ file in the [Cottontail DB Proto](https://github.com/vitrivr/cottontaildb-proto)
 The following is an approximate guide on how to do so from a terminal:
 
 ```bash
-# Get the latest version of the Cottontail DB proto
-wget https://github.com/vitrivr/cottontaildb-proto/raw/master/src/main/protobuf/cottontail.proto
+# Get the latest version of the Cottontail DB proto (and download to cottontaildb_client directory)
+wget https://github.com/vitrivr/cottontaildb-proto/raw/master/src/main/protobuf/cottontail.proto -P ./cottontaildb_client/
 # Install necessary python packages
 pip install grpcio grpcio-tools
 # Generate the gRPC client
-python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. cottontail.proto
-# Update the client files (where PYTHON_CLIENT_PATH is the path to this repository)
-mv cottontail_pb2.py cottontail_pb2_grpc.py $PYTHON_CLIENT_PATH/cottontaildb_client/
+python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./cottontaildb_client/cottontail.proto
 ```
 
-Finally, the line `import cottontail_pb2 as cottontail__pb2` in the file `cottontail_pb2_grpc.py` must be replaced
-with `from . import cottontail_pb2 as cottontail__pb2`.
+It is important that the path to the `cottontail.proto` file reflects the location of the gRPC Python files, such that
+the imports can be generated correctly.
