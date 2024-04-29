@@ -46,18 +46,18 @@ with CottontailDBClient('localhost', 1865) as client:
 
 ## Developing
 
-To update the gRPC client, regenerate `cottontaildb_pb2.py` and `cottontaildb_pb2_grpc.py` from the proto definitions
-file in the [Cottontail DB Proto](https://github.com/vitrivr/cottontaildb-proto) repository.
+To update the gRPC client, regenerate `cottontaildb_pb2.py`, `cottontail_pb2.pyi`, and `cottontaildb_pb2_grpc.py` from the proto definitions
+file in the [Cottontail DB](https://github.com/vitrivr/cottontaildb) repository.
 
 The following is an approximate guide on how to do so from a terminal:
 
 ```bash
 # Get the latest version of the Cottontail DB proto (and download to cottontaildb_client directory)
-wget https://github.com/vitrivr/cottontaildb-proto/raw/master/src/main/protobuf/cottontail.proto -P ./cottontaildb_client/
+wget https://github.com/vitrivr/cottontaildb/raw/master/cottontaildb-client/src/main/protobuf/cottontail.proto -P ./cottontaildb_client/
 # Install necessary python packages
 pip install grpcio grpcio-tools
 # Generate the gRPC client
-python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. ./cottontaildb_client/cottontail.proto
+python -m grpc_tools.protoc -I. --python_out=. --pyi_out=. --grpc_python_out=. ./cottontaildb_client/cottontail.proto
 ```
 
 It is important that the path to the `cottontail.proto` file reflects the location of the gRPC Python files, such that
