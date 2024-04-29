@@ -3,8 +3,8 @@ from unittest import TestCase
 from grpc import RpcError
 
 from cottontaildb_client import CottontailDBClient, column_def, Type, Literal, float_vector
-from cottontaildb_client.cottontail_pb2 import Where, AtomicBooleanPredicate, ColumnName, AtomicBooleanOperand, \
-    ComparisonOperator, Expressions, Expression, Projection, IndexType, EntityName, SchemaName
+from cottontaildb_client.cottontail_pb2 import Where, ColumnName, Expression, Projection, IndexType, EntityName, \
+    SchemaName, Predicate
 
 DB_HOST = 'localhost'
 DB_PORT = 1865
@@ -83,7 +83,7 @@ class TestCottontailDBClient(TestCase):
         self._create_entity()
         self._insert()
         details = self.client.get_entity_details(TEST_SCHEMA_STR, TEST_ENTITY_STR)
-        self.assertEqual(details['rows'], 1, 'unexpected number of rows in entity after insert')
+        self.assertEqual(1, details['rows'], 'unexpected number of rows in entity after insert')
 
     def test_vector_insert(self):
         self._create_schema()
@@ -91,21 +91,20 @@ class TestCottontailDBClient(TestCase):
         self._insert_vector()
         details = self.client.get_entity_details(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR)
         self.assertEqual(details['rows'], 1, 'unexpected number of rows in vector entity after insert')
-        print('success')
 
     def test_batch_insert(self):
         self._create_schema()
         self._create_entity()
         self._batch_insert()
         details = self.client.get_entity_details(TEST_SCHEMA_STR, TEST_ENTITY_STR)
-        self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
+        self.assertEqual(3, details['rows'], 'unexpected number of rows in entity after batch insert')
 
     def test_batch_insert_vectors(self):
         self._create_schema()
         self._create_vector_entity()
         self._batch_insert_vectors()
         details = self.client.get_entity_details(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR)
-        self.assertEqual(details['rows'], 3, 'unexpected number of rows in entity after batch insert')
+        self.assertEqual(3, details['rows'], 'unexpected number of rows in entity after batch insert')
 
     def test_query(self):
         self._create_schema()
@@ -114,7 +113,7 @@ class TestCottontailDBClient(TestCase):
         query_key = 'test_1'
         query_result = self._query_value_with_key(query_key)
         self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
-    
+
     def test_sample_entity(self):
         self._create_schema()
         self._create_entity()
@@ -133,7 +132,6 @@ class TestCottontailDBClient(TestCase):
         self.assertEqual(len(results), 3, 'unexpected number of rows returned from query')
         # test with limit
         results = self.client.nns(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR, query, vector_col='value', limit=1)
-        print(results)
         self.assertEqual(len(results), 1, 'unexpected number of rows returned from query')
 
     def test_update(self):
@@ -146,11 +144,11 @@ class TestCottontailDBClient(TestCase):
         query_results = self._query_value_with_key(update_key)
         self.assertEqual(query_results[0][TEST_COLUMN_VALUE], update_value, 'value not correctly updated')
 
-    def test_optimize(self):
+    def test_analyze(self):
         self._create_schema()
         self._create_entity()
         self._batch_insert()
-        self.client.optimize_entity(TEST_SCHEMA_STR, TEST_ENTITY_STR)
+        self.client.analyze_entity(TEST_SCHEMA_STR, TEST_ENTITY_STR)
 
     def test_create_rebuild_drop_index(self):
         self._create_schema()
@@ -190,8 +188,10 @@ class TestCottontailDBClient(TestCase):
         self._create_schema()
         self._create_entity()
         self._insert()
-        where = Where(atomic=AtomicBooleanPredicate(left=ColumnName(name=TEST_COLUMN_VALUE), right=AtomicBooleanOperand(
-            expressions=Expressions(expression=[Expression(literal=Literal(intData=0))])), op=ComparisonOperator.EQUAL))
+        where = Where(predicate=Predicate(
+            comparison=Predicate.Comparison(lexp=Expression(column=ColumnName(name=TEST_COLUMN_VALUE)),
+                                            operator=Predicate.Comparison.Operator.EQUAL,
+                                            rexp=Expression(literal=Literal(intData=0)))))
         self.client.delete(TEST_SCHEMA_STR, TEST_ENTITY_STR, where)
         details = self.client.get_entity_details(TEST_SCHEMA_STR, TEST_ENTITY_STR)
         self.assertEqual(details['rows'], 0, 'unexpected number of rows in entity after delete')
@@ -217,7 +217,7 @@ class TestCottontailDBClient(TestCase):
     def _create_vector_entity(self):
         columns = [
             column_def(TEST_COLUMN_ID, Type.STRING, nullable=False),
-            column_def(TEST_COLUMN_VALUE, Type.FLOAT_VEC, length=3, nullable=False)
+            column_def(TEST_COLUMN_VALUE, Type.FLOAT_VECTOR, length=3, nullable=False)
         ]
         self.client.create_entity(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR, columns)
 
@@ -253,12 +253,10 @@ class TestCottontailDBClient(TestCase):
         self.client.insert_batch(TEST_SCHEMA_STR, TEST_VECTOR_ENTITY_STR, columns, values)
 
     def _update_value_with_key(self, key, value):
-        where = Where(atomic=AtomicBooleanPredicate(
-            left=ColumnName(name=TEST_COLUMN_ID),
-            right=AtomicBooleanOperand(
-                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
-            op=ComparisonOperator.EQUAL
-        ))
+        where = Where(predicate=Predicate(
+            comparison=Predicate.Comparison(lexp=Expression(column=ColumnName(name=TEST_COLUMN_ID)),
+                                            operator=Predicate.Comparison.Operator.EQUAL,
+                                            rexp=Expression(literal=Literal(stringData=key)))))
         updates = {TEST_COLUMN_VALUE: Expression(literal=Literal(intData=value))}
         self.client.update(TEST_SCHEMA_STR, TEST_ENTITY_STR, where, updates)
 
@@ -266,10 +264,8 @@ class TestCottontailDBClient(TestCase):
         expression = Expression(column=ColumnName(entity=TEST_ENTITY_NAME, name=TEST_COLUMN_VALUE))
         projection_element = Projection.ProjectionElement(expression=expression)
         projection = Projection(op=Projection.ProjectionOperation.SELECT, elements=[projection_element])
-        where = Where(atomic=AtomicBooleanPredicate(
-            left=ColumnName(name=TEST_COLUMN_ID),
-            right=AtomicBooleanOperand(
-                expressions=Expressions(expression=[Expression(literal=Literal(stringData=key))])),
-            op=ComparisonOperator.EQUAL
-        ))
+        where = Where(predicate=Predicate(
+            comparison=Predicate.Comparison(lexp=Expression(column=ColumnName(name=TEST_COLUMN_ID)),
+                                            operator=Predicate.Comparison.Operator.EQUAL,
+                                            rexp=Expression(literal=Literal(stringData=key)))))
         return self.client.query(TEST_SCHEMA_STR, TEST_ENTITY_STR, projection, where)
