@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ 3.7, 3.8, 3.9 ]
+        python-version: [ 3.8, 3.9, 3.10, 3.11, 3.12 ]
 
     # Setup Cottontail DB service container
     services:
       cottontail:
-        image: vitrivr/cottontaildb:0.16.6
+        image: vitrivr/cottontaildb:0.16.7
         ports:
           - 1865:1865
         options: -it
