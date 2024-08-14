@@ -111,7 +111,15 @@ class TestCottontailDBClient(TestCase):
         self._create_entity()
         self._batch_insert()
         query_key = 'test_1'
-        query_result = self._query_value_with_key(query_key)
+        query_result = self._query_value_with_key(query_key, TEST_ENTITY_NAME, TEST_ENTITY_STR)
+        self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
+
+    def test_vector_query(self):
+        self._create_schema()
+        self._create_vector_entity()
+        self._batch_insert_vectors()
+        query_key = 'test_1'
+        query_result = self._query_value_with_key(query_key, TEST_VECTOR_ENTITY_NAME, TEST_VECTOR_ENTITY_STR)
         self.assertEqual(len(query_result), 1, 'unexpected number of rows returned from query')
 
     def test_sample_entity(self):
@@ -141,7 +149,7 @@ class TestCottontailDBClient(TestCase):
         update_key = 'test_0'
         update_value = 5
         self._update_value_with_key(update_key, update_value)
-        query_results = self._query_value_with_key(update_key)
+        query_results = self._query_value_with_key(update_key, TEST_ENTITY_NAME, TEST_ENTITY_STR)
         self.assertEqual(query_results[0][TEST_COLUMN_VALUE], update_value, 'value not correctly updated')
 
     def test_analyze(self):
@@ -260,12 +268,12 @@ class TestCottontailDBClient(TestCase):
         updates = {TEST_COLUMN_VALUE: Expression(literal=Literal(intData=value))}
         self.client.update(TEST_SCHEMA_STR, TEST_ENTITY_STR, where, updates)
 
-    def _query_value_with_key(self, key):
-        expression = Expression(column=ColumnName(entity=TEST_ENTITY_NAME, name=TEST_COLUMN_VALUE))
+    def _query_value_with_key(self, key, entity_name, entity_str):
+        expression = Expression(column=ColumnName(entity=entity_name, name=TEST_COLUMN_VALUE))
         projection_element = Projection.ProjectionElement(expression=expression)
         projection = Projection(op=Projection.ProjectionOperation.SELECT, elements=[projection_element])
         where = Where(predicate=Predicate(
             comparison=Predicate.Comparison(lexp=Expression(column=ColumnName(name=TEST_COLUMN_ID)),
                                             operator=Predicate.Comparison.Operator.EQUAL,
                                             rexp=Expression(literal=Literal(stringData=key)))))
-        return self.client.query(TEST_SCHEMA_STR, TEST_ENTITY_STR, projection, where)
+        return self.client.query(TEST_SCHEMA_STR, entity_str, projection, where)

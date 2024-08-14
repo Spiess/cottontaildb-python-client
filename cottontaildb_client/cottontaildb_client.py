@@ -159,7 +159,7 @@ class CottontailDBClient:
             AnalyzeEntityMessage(metadata=RequestMetadata(transactionId=self._tid), entity=entity_name, **kwargs))
         return self._parse_query_response(response)
 
-    def create_index(self, schema, entity, index, index_type: IndexType, columns: List[str]):
+    def create_index(self, schema, entity, index, index_type: IndexType, columns: List[str], params=None):
         """
         Creates an index on a column.
 
@@ -168,13 +168,13 @@ class CottontailDBClient:
         @param index: index name
         @param index_type: type of index
         @param columns: columns to build index for
+        @param params: additional parameters for the index
         """
         schema_name = SchemaName(name=schema)
         entity_name = EntityName(schema=schema_name, name=entity)
-        # TODO: map<string,string> params
         response = self._ddl.CreateIndex(
             CreateIndexMessage(metadata=RequestMetadata(transactionId=self._tid), entity=entity_name, type=index_type,
-                               indexName=index, columns=columns))
+                               indexName=index, columns=columns, params=params))
         return self._parse_query_response(response)
 
     def drop_index(self, schema, entity, index):
@@ -451,13 +451,13 @@ class CottontailDBClient:
         if literal.HasField('vectorData'):
             vector = literal.vectorData
             vector_types = [
-                'floatVector',
-                'doubleVector',
-                'intVector',
-                'longVector',
-                'boolVector',
-                'complex32Vector',
-                'complex64Vector'
+                'float',
+                'double',
+                'int',
+                'long',
+                'bool',
+                'complex32',
+                'complex64'
             ]
             for vector_type in vector_types:
                 if vector.HasField(vector_type):
